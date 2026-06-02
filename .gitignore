@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.venv/
+*.xlsx
+Inspired_Audio_Audit_run.log
+.regression_tmp/

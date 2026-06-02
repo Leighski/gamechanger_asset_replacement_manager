@@ -1,0 +1,8 @@
+# Inspired Delivery Generator — runtime UI
+customtkinter>=5.2.0
+
+# Optional: drag-and-drop for MP4 list (same interpreter as your Tk build)
+# tkinterdnd2
+
+# Optional: XLSX outputs (reports/*.xlsx, inspired_metadata.xlsx)
+# openpyxl
