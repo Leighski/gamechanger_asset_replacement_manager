@@ -1,0 +1,20 @@
+{
+  "ENGP": {
+    "s3_path": "s3://gcsuploads-mu/GAMECHANGER_SPORTS_MAM/PRODUCTION/ENGP/ENGP_CFX/"
+  },
+  "SERIE_A": {
+    "s3_path": "s3://gcsuploads-mu/GAMECHANGER_SPORTS_MAM/PRODUCTION/ITALY/SERIE_A/SERIE_A_10s/"
+  },
+  "SERIE_B": {
+    "s3_path": "s3://gcsuploads-mu/GAMECHANGER_SPORTS_MAM/PRODUCTION/ITALY/SERIE_B/SERIE_B_10s/"
+  },
+  "SERIE_C": {
+    "s3_path": "s3://gcsuploads-mu/GAMECHANGER_SPORTS_MAM/PRODUCTION/ITALY/SERIE_C/SERIE_C_10s/"
+  },
+  "BULGARIAN": {
+    "s3_path": "s3://gcsuploads-mu/GAMECHANGER_SPORTS_MAM/PRODUCTION/BULGARIA/BULGARIAN_10s/"
+  },
+  "CUSTOM": {
+    "s3_path": "s3://gcsuploads-mu/"
+  }
+}
