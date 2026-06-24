@@ -6,7 +6,7 @@ import logging
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from models.catalogue import CatalogueDefinition
-from models.discovery import DiscoveredFile, DiscoveryResult, FileIssue, PreflightRow, PreflightStatus
+from models.discovery import DiscoveredFile, DiscoveryResult, FileIssue, PreflightRow, PreflightStatus, S3Status
 from models.upload import UploadAction, UploadSummary
 from services.s3_service import S3Service
 
@@ -44,8 +44,8 @@ class PreflightValidator:
         rows.sort(key=lambda r: r.discovered.clean_filename.lower())
         summary = self._build_summary(rows, discovery)
         logger.info(
-            "Preflight complete: %s replace, %s skip, %s errors",
-            summary.files_to_replace,
+            "Preflight complete: %s catalogue S3 exists, %s skip, %s errors",
+            summary.s3_replace_candidates,
             summary.files_to_skip,
             summary.validation_errors,
         )
@@ -78,9 +78,18 @@ class PreflightValidator:
                 status=PreflightStatus.ERROR,
                 status_message="; ".join(errors),
                 s3_key=key,
+                s3_status=S3Status.ERROR.value,
+                catalogue_s3_exists=False,
+                catalogue_s3_status=S3Status.ERROR.value,
             )
 
         info = self._s3.head_object(catalogue.location, key)
+        logger.warning(
+            "[S3-CHECK] file=%s key=%s exists=%s",
+            item.clean_filename,
+            key,
+            info.exists and not info.error,
+        )
         if info.error:
             return PreflightRow(
                 discovered=item,
@@ -91,8 +100,12 @@ class PreflightValidator:
                 status=PreflightStatus.ERROR,
                 status_message=f"S3 error: {info.error}",
                 s3_key=key,
+                s3_status=S3Status.ERROR.value,
+                catalogue_s3_exists=False,
+                catalogue_s3_status=S3Status.ERROR.value,
             )
 
+        s3_status = S3Status.EXISTS if info.exists else S3Status.MISSING
         size_mismatch = (
             info.exists
             and info.size is not None
@@ -111,15 +124,15 @@ class PreflightValidator:
             status = PreflightStatus.READY
             if warnings:
                 status = PreflightStatus.WARNING
-            message = "; ".join(warnings) if warnings else "Ready to replace"
+            message = "; ".join(warnings) if warnings else "Catalogue S3 object exists"
         elif replace_existing_only:
             action = UploadAction.SKIP.value
             status = PreflightStatus.SKIP
-            message = "Not in S3 — skipped (replace existing only)"
+            message = "Not in catalogue S3 — pending governance resolution"
         else:
             action = UploadAction.REPLACE.value
             status = PreflightStatus.WARNING
-            message = "Not in S3 — would upload (safety off)"
+            message = "Not in catalogue S3 — would upload (safety off)"
 
         return PreflightRow(
             discovered=item,
@@ -130,6 +143,9 @@ class PreflightValidator:
             status=status,
             status_message=message,
             s3_key=key,
+            s3_status=s3_status.value,
+            catalogue_s3_exists=info.exists,
+            catalogue_s3_status=s3_status.value,
         )
 
     @staticmethod
@@ -143,19 +159,25 @@ class PreflightValidator:
             status=PreflightStatus.SKIP,
             status_message=item.exclude_reason or "Excluded",
             s3_key="",
+            s3_status="",
         )
 
     @staticmethod
     def _build_summary(rows: list[PreflightRow], discovery: DiscoveryResult) -> UploadSummary:
         media = [r for r in rows if not r.discovered.excluded]
-        replace = sum(1 for r in media if r.action == UploadAction.REPLACE.value)
+        catalogue_exists = sum(
+            1
+            for r in media
+            if r.s3_status == S3Status.EXISTS.value or r.catalogue_s3_exists
+        )
         skip = sum(1 for r in media if r.action == UploadAction.SKIP.value)
         errors = sum(1 for r in media if r.status == PreflightStatus.ERROR)
         return UploadSummary(
             files_scanned=discovery.media_count,
-            files_to_replace=replace,
+            files_to_replace=catalogue_exists,
             files_to_skip=skip,
             validation_errors=errors,
+            s3_replace_candidates=catalogue_exists,
         )
 
     def build_validation_result(

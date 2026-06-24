@@ -32,6 +32,15 @@ FUTURE_ITEMS = [
     NavItem("cfx", "CFX Management", enabled=False),
 ]
 
+HOUSEKEEPING_ITEMS = [
+    NavItem("housekeeping", "Housekeeping"),
+    NavItem("hk_filename", "Duplicate Filename Audit"),
+    NavItem("hk_storage", "Duplicate Storage Audit"),
+    NavItem("hk_title", "Duplicate Title Audit"),
+    NavItem("hk_orphan", "Orphan Asset Audit"),
+    NavItem("hk_reports", "Reports"),
+]
+
 
 class Sidebar(QFrame):
     page_changed = Signal(str)
@@ -67,7 +76,23 @@ class Sidebar(QFrame):
             self._buttons[item.key] = btn
 
         layout.addSpacing(20)
-        layout.addWidget(QLabel("FUTURE"))
+        hk_label = QLabel("HOUSEKEEPING")
+        hk_label.setStyleSheet(
+            f"color: {Theme.TEXT_MUTED}; font-size: 10px; font-weight: 700; letter-spacing: 1px;"
+        )
+        layout.addWidget(hk_label)
+        layout.addSpacing(8)
+        for item in HOUSEKEEPING_ITEMS:
+            btn = self._make_nav_button(item)
+            layout.addWidget(btn)
+            self._buttons[item.key] = btn
+
+        layout.addSpacing(20)
+        future_label = QLabel("FUTURE")
+        future_label.setStyleSheet(
+            f"color: {Theme.TEXT_MUTED}; font-size: 10px; font-weight: 700; letter-spacing: 1px;"
+        )
+        layout.addWidget(future_label)
         layout.addSpacing(8)
         for item in FUTURE_ITEMS:
             btn = self._make_nav_button(item)

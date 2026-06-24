@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import logging
+import traceback
 from pathlib import Path
 
 from PySide6.QtCore import QObject, QThread, Signal, Slot
@@ -15,13 +17,30 @@ from services.bulk_governance_service import (
     apply_governance_results,
     build_governed_summary,
     build_governed_upload_jobs,
+    preserve_catalogue_s3_preflight,
+    recompute_all_row_readiness,
     resolve_governance_for_preflight,
+    validate_s3_against_resolved_keys,
+    write_governance_verification_report,
 )
 from services.file_discovery import FileDiscoveryService
 from services.preflight_validator import PreflightValidator
 from services.dual_replacement_service import DualReplacementService
+from services.housekeeping_report_service import HousekeepingReportService
+from services.housekeeping_service import HousekeepingService
 from services.upload_engine import UploadEngine
 from services.iconik_verification import IconikVerificationService
+from services.s3_service import S3Service
+
+logger = logging.getLogger(__name__)
+
+
+def _log_phase_error(phase: str) -> None:
+    logger.error(
+        "[HOUSEKEEPING-ERROR] phase=%s exception=%s",
+        phase,
+        traceback.format_exc(),
+    )
 
 
 class ScanWorker(QObject):
@@ -81,7 +100,7 @@ class PreflightWorker(QObject):
 
 
 class GovernanceWorker(QObject):
-    """Iconik governance pass for Source Files S3 REPLACE candidates."""
+    """Iconik governance pass for all discovered Source Files media."""
 
     finished = Signal(object)
     failed = Signal(str)
@@ -93,6 +112,7 @@ class GovernanceWorker(QObject):
         discovery: DiscoveryResult,
         catalogue: CatalogueDefinition,
         iconik: IconikVerificationService,
+        s3: S3Service,
         preflight_payload: ValidationResult,
     ) -> None:
         super().__init__()
@@ -100,6 +120,7 @@ class GovernanceWorker(QObject):
         self._discovery = discovery
         self._catalogue = catalogue
         self._iconik = iconik
+        self._s3 = s3
         self._preflight_payload = preflight_payload
 
     @Slot()
@@ -108,12 +129,16 @@ class GovernanceWorker(QObject):
             from models.validation import build_validated_files, build_validation_result
 
             rows = list(self._rows)
+            preserve_catalogue_s3_preflight(rows)
             resolutions = resolve_governance_for_preflight(
                 rows,
                 catalogue=self._catalogue,
                 iconik=self._iconik,
             )
             apply_governance_results(rows, resolutions)
+            validate_s3_against_resolved_keys(rows, self._s3, self._catalogue)
+            recompute_all_row_readiness(rows)
+            write_governance_verification_report(rows)
             summary = build_governed_summary(rows, self._discovery)
             upload_jobs = build_governed_upload_jobs(rows)
             payload = build_validation_result(rows, summary, upload_jobs)
@@ -197,6 +222,64 @@ class DualReplacementWorker(QObject):
             self.finished.emit(outcome)
         except Exception as exc:
             self.failed.emit(str(exc))
+
+
+class HousekeepingWorker(QObject):
+    """Background Iconik library housekeeping audit — read-only."""
+
+    progress = Signal(object)
+    finished = Signal(object)
+    failed = Signal(str)
+
+    def __init__(
+        self,
+        service: HousekeepingService,
+        report_service: HousekeepingReportService,
+    ) -> None:
+        super().__init__()
+        self._service = service
+        self._report_service = report_service
+
+    @Slot()
+    def run(self) -> None:
+        try:
+            result = self._service.run_audit(
+                on_progress=lambda p: self.progress.emit(p),
+            )
+            paths: dict[str, Path] = {}
+            if result.error or result.cancelled:
+                self.finished.emit((result, paths))
+                return
+
+            if result.all_records:
+                logger.warning("[HOUSEKEEPING] START_EXPORT")
+                try:
+                    paths = self._report_service.write_reports(result)
+                except Exception:
+                    _log_phase_error("export")
+                    self.failed.emit(traceback.format_exc())
+                    return
+
+            duplicates_found = (
+                len(result.duplicate_filename_groups)
+                + len(result.duplicate_storage_groups)
+                + len(result.duplicate_title_groups)
+            )
+            scan = result.scan_summary
+            duration = scan.scan_duration_seconds if scan else 0.0
+            logger.warning(
+                "[HOUSEKEEPING] COMPLETE assets_scanned=%s duplicates_found=%s "
+                "orphan_assets=%s scan_duration_seconds=%.2f report_count=%s",
+                result.total_scanned,
+                duplicates_found,
+                len(result.orphan_assets),
+                duration,
+                len(paths),
+            )
+            self.finished.emit((result, paths))
+        except Exception:
+            _log_phase_error("worker")
+            self.failed.emit(traceback.format_exc())
 
 
 def run_in_thread(worker: QObject, parent: QObject | None = None) -> QThread:

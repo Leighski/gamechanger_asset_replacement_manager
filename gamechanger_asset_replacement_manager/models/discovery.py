@@ -27,6 +27,12 @@ class PreflightStatus(str, Enum):
     WARNING = "warning"
 
 
+class S3Status(str, Enum):
+    EXISTS = "EXISTS"
+    MISSING = "MISSING"
+    ERROR = "ERROR"
+
+
 @dataclass
 class SanitisationOptions:
     remove_apple_double: bool = True
@@ -70,6 +76,9 @@ class PreflightRow:
     status: PreflightStatus
     status_message: str
     s3_key: str = ""
+    s3_status: str = ""
+    catalogue_s3_exists: bool = False
+    catalogue_s3_status: str = ""
     governance_status: str = ""
     resolved_asset_id: str = ""
     resolved_file_set_id: str = ""

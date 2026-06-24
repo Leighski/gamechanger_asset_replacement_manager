@@ -7,12 +7,25 @@ import time
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable
 from urllib.parse import urljoin
 
 import requests
 
+from models.housekeeping import AssetPageProgress, AssetScanResult, AssetScanSummary
+
 logger = logging.getLogger(__name__)
+
+RATE_LIMIT_BACKOFF_SECONDS = (2, 4, 8, 16, 32)
+MAX_RATE_LIMIT_RETRIES = 5
+
+ASSET_SEARCH_SORT: list[dict[str, str]] = [
+    {"name": "date_created", "order": "asc"},
+    {"name": "id", "order": "asc"},
+]
+PAGINATION_SEARCH_AFTER = "SEARCH_AFTER"
+PAGINATION_OFFSET = "OFFSET"
+SEARCH_AFTER_FALLBACK_WARNING = "WARNING: SEARCH_AFTER_UNSUPPORTED_USING_OFFSET_PAGINATION"
 
 VERIFY_PASS = "PASS"
 VERIFY_WARNING = "WARNING"
@@ -104,11 +117,18 @@ class IconikVerificationService:
         resp.raise_for_status()
         return resp.json() if resp.content else None
 
-    def _post(self, path: str, *, json_body: dict | None = None) -> tuple[int, Any, str]:
+    def _post(
+        self,
+        path: str,
+        *,
+        json_body: dict | None = None,
+        params: dict[str, str] | None = None,
+    ) -> tuple[int, Any, str]:
         try:
             resp = self._session.post(
                 self._url(path),
                 json=json_body,
+                params=params or {},
                 timeout=self._timeout,
             )
             text = resp.text[:500] if resp.text else ""
@@ -119,6 +139,39 @@ class IconikVerificationService:
             return resp.status_code, data, text
         except requests.RequestException as exc:
             return 0, None, str(exc)
+
+    def _post_with_rate_limit_retry(
+        self,
+        path: str,
+        *,
+        json_body: dict | None = None,
+        params: dict[str, str] | None = None,
+    ) -> tuple[int, Any, str]:
+        """POST with exponential backoff on HTTP 429."""
+        for attempt in range(MAX_RATE_LIMIT_RETRIES + 1):
+            code, data, text = self._post(
+                path,
+                json_body=json_body,
+                params=params,
+            )
+            if code != 429:
+                return code, data, text
+            if attempt >= MAX_RATE_LIMIT_RETRIES:
+                logger.error(
+                    "[AUDIT-RATE-LIMIT] HTTP 429 on %s — max retries (%s) exceeded",
+                    path,
+                    MAX_RATE_LIMIT_RETRIES,
+                )
+                return code, data, text
+            delay = RATE_LIMIT_BACKOFF_SECONDS[attempt]
+            logger.warning(
+                "[AUDIT-RATE-LIMIT] HTTP 429 on %s retry=%s sleep=%ss",
+                path,
+                attempt + 1,
+                delay,
+            )
+            time.sleep(delay)
+        return 0, None, "rate limit retry exhausted"
 
     def _patch(self, path: str, *, json_body: dict) -> tuple[bool, str]:
         try:
@@ -173,6 +226,349 @@ class IconikVerificationService:
     def search_exact_title(self, filename: str) -> list[dict[str, Any]]:
         """Backward-compatible alias for filename candidate search."""
         return self.search_by_filename(filename)
+
+    @staticmethod
+    def _normalize_asset_search_query(query: str) -> str:
+        stripped = query.strip()
+        if stripped == "*":
+            return ""
+        return stripped
+
+    @staticmethod
+    def _asset_search_sort_body(
+        query: str,
+        *,
+        search_after: list[Any] | None = None,
+    ) -> dict[str, Any]:
+        body: dict[str, Any] = {
+            "doc_types": ["assets"],
+            "query": IconikVerificationService._normalize_asset_search_query(query),
+            "sort": ASSET_SEARCH_SORT,
+        }
+        if search_after is not None:
+            body["search_after"] = search_after
+        return body
+
+    def search_assets_page(
+        self,
+        query: str,
+        *,
+        page: int = 1,
+        per_page: int = 100,
+    ) -> tuple[list[dict[str, Any]], int]:
+        """Paginated Iconik asset search. Returns (objects, total_reported)."""
+        code, data, text = self._post_with_rate_limit_retry(
+            "search/v1/search/",
+            params={"page": str(page), "per_page": str(per_page)},
+            json_body={
+                "doc_types": ["assets"],
+                "query": self._normalize_asset_search_query(query) or "*",
+            },
+        )
+        if code != 200 or not isinstance(data, dict):
+            raise RuntimeError(f"Iconik search failed HTTP {code}: {text}")
+        objects = data.get("objects") or []
+        if not isinstance(objects, list):
+            objects = []
+        total = int(data.get("total") or 0)
+        hits: list[dict[str, Any]] = []
+        for obj in objects:
+            if isinstance(obj, dict):
+                hits.append(obj)
+        return hits, total
+
+    def search_assets_cursor(
+        self,
+        query: str = "",
+        *,
+        search_after: list[Any] | None = None,
+        per_page: int = 100,
+    ) -> tuple[list[dict[str, Any]], int]:
+        """Cursor-paginated Iconik asset search via search_after. Returns (objects, total_reported)."""
+        code, data, text = self._post_with_rate_limit_retry(
+            "search/v1/search/",
+            params={"per_page": str(per_page), "save_search_history": "false"},
+            json_body=self._asset_search_sort_body(query, search_after=search_after),
+        )
+        if code != 200 or not isinstance(data, dict):
+            raise RuntimeError(f"Iconik search failed HTTP {code}: {text}")
+        objects = data.get("objects") or []
+        if not isinstance(objects, list):
+            objects = []
+        total = int(data.get("total") or 0)
+        return [obj for obj in objects if isinstance(obj, dict)], total
+
+    def probe_search_after_support(
+        self,
+        *,
+        query: str = "",
+        per_page: int = 2,
+    ) -> dict[str, bool]:
+        """Validate tenant support for search_after cursor pagination."""
+        result = {
+            "SEARCH_AFTER_SUPPORTED": False,
+            "SORT_ID_SUPPORTED": False,
+            "SORT_VALUES_PRESENT": False,
+        }
+        try:
+            batch1, _ = self.search_assets_cursor(query, per_page=per_page)
+        except RuntimeError:
+            return result
+
+        result["SORT_ID_SUPPORTED"] = True
+        if not batch1:
+            result["SORT_VALUES_PRESENT"] = True
+            result["SEARCH_AFTER_SUPPORTED"] = True
+            return result
+
+        sort_values_present = all(
+            isinstance(obj.get("_sort"), list) and bool(obj["_sort"]) for obj in batch1
+        )
+        result["SORT_VALUES_PRESENT"] = sort_values_present
+        if not sort_values_present:
+            return result
+
+        cursor = batch1[-1]["_sort"]
+        try:
+            batch2, _ = self.search_assets_cursor(
+                query,
+                search_after=cursor,
+                per_page=per_page,
+            )
+        except RuntimeError:
+            return result
+
+        ids1 = {
+            str(obj.get("id") or obj.get("asset_id") or "")
+            for obj in batch1
+            if obj.get("id") or obj.get("asset_id")
+        }
+        ids2 = {
+            str(obj.get("id") or obj.get("asset_id") or "")
+            for obj in batch2
+            if obj.get("id") or obj.get("asset_id")
+        }
+        if batch2 and ids2.intersection(ids1):
+            return result
+
+        result["SEARCH_AFTER_SUPPORTED"] = True
+        return result
+
+    def _ingest_asset_batch(
+        self,
+        batch: list[dict[str, Any]],
+        *,
+        seen: set[str],
+        results: list[dict[str, Any]],
+        summary: AssetScanSummary,
+    ) -> None:
+        for obj in batch:
+            asset_id = str(obj.get("id") or obj.get("asset_id") or "")
+            if not asset_id:
+                continue
+            if asset_id in seen:
+                summary.duplicate_asset_ids_filtered += 1
+                continue
+            seen.add(asset_id)
+            results.append(obj)
+            if not summary.first_asset_id:
+                summary.first_asset_id = asset_id
+            summary.last_asset_id = asset_id
+
+    def _emit_page_progress(
+        self,
+        summary: AssetScanSummary,
+        *,
+        page: int,
+        returned: int,
+        assets_scanned: int,
+        on_page: Callable[[AssetPageProgress], None] | None,
+    ) -> None:
+        logger.warning(
+            "[AUDIT-PAGE] returned=%s running_total=%s",
+            returned,
+            assets_scanned,
+        )
+        if on_page:
+            on_page(
+                AssetPageProgress(
+                    page=page,
+                    returned=returned,
+                    running_total=assets_scanned,
+                    duplicates_filtered=summary.duplicate_asset_ids_filtered,
+                    pages_received=summary.pages_received,
+                    assets_reported_by_iconik=summary.assets_reported_by_iconik,
+                )
+            )
+
+    def _finalize_scan_summary(
+        self,
+        summary: AssetScanSummary,
+        results: list[dict[str, Any]],
+        *,
+        started_at: datetime,
+    ) -> AssetScanResult:
+        completed_at = datetime.now(timezone.utc)
+        summary.scan_completed = completed_at.isoformat()
+        summary.scan_duration_seconds = (completed_at - started_at).total_seconds()
+        summary.assets_scanned = len(results)
+        summary.finalize_warnings()
+
+        logger.warning(
+            "[AUDIT-SUMMARY] assets_scanned=%s duplicates_filtered=%s warnings=%s "
+            "pagination_method=%s scan_duration_seconds=%.2f first_asset_id=%s last_asset_id=%s",
+            summary.assets_scanned,
+            summary.duplicate_asset_ids_filtered,
+            "; ".join(summary.warnings) if summary.warnings else "none",
+            summary.pagination_method,
+            summary.scan_duration_seconds,
+            summary.first_asset_id or "none",
+            summary.last_asset_id or "none",
+        )
+        return AssetScanResult(assets=results, summary=summary)
+
+    def iterate_all_assets(
+        self,
+        *,
+        query: str = "",
+        per_page: int = 100,
+        max_pages: int = 500,
+        cancel_check: Callable[[], bool] | None = None,
+        on_page: Callable[[AssetPageProgress], None] | None = None,
+    ) -> AssetScanResult:
+        """Fetch all assets via search_after pagination, with offset fallback."""
+        started_at = datetime.now(timezone.utc)
+        summary = AssetScanSummary(scan_started=started_at.isoformat())
+
+        probe = self.probe_search_after_support(query=query, per_page=min(per_page, 10))
+        if probe["SEARCH_AFTER_SUPPORTED"]:
+            return self._iterate_all_assets_search_after(
+                query=query,
+                per_page=per_page,
+                cancel_check=cancel_check,
+                on_page=on_page,
+                summary=summary,
+                started_at=started_at,
+            )
+
+        if SEARCH_AFTER_FALLBACK_WARNING not in summary.warnings:
+            summary.warnings.append(SEARCH_AFTER_FALLBACK_WARNING)
+        logger.warning(SEARCH_AFTER_FALLBACK_WARNING)
+        return self._iterate_all_assets_offset(
+            query=query,
+            per_page=per_page,
+            max_pages=max_pages,
+            cancel_check=cancel_check,
+            on_page=on_page,
+            summary=summary,
+            started_at=started_at,
+        )
+
+    def _iterate_all_assets_search_after(
+        self,
+        *,
+        query: str,
+        per_page: int,
+        cancel_check: Callable[[], bool] | None,
+        on_page: Callable[[AssetPageProgress], None] | None,
+        summary: AssetScanSummary,
+        started_at: datetime,
+    ) -> AssetScanResult:
+        seen: set[str] = set()
+        results: list[dict[str, Any]] = []
+        summary.pagination_method = PAGINATION_SEARCH_AFTER
+        search_after: list[Any] | None = None
+        page = 0
+
+        while True:
+            page += 1
+            summary.pages_requested = page
+            if cancel_check and cancel_check():
+                summary.cancelled = True
+                break
+
+            if search_after is not None:
+                logger.warning("[AUDIT-CURSOR] search_after=%s", search_after)
+
+            batch, total = self.search_assets_cursor(
+                query,
+                search_after=search_after,
+                per_page=per_page,
+            )
+            summary.pages_received = page
+            if summary.assets_reported_by_iconik == 0 and total:
+                summary.assets_reported_by_iconik = total
+
+            if not batch:
+                break
+
+            self._ingest_asset_batch(batch, seen=seen, results=results, summary=summary)
+            self._emit_page_progress(
+                summary,
+                page=page,
+                returned=len(batch),
+                assets_scanned=len(results),
+                on_page=on_page,
+            )
+
+            last_sort = batch[-1].get("_sort")
+            if not isinstance(last_sort, list) or not last_sort:
+                msg = "search_after cursor missing _sort on last result; scan stopped early."
+                if msg not in summary.warnings:
+                    summary.warnings.append(msg)
+                break
+            search_after = last_sort
+
+        return self._finalize_scan_summary(summary, results, started_at=started_at)
+
+    def _iterate_all_assets_offset(
+        self,
+        *,
+        query: str,
+        per_page: int,
+        max_pages: int,
+        cancel_check: Callable[[], bool] | None,
+        on_page: Callable[[AssetPageProgress], None] | None,
+        summary: AssetScanSummary,
+        started_at: datetime,
+    ) -> AssetScanResult:
+        seen: set[str] = set()
+        results: list[dict[str, Any]] = []
+        summary.pagination_method = PAGINATION_OFFSET
+        last_batch_full = False
+
+        for page in range(1, max_pages + 1):
+            summary.pages_requested = page
+            if cancel_check and cancel_check():
+                summary.cancelled = True
+                break
+
+            batch, total = self.search_assets_page(query, page=page, per_page=per_page)
+            summary.pages_received = page
+            if summary.assets_reported_by_iconik == 0 and total:
+                summary.assets_reported_by_iconik = total
+
+            if not batch:
+                last_batch_full = False
+                break
+
+            self._ingest_asset_batch(batch, seen=seen, results=results, summary=summary)
+            last_batch_full = len(batch) >= per_page
+            self._emit_page_progress(
+                summary,
+                page=page,
+                returned=len(batch),
+                assets_scanned=len(results),
+                on_page=on_page,
+            )
+
+            if len(batch) < per_page:
+                break
+
+        if not summary.cancelled and summary.pages_received == max_pages and last_batch_full:
+            summary.terminated_by_page_limit = True
+
+        return self._finalize_scan_summary(summary, results, started_at=started_at)
 
     def snapshot_by_asset_id(self, asset_id: str) -> IconikAssetReference | None:
         """Fetch a preservation snapshot for a known asset ID. Never searches by filename."""

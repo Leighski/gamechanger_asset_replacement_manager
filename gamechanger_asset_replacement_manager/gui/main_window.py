@@ -28,6 +28,7 @@ from PySide6.QtWidgets import (
 
 from app import SELECT_FOLDER_PLACEHOLDER
 from gui.duplicate_resolution_dialog import DuplicateResolutionDialog
+from gui.pages.housekeeping_page import HousekeepingPage, TAB_KEYS as HK_TAB_KEYS
 from gui.resolution_preview_dialog import ResolutionPreviewDialog
 from gui.theme import Theme, apply_theme
 from gui.widgets.card import Card
@@ -41,15 +42,16 @@ from gui.widgets.upload_panel import UploadProgressPanel
 from gui.workers import (
     DualReplacementWorker,
     GovernanceWorker,
+    HousekeepingWorker,
     PreflightWorker,
     ScanWorker,
     UploadWorker,
     run_in_thread,
 )
-from models.discovery import DiscoveryResult, PreflightRow, PreflightStatus, SanitisationOptions
+from models.discovery import DiscoveryResult, PreflightRow, PreflightStatus, SanitisationOptions, S3Status
 from models.upload import AuditRecord, UploadAction, UploadJob, UploadSummary
 from models.validation import ValidationResult, ValidatedFile
-from services.bulk_governance_service import all_replace_candidates_verified
+from services.bulk_governance_service import all_replace_candidates_verified, compute_governance_stats
 from services.catalogue_service import CatalogueService
 from services.paths import REPORTS_DIR
 from services.preflight_validator import PreflightValidator
@@ -58,6 +60,8 @@ from services.s3_service import S3Service
 from services.settings_service import SettingsService
 from services.asset_resolution_service import AssetResolutionResult, GovernanceStatus
 from services.dual_replacement_service import DualReplacementOutcome, DualReplacementService
+from services.housekeeping_report_service import HousekeepingReportService
+from services.housekeeping_service import HousekeepingService
 from services.iconik_verification import IconikVerificationService
 from services.upload_engine import UploadEngine
 
@@ -67,7 +71,9 @@ PREFLIGHT_COLUMNS = [
     "Status",
     "Filename",
     "Cleaned Filename",
-    "S3",
+    "Cat. S3",
+    "Resolved Iconik S3 Key",
+    "S3 Exists",
     "Local Size",
     "S3 Size",
     "Action",
@@ -80,6 +86,7 @@ PREFLIGHT_COLUMNS = [
     "Message",
 ]
 SANITISE_COLUMNS = ["Status", "Original Filename", "Clean Filename", "Issues"]
+HOUSEKEEPING_KEYS = frozenset(HK_TAB_KEYS.keys())
 
 
 def _format_bytes(n: int | None) -> str:
@@ -96,18 +103,19 @@ def _status_icon_for_preflight(row: PreflightRow) -> str:
     if row.status == PreflightStatus.ERROR:
         return ICON_ERR
     if (
-        row.action == UploadAction.REPLACE.value
-        and row.governance_status
+        row.governance_status
         and row.governance_status != GovernanceStatus.VERIFIED.value
     ):
         return ICON_ERR
     if row.status == PreflightStatus.WARNING:
         return ICON_WARN
-    if row.status == PreflightStatus.SKIP:
+    if row.status == PreflightStatus.SKIP and not row.governance_status:
         return ICON_SKIP
-    if row.s3_exists and row.governance_status == GovernanceStatus.VERIFIED.value:
+    if row.governance_status == GovernanceStatus.VERIFIED.value:
+        if row.s3_status == S3Status.MISSING.value:
+            return ICON_WARN
         return ICON_OK
-    if row.s3_exists:
+    if row.catalogue_s3_exists or row.s3_exists:
         return ICON_WARN
     return ICON_WARN
 
@@ -133,6 +141,8 @@ class MainWindow(QWidget):
         self._preflight = PreflightValidator(self._s3)
         self._upload_engine = UploadEngine(self._s3, max_workers=self._settings.upload_max_workers())
         self._reports = ReportService()
+        self._housekeeping_reports = HousekeepingReportService()
+        self._housekeeping_service: HousekeepingService | None = None
 
         self._discovery: DiscoveryResult | None = None
         self._preflight_rows: list[PreflightRow] = []
@@ -166,6 +176,9 @@ class MainWindow(QWidget):
         self._stack = QStackedWidget()
         self._page_index: dict[str, int] = {}
         self._build_pages()
+        self._housekeeping_page.start_audit.connect(self._start_housekeeping_audit)
+        self._housekeeping_page.cancel_audit.connect(self._cancel_housekeeping_audit)
+        self._housekeeping_page.open_reports_dir.connect(self._open_reports_folder)
         scroll_wrap = QScrollArea()
         scroll_wrap.setWidgetResizable(True)
         scroll_wrap.setFrameShape(QScrollArea.Shape.NoFrame)
@@ -177,6 +190,7 @@ class MainWindow(QWidget):
         self._refresh_header()
 
     def _build_pages(self) -> None:
+        self._housekeeping_page = HousekeepingPage()
         pages = [
             ("source", self._page_source()),
             ("catalogue", self._page_catalogue()),
@@ -184,6 +198,7 @@ class MainWindow(QWidget):
             ("preview", self._page_preview()),
             ("upload", self._page_upload()),
             ("reports", self._page_reports()),
+            ("housekeeping", self._housekeeping_page),
         ]
         for key, widget in pages:
             self._page_index[key] = self._stack.count()
@@ -379,14 +394,25 @@ class MainWindow(QWidget):
             "Upload Preview",
             "Review the replacement plan before starting the upload.",
         )
-        stats = QHBoxLayout()
+        stats = QGridLayout()
         stats.setSpacing(16)
-        self._stat_replace = StatCard("Files Ready To Replace", "—", accent=Theme.SUCCESS)
-        self._stat_skip = StatCard("Files Skipped", "—", accent=Theme.WARNING)
-        self._stat_warn = StatCard("Filename Warnings", "—", accent=Theme.WARNING)
-        self._stat_errors = StatCard("Validation Errors", "—", accent=Theme.ERROR)
-        for s in (self._stat_replace, self._stat_skip, self._stat_warn, self._stat_errors):
-            stats.addWidget(s)
+        self._stat_gov_verified = StatCard("Governance Verified", "—", accent=Theme.SUCCESS)
+        self._stat_gov_not_found = StatCard("Governance Not Found", "—", accent=Theme.WARNING)
+        self._stat_gov_duplicate = StatCard("Governance Duplicate", "—", accent=Theme.WARNING)
+        self._stat_gov_errors = StatCard("Governance Errors", "—", accent=Theme.ERROR)
+        self._stat_s3_missing = StatCard("S3 Missing", "—", accent=Theme.WARNING)
+        self._stat_ready = StatCard("Ready To Replace", "—", accent=Theme.SUCCESS)
+        stat_cards = (
+            self._stat_gov_verified,
+            self._stat_gov_not_found,
+            self._stat_gov_duplicate,
+            self._stat_gov_errors,
+            self._stat_s3_missing,
+            self._stat_ready,
+        )
+        for index, stat_card in enumerate(stat_cards):
+            stat_card.setMinimumWidth(160)
+            stats.addWidget(stat_card, index // 3, index % 3)
         card.add_layout(stats)
 
         self._preview_detail = QLabel(
@@ -489,8 +515,101 @@ class MainWindow(QWidget):
         )
 
     def _on_page_changed(self, key: str) -> None:
+        if key in HOUSEKEEPING_KEYS:
+            self._stack.setCurrentIndex(self._page_index["housekeeping"])
+            self._housekeeping_page.go_to_tab(key)
+            return
         idx = self._page_index.get(key, 0)
         self._stack.setCurrentIndex(idx)
+
+    def _start_housekeeping_audit(self) -> None:
+        if self._active_thread is not None:
+            return
+        iconik = self._build_iconik_service()
+        if not iconik.configured():
+            QMessageBox.warning(
+                self,
+                "Iconik Not Configured",
+                "Configure Iconik App ID, Auth Token, and Storage ID in Preferences "
+                "before running a housekeeping audit.",
+            )
+            return
+
+        self._housekeeping_service = HousekeepingService(iconik)
+        self._housekeeping_page.set_busy(True)
+        self._ready_state = "SCANNING"
+        self._refresh_header()
+
+        worker = HousekeepingWorker(self._housekeeping_service, self._housekeeping_reports)
+        thread = run_in_thread(worker, self)
+        worker.progress.connect(
+            self._housekeeping_page.update_progress,
+            Qt.ConnectionType.QueuedConnection,
+        )
+        worker.finished.connect(
+            self._on_housekeeping_finished,
+            Qt.ConnectionType.QueuedConnection,
+        )
+        worker.finished.connect(thread.quit)
+        worker.failed.connect(
+            lambda e: self._on_worker_failed(e, "Housekeeping"),
+            Qt.ConnectionType.QueuedConnection,
+        )
+        worker.failed.connect(thread.quit)
+        thread.finished.connect(self._clear_active_worker)
+        thread.finished.connect(thread.deleteLater)
+        self._active_worker = worker
+        self._active_thread = thread
+        thread.start()
+
+    def _cancel_housekeeping_audit(self) -> None:
+        if self._housekeeping_service:
+            self._housekeeping_service.cancel()
+
+    @Slot(object)
+    def _on_housekeeping_finished(self, payload: object) -> None:
+        result, paths = payload
+        self._housekeeping_page.set_busy(False)
+        self._housekeeping_page.apply_result(result, paths)
+        self._active_thread = None
+        self._active_worker = None
+        self._ready_state = "READY" if not result.error and not result.warnings else "WARNING"
+        self._refresh_header()
+        if result.error:
+            QMessageBox.critical(self, "Housekeeping Audit", result.error)
+        elif result.cancelled:
+            QMessageBox.information(
+                self,
+                "Housekeeping Audit",
+                f"Audit cancelled. Partial scan: {result.total_scanned} asset(s).",
+            )
+        else:
+            warning_text = ""
+            if result.warnings:
+                warning_text = "\n\nWarnings:\n• " + "\n• ".join(result.warnings)
+            scan = result.scan_summary
+            duration_text = "n/a"
+            if scan and scan.scan_duration_seconds:
+                duration_text = f"{scan.scan_duration_seconds:.1f}s"
+            duplicates_found = (
+                len(result.duplicate_filename_groups)
+                + len(result.duplicate_storage_groups)
+                + len(result.duplicate_title_groups)
+            )
+            paths_text = "\n".join(f"  • {path}" for path in paths.values()) if paths else "  (none)"
+            QMessageBox.information(
+                self,
+                "Housekeeping Audit",
+                f"Scan duration: {duration_text}\n"
+                f"Assets scanned: {result.total_scanned}\n"
+                f"Duplicates found: {duplicates_found}\n"
+                f"  — Filename groups: {len(result.duplicate_filename_groups)}\n"
+                f"  — Storage groups: {len(result.duplicate_storage_groups)}\n"
+                f"  — Title groups: {len(result.duplicate_title_groups)}\n"
+                f"Orphan assets: {len(result.orphan_assets)}"
+                f"{warning_text}\n\n"
+                f"Reports:\n{paths_text}",
+            )
 
     def _open_settings(self) -> None:
         dlg = SettingsDialog(self._settings, on_aws_saved=self._reload_aws, parent=self)
@@ -786,6 +905,7 @@ class MainWindow(QWidget):
             discovery=self._discovery,
             catalogue=catalogue,
             iconik=iconik,
+            s3=self._s3,
             preflight_payload=preflight_payload,
         )
         thread = run_in_thread(worker, self)
@@ -837,16 +957,20 @@ class MainWindow(QWidget):
         if payload.summary.governance_blocked:
             blocked_msg = (
                 f"\nGovernance blocked: {payload.summary.governance_blocked} "
-                f"(upload disabled until all S3 candidates are VERIFIED)"
+                f"(upload disabled until all ready candidates are VERIFIED)"
             )
 
+        gov = compute_governance_stats(payload.rows)
         QMessageBox.information(
             self,
             "Validation Complete",
             f"Scanned: {payload.summary.files_scanned}\n"
-            f"S3 replace candidates: {payload.summary.s3_replace_candidates}\n"
-            f"Governed ready to replace: {payload.summary.files_to_replace}\n"
-            f"Skipped: {payload.summary.files_to_skip}\n"
+            f"Governance verified: {gov.verified}\n"
+            f"Governance not found: {gov.not_found}\n"
+            f"Governance duplicate: {gov.duplicate}\n"
+            f"Governance errors: {gov.errors}\n"
+            f"S3 missing: {gov.s3_missing}\n"
+            f"Ready to replace: {gov.ready_to_replace}\n"
             f"Preflight errors: {payload.summary.validation_errors}"
             f"{blocked_msg}",
         )
@@ -869,13 +993,16 @@ class MainWindow(QWidget):
             if not d.clean_filename and not d.excluded:
                 continue
             icon = _status_icon_for_preflight(row)
-            exists = "YES" if row.s3_exists else "NO"
+            cat_s3 = "YES" if row.catalogue_s3_exists else "NO"
+            resolved_s3 = "YES" if row.s3_exists else "NO"
             self._preflight_table.append_row(
                 [
                     "",
                     d.original_filename,
                     d.clean_filename or "—",
-                    exists,
+                    cat_s3,
+                    row.resolved_iconik_s3_key or "—",
+                    resolved_s3,
                     _format_bytes(d.size_bytes),
                     _format_bytes(row.s3_size) if row.s3_size is not None else "—",
                     row.action,
@@ -891,36 +1018,31 @@ class MainWindow(QWidget):
             )
 
     def _update_preview(self, summary: UploadSummary) -> None:
-        warnings = sum(
-            1
-            for r in self._preflight_rows
-            if r.status == PreflightStatus.WARNING and not r.discovered.excluded
-        )
-        self._stat_replace.set_value(str(summary.files_to_replace))
-        self._stat_skip.set_value(str(summary.files_to_skip))
-        self._stat_warn.set_value(str(warnings))
-        self._stat_errors.set_value(
-            str(summary.validation_errors + summary.governance_blocked)
-        )
+        gov = compute_governance_stats(self._preflight_rows)
+        self._stat_gov_verified.set_value(str(gov.verified))
+        self._stat_gov_not_found.set_value(str(gov.not_found))
+        self._stat_gov_duplicate.set_value(str(gov.duplicate))
+        self._stat_gov_errors.set_value(str(gov.errors))
+        self._stat_s3_missing.set_value(str(gov.s3_missing))
+        self._stat_ready.set_value(str(gov.ready_to_replace))
 
-        if summary.files_to_replace:
+        if gov.ready_to_replace:
             self._preview_detail.setText(
-                f"You are about to replace {summary.files_to_replace} governed file(s) in "
+                f"You are about to replace {gov.ready_to_replace} governed file(s) in "
                 f"{self._catalogue_combo.currentText()}. "
-                f"{summary.files_to_skip} file(s) will be skipped. "
-                f"{summary.s3_replace_candidates} passed S3 preflight; "
-                f"{summary.governance_blocked} blocked by Iconik governance. "
+                f"Governance verified: {gov.verified}; S3 missing (resolved key): {gov.s3_missing}. "
                 "Review the validation table before uploading."
             )
-        elif summary.s3_replace_candidates and summary.governance_blocked:
+        elif gov.errors or gov.not_found or gov.duplicate:
             self._preview_detail.setText(
-                f"{summary.s3_replace_candidates} file(s) exist in S3 but "
-                f"{summary.governance_blocked} failed Iconik governance. "
-                "Upload is blocked until all S3 candidates are VERIFIED."
+                f"Governance — verified: {gov.verified}, not found: {gov.not_found}, "
+                f"duplicate: {gov.duplicate}, errors: {gov.errors}. "
+                f"S3 missing (resolved key): {gov.s3_missing}. "
+                "Upload is blocked until ready candidates are VERIFIED."
             )
         else:
             self._preview_detail.setText(
-                "No files are ready to replace. Check validation results and S3 paths."
+                "No files are ready to replace. Run scan and validation to see governance results."
             )
 
     def _start_dual_replacement(self) -> None:
@@ -1114,7 +1236,7 @@ class MainWindow(QWidget):
             QMessageBox.critical(
                 self,
                 "Upload Blocked",
-                "Upload is blocked: not all S3 replacement candidates are "
+                "Upload is blocked: not all governance-ready candidates are "
                 "GovernanceStatus.VERIFIED.\n\n"
                 "Resolve NOT_FOUND, DUPLICATE, or other governance failures first.",
             )
@@ -1217,6 +1339,8 @@ class MainWindow(QWidget):
         if label == "Pre-flight":
             self._validation_complete = False
             self._governance_complete = False
+        if label == "Housekeeping":
+            self._housekeeping_page.set_busy(False)
         self._ready_state = "ERROR"
         self._update_action_states()
         self._refresh_header()
