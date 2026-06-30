@@ -1,0 +1,41 @@
+{
+  "catalogue_id": "validation_profiles",
+  "catalogue_version": "1.0.0",
+  "category": "validation_profiles",
+  "components": [
+    {
+      "id": "VALPROF_0001",
+      "name": "Broadcast Standard",
+      "category": "validation_profiles",
+      "description": "Gamechanger broadcast validation rules",
+      "version": "1.0.0",
+      "status": "Certified",
+      "preview_image": "",
+      "metadata": {},
+      "tags": [],
+      "created_at": "2026-06-30T11:44:10+00:00",
+      "modified_at": "2026-06-30T11:44:10+00:00",
+      "author": "Gamechanger",
+      "notes": "",
+      "legacy_ids": [],
+      "assets": {
+        "png_preview": "",
+        "svg_preview": "",
+        "psd_layer_ref": "",
+        "mask_ref": "",
+        "geometry": {},
+        "anchor_points": [],
+        "rendering_metadata": {}
+      },
+      "dependencies": [],
+      "version_history": [
+        {
+          "version": "1.0.0",
+          "date": "2026-06-30T11:44:10+00:00",
+          "notes": "Initial certified release",
+          "author": "Gamechanger"
+        }
+      ]
+    }
+  ]
+}

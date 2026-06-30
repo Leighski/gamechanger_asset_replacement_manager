@@ -1,0 +1,11 @@
+{
+  "catalogue_version": "1.0",
+  "category": "materials",
+  "items": [
+    {"id": "polyester", "label": "Performance Polyester", "description": "Standard match-day polyester"},
+    {"id": "mesh", "label": "Ventilated Mesh", "description": "Breathable mesh panels"},
+    {"id": "knit", "label": "Knit Jersey", "description": "Soft knit fabric"},
+    {"id": "recycled", "label": "Recycled Blend", "description": "Sustainable recycled material"},
+    {"id": "authentic-cotton", "label": "Authentic Cotton", "description": "Retro cotton feel"}
+  ]
+}

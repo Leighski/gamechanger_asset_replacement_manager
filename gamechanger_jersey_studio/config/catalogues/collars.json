@@ -1,0 +1,11 @@
+{
+  "catalogue_version": "1.0",
+  "category": "collars",
+  "items": [
+    {"id": "crew", "label": "Crew Neck", "description": "Classic round crew collar"},
+    {"id": "v-neck", "label": "V-Neck", "description": "Traditional football v-neck"},
+    {"id": "polo", "label": "Polo Collar", "description": "Folded polo-style collar"},
+    {"id": "mandarin", "label": "Mandarin", "description": "Standing mandarin collar"},
+    {"id": "henley", "label": "Henley", "description": "Button placket henley collar"}
+  ]
+}

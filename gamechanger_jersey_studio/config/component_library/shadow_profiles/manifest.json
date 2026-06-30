@@ -1,0 +1,121 @@
+{
+  "catalogue_id": "shadow_profiles",
+  "catalogue_version": "1.0.0",
+  "category": "shadow_profiles",
+  "components": [
+    {
+      "id": "SHADOW_0001",
+      "name": "None",
+      "category": "shadow_profiles",
+      "description": "No shadow effect",
+      "version": "1.0.0",
+      "status": "Certified",
+      "preview_image": "previews/SHADOW_0001.png",
+      "metadata": {},
+      "tags": [
+        "shadow_profiles"
+      ],
+      "created_at": "2026-06-30T11:44:10+00:00",
+      "modified_at": "2026-06-30T11:44:10+00:00",
+      "author": "Gamechanger",
+      "notes": "",
+      "legacy_ids": [
+        "none"
+      ],
+      "assets": {
+        "png_preview": "previews/SHADOW_0001.png",
+        "svg_preview": "",
+        "psd_layer_ref": "",
+        "mask_ref": "",
+        "geometry": {},
+        "anchor_points": [],
+        "rendering_metadata": {}
+      },
+      "dependencies": [],
+      "version_history": [
+        {
+          "version": "1.0.0",
+          "date": "2026-06-30T11:44:10+00:00",
+          "notes": "Initial certified release",
+          "author": "Gamechanger"
+        }
+      ]
+    },
+    {
+      "id": "SHADOW_0002",
+      "name": "Soft Drop",
+      "category": "shadow_profiles",
+      "description": "Subtle drop shadow",
+      "version": "1.0.0",
+      "status": "Certified",
+      "preview_image": "previews/SHADOW_0002.png",
+      "metadata": {},
+      "tags": [
+        "shadow_profiles"
+      ],
+      "created_at": "2026-06-30T11:44:10+00:00",
+      "modified_at": "2026-06-30T11:44:10+00:00",
+      "author": "Gamechanger",
+      "notes": "",
+      "legacy_ids": [
+        "soft"
+      ],
+      "assets": {
+        "png_preview": "previews/SHADOW_0002.png",
+        "svg_preview": "",
+        "psd_layer_ref": "",
+        "mask_ref": "",
+        "geometry": {},
+        "anchor_points": [],
+        "rendering_metadata": {}
+      },
+      "dependencies": [],
+      "version_history": [
+        {
+          "version": "1.0.0",
+          "date": "2026-06-30T11:44:10+00:00",
+          "notes": "Initial certified release",
+          "author": "Gamechanger"
+        }
+      ]
+    },
+    {
+      "id": "SHADOW_0003",
+      "name": "Broadcast",
+      "category": "shadow_profiles",
+      "description": "TV-optimised shadow depth",
+      "version": "1.0.0",
+      "status": "Certified",
+      "preview_image": "previews/SHADOW_0003.png",
+      "metadata": {},
+      "tags": [
+        "shadow_profiles"
+      ],
+      "created_at": "2026-06-30T11:44:10+00:00",
+      "modified_at": "2026-06-30T11:44:10+00:00",
+      "author": "Gamechanger",
+      "notes": "",
+      "legacy_ids": [
+        "broadcast"
+      ],
+      "assets": {
+        "png_preview": "previews/SHADOW_0003.png",
+        "svg_preview": "",
+        "psd_layer_ref": "",
+        "mask_ref": "",
+        "geometry": {},
+        "anchor_points": [],
+        "rendering_metadata": {}
+      },
+      "dependencies": [],
+      "version_history": [
+        {
+          "version": "1.0.0",
+          "date": "2026-06-30T11:44:10+00:00",
+          "notes": "Initial certified release",
+          "author": "Gamechanger"
+        }
+      ]
+    }
+  ]
+}

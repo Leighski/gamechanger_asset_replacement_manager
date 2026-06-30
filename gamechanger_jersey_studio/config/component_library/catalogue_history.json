@@ -1,0 +1,1764 @@
+{
+  "entries": [
+    {
+      "timestamp": "2026-06-30T11:49:12+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:12+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:12+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:12+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:12+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:12+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:12+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:12+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:12+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:12+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:12+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:12+00:00",
+      "event": "Component Exported",
+      "component_id": "COLLAR_0001",
+      "category": "collars",
+      "details": "/private/var/folders/6k/mj756v5n5_n9wrrz87cb_jnw0000gp/T/pytest-of-leigh/pytest-17/test_import_export_round_trip0/collar_export.json",
+      "user": "Test"
+    },
+    {
+      "timestamp": "2026-06-30T11:49:12+00:00",
+      "event": "Component Imported",
+      "component_id": "COLLAR_0001",
+      "category": "collars",
+      "details": "/private/var/folders/6k/mj756v5n5_n9wrrz87cb_jnw0000gp/T/pytest-of-leigh/pytest-17/test_import_export_round_trip0/collar_export.json",
+      "user": "Test"
+    },
+    {
+      "timestamp": "2026-06-30T11:49:12+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:12+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:12+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:12+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:13+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:13+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:13+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:13+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:13+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:13+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:13+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:13+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:13+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:13+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:13+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:13+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:14+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:40+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:59+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:59+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:59+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:59+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:59+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:59+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:59+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:59+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:59+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:59+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:59+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:59+00:00",
+      "event": "Component Exported",
+      "component_id": "COLLAR_0001",
+      "category": "collars",
+      "details": "/private/var/folders/6k/mj756v5n5_n9wrrz87cb_jnw0000gp/T/pytest-of-leigh/pytest-18/test_import_export_round_trip0/collar_export.json",
+      "user": "Test"
+    },
+    {
+      "timestamp": "2026-06-30T11:49:59+00:00",
+      "event": "Component Imported",
+      "component_id": "COLLAR_0001",
+      "category": "collars",
+      "details": "/private/var/folders/6k/mj756v5n5_n9wrrz87cb_jnw0000gp/T/pytest-of-leigh/pytest-18/test_import_export_round_trip0/collar_export.json",
+      "user": "Test"
+    },
+    {
+      "timestamp": "2026-06-30T11:49:59+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:59+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:59+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:59+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:59+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:59+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:59+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:59+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:59+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:59+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:59+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:59+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:59+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:59+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:49:59+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:50:00+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:50:00+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:50:41+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:50:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:50:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:50:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:50:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:50:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:50:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:50:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:50:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:50:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:50:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:50:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:50:45+00:00",
+      "event": "Component Exported",
+      "component_id": "COLLAR_0001",
+      "category": "collars",
+      "details": "/private/var/folders/6k/mj756v5n5_n9wrrz87cb_jnw0000gp/T/pytest-of-leigh/pytest-20/test_import_export_round_trip0/collar_export.json",
+      "user": "Test"
+    },
+    {
+      "timestamp": "2026-06-30T11:50:45+00:00",
+      "event": "Component Imported",
+      "component_id": "COLLAR_0001",
+      "category": "collars",
+      "details": "/private/var/folders/6k/mj756v5n5_n9wrrz87cb_jnw0000gp/T/pytest-of-leigh/pytest-20/test_import_export_round_trip0/collar_export.json",
+      "user": "Test"
+    },
+    {
+      "timestamp": "2026-06-30T11:50:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:50:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:50:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:50:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:50:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:50:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:50:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:50:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:50:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:50:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:50:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:50:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:50:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:50:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:50:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:50:46+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T11:50:46+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:07:09+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:07:09+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:07:09+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:07:09+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:07:09+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:07:09+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:07:09+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:07:09+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:07:09+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:07:09+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:07:09+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:07:09+00:00",
+      "event": "Component Exported",
+      "component_id": "COLLAR_0001",
+      "category": "collars",
+      "details": "/private/var/folders/6k/mj756v5n5_n9wrrz87cb_jnw0000gp/T/pytest-of-leigh/pytest-21/test_import_export_round_trip0/collar_export.json",
+      "user": "Test"
+    },
+    {
+      "timestamp": "2026-06-30T12:07:09+00:00",
+      "event": "Component Imported",
+      "component_id": "COLLAR_0001",
+      "category": "collars",
+      "details": "/private/var/folders/6k/mj756v5n5_n9wrrz87cb_jnw0000gp/T/pytest-of-leigh/pytest-21/test_import_export_round_trip0/collar_export.json",
+      "user": "Test"
+    },
+    {
+      "timestamp": "2026-06-30T12:07:09+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:07:09+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:07:09+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:07:09+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:07:10+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:07:10+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:07:10+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:07:10+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:07:10+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:07:10+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:07:10+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:07:10+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:07:10+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:07:10+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:07:10+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:07:10+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:07:10+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:07:10+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:07:10+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:07:10+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:07:10+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:07:10+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:07:11+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:07:11+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:07:11+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:07:11+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:07:13+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:25+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:25+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:25+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:25+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:26+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:26+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:26+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:26+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:26+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:26+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:45+00:00",
+      "event": "Component Exported",
+      "component_id": "COLLAR_0001",
+      "category": "collars",
+      "details": "/private/var/folders/6k/mj756v5n5_n9wrrz87cb_jnw0000gp/T/pytest-of-leigh/pytest-23/test_import_export_round_trip0/collar_export.json",
+      "user": "Test"
+    },
+    {
+      "timestamp": "2026-06-30T12:08:45+00:00",
+      "event": "Component Imported",
+      "component_id": "COLLAR_0001",
+      "category": "collars",
+      "details": "/private/var/folders/6k/mj756v5n5_n9wrrz87cb_jnw0000gp/T/pytest-of-leigh/pytest-23/test_import_export_round_trip0/collar_export.json",
+      "user": "Test"
+    },
+    {
+      "timestamp": "2026-06-30T12:08:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:45+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:46+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:46+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:46+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:46+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:46+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:46+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:46+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:46+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:46+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:46+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:46+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:46+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:46+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:46+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:46+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:46+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:46+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:46+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:46+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:46+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:46+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:08:47+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:09:09+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:09:09+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:09:09+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:09:09+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:09:09+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:09:09+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:09:09+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:09:09+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:09:09+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:09:09+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:09:09+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:09:09+00:00",
+      "event": "Component Exported",
+      "component_id": "COLLAR_0001",
+      "category": "collars",
+      "details": "/private/var/folders/6k/mj756v5n5_n9wrrz87cb_jnw0000gp/T/pytest-of-leigh/pytest-24/test_import_export_round_trip0/collar_export.json",
+      "user": "Test"
+    },
+    {
+      "timestamp": "2026-06-30T12:09:09+00:00",
+      "event": "Component Imported",
+      "component_id": "COLLAR_0001",
+      "category": "collars",
+      "details": "/private/var/folders/6k/mj756v5n5_n9wrrz87cb_jnw0000gp/T/pytest-of-leigh/pytest-24/test_import_export_round_trip0/collar_export.json",
+      "user": "Test"
+    },
+    {
+      "timestamp": "2026-06-30T12:09:09+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:09:09+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:09:09+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:09:09+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:09:10+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:09:10+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:09:10+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:09:10+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:09:10+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:09:10+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:09:10+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:09:10+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:09:10+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:09:10+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:09:10+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:09:10+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:09:10+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:09:10+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:09:10+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:09:10+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:09:10+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:09:10+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:09:10+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:09:10+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:09:11+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    },
+    {
+      "timestamp": "2026-06-30T12:09:11+00:00",
+      "event": "Catalogue Loaded",
+      "component_id": "",
+      "category": "",
+      "details": "39 components, 0 errors",
+      "user": ""
+    }
+  ]
+}

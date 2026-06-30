@@ -1,0 +1,197 @@
+{
+  "catalogue_id": "collars",
+  "catalogue_version": "1.0.0",
+  "category": "collars",
+  "components": [
+    {
+      "id": "COLLAR_0001",
+      "name": "Crew Neck",
+      "category": "collars",
+      "description": "Classic round crew collar",
+      "version": "1.0.0",
+      "status": "Certified",
+      "preview_image": "previews/COLLAR_0001.png",
+      "metadata": {},
+      "tags": [
+        "collar"
+      ],
+      "created_at": "2026-06-30T11:44:10+00:00",
+      "modified_at": "2026-06-30T11:44:10+00:00",
+      "author": "Gamechanger",
+      "notes": "",
+      "legacy_ids": [
+        "crew"
+      ],
+      "assets": {
+        "png_preview": "previews/COLLAR_0001.png",
+        "svg_preview": "",
+        "psd_layer_ref": "",
+        "mask_ref": "",
+        "geometry": {},
+        "anchor_points": [],
+        "rendering_metadata": {}
+      },
+      "dependencies": [],
+      "version_history": [
+        {
+          "version": "1.0.0",
+          "date": "2026-06-30T11:44:10+00:00",
+          "notes": "Initial certified release",
+          "author": "Gamechanger"
+        }
+      ]
+    },
+    {
+      "id": "COLLAR_0002",
+      "name": "V-Neck",
+      "category": "collars",
+      "description": "Traditional football v-neck",
+      "version": "1.0.0",
+      "status": "Certified",
+      "preview_image": "previews/COLLAR_0002.png",
+      "metadata": {},
+      "tags": [
+        "collar"
+      ],
+      "created_at": "2026-06-30T11:44:10+00:00",
+      "modified_at": "2026-06-30T11:44:10+00:00",
+      "author": "Gamechanger",
+      "notes": "",
+      "legacy_ids": [
+        "v-neck"
+      ],
+      "assets": {
+        "png_preview": "previews/COLLAR_0002.png",
+        "svg_preview": "",
+        "psd_layer_ref": "",
+        "mask_ref": "",
+        "geometry": {},
+        "anchor_points": [],
+        "rendering_metadata": {}
+      },
+      "dependencies": [],
+      "version_history": [
+        {
+          "version": "1.0.0",
+          "date": "2026-06-30T11:44:10+00:00",
+          "notes": "Initial certified release",
+          "author": "Gamechanger"
+        }
+      ]
+    },
+    {
+      "id": "COLLAR_0003",
+      "name": "Polo Collar",
+      "category": "collars",
+      "description": "Folded polo-style collar",
+      "version": "1.0.0",
+      "status": "Certified",
+      "preview_image": "previews/COLLAR_0003.png",
+      "metadata": {},
+      "tags": [
+        "collar"
+      ],
+      "created_at": "2026-06-30T11:44:10+00:00",
+      "modified_at": "2026-06-30T11:44:10+00:00",
+      "author": "Gamechanger",
+      "notes": "",
+      "legacy_ids": [
+        "polo"
+      ],
+      "assets": {
+        "png_preview": "previews/COLLAR_0003.png",
+        "svg_preview": "",
+        "psd_layer_ref": "",
+        "mask_ref": "",
+        "geometry": {},
+        "anchor_points": [],
+        "rendering_metadata": {}
+      },
+      "dependencies": [],
+      "version_history": [
+        {
+          "version": "1.0.0",
+          "date": "2026-06-30T11:44:10+00:00",
+          "notes": "Initial certified release",
+          "author": "Gamechanger"
+        }
+      ]
+    },
+    {
+      "id": "COLLAR_0004",
+      "name": "Mandarin",
+      "category": "collars",
+      "description": "Standing mandarin collar",
+      "version": "1.0.0",
+      "status": "Certified",
+      "preview_image": "previews/COLLAR_0004.png",
+      "metadata": {},
+      "tags": [
+        "collar"
+      ],
+      "created_at": "2026-06-30T11:44:10+00:00",
+      "modified_at": "2026-06-30T11:44:10+00:00",
+      "author": "Gamechanger",
+      "notes": "",
+      "legacy_ids": [
+        "mandarin"
+      ],
+      "assets": {
+        "png_preview": "previews/COLLAR_0004.png",
+        "svg_preview": "",
+        "psd_layer_ref": "",
+        "mask_ref": "",
+        "geometry": {},
+        "anchor_points": [],
+        "rendering_metadata": {}
+      },
+      "dependencies": [],
+      "version_history": [
+        {
+          "version": "1.0.0",
+          "date": "2026-06-30T11:44:10+00:00",
+          "notes": "Initial certified release",
+          "author": "Gamechanger"
+        }
+      ]
+    },
+    {
+      "id": "COLLAR_0005",
+      "name": "Henley",
+      "category": "collars",
+      "description": "Button placket henley collar",
+      "version": "1.0.0",
+      "status": "Certified",
+      "preview_image": "previews/COLLAR_0005.png",
+      "metadata": {},
+      "tags": [
+        "collar"
+      ],
+      "created_at": "2026-06-30T11:44:10+00:00",
+      "modified_at": "2026-06-30T11:44:10+00:00",
+      "author": "Gamechanger",
+      "notes": "",
+      "legacy_ids": [
+        "henley"
+      ],
+      "assets": {
+        "png_preview": "previews/COLLAR_0005.png",
+        "svg_preview": "",
+        "psd_layer_ref": "",
+        "mask_ref": "",
+        "geometry": {},
+        "anchor_points": [],
+        "rendering_metadata": {}
+      },
+      "dependencies": [],
+      "version_history": [
+        {
+          "version": "1.0.0",
+          "date": "2026-06-30T11:44:10+00:00",
+          "notes": "Initial certified release",
+          "author": "Gamechanger"
+        }
+      ]
+    }
+  ]
+}

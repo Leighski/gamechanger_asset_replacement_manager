@@ -1,0 +1,27 @@
+{
+  "active_provider": "offline",
+  "openai": {
+    "enabled": false,
+    "api_key": "",
+    "model": "gpt-4o",
+    "base_url": "https://api.openai.com/v1"
+  },
+  "anthropic": {
+    "enabled": false,
+    "api_key": "",
+    "model": "claude-sonnet-4-20250514",
+    "base_url": "https://api.anthropic.com"
+  },
+  "gemini": {
+    "enabled": false,
+    "api_key": "",
+    "model": "gemini-2.0-flash",
+    "base_url": ""
+  },
+  "ollama": {
+    "enabled": false,
+    "api_key": "",
+    "model": "llama3.2",
+    "base_url": "http://localhost:11434"
+  }
+}

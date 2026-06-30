@@ -1,0 +1,197 @@
+{
+  "catalogue_id": "materials",
+  "catalogue_version": "1.0.0",
+  "category": "materials",
+  "components": [
+    {
+      "id": "MATERIAL_0001",
+      "name": "Performance Polyester",
+      "category": "materials",
+      "description": "Standard match-day polyester",
+      "version": "1.0.0",
+      "status": "Certified",
+      "preview_image": "previews/MATERIAL_0001.png",
+      "metadata": {},
+      "tags": [
+        "materials"
+      ],
+      "created_at": "2026-06-30T11:44:10+00:00",
+      "modified_at": "2026-06-30T11:44:10+00:00",
+      "author": "Gamechanger",
+      "notes": "",
+      "legacy_ids": [
+        "polyester"
+      ],
+      "assets": {
+        "png_preview": "previews/MATERIAL_0001.png",
+        "svg_preview": "",
+        "psd_layer_ref": "",
+        "mask_ref": "",
+        "geometry": {},
+        "anchor_points": [],
+        "rendering_metadata": {}
+      },
+      "dependencies": [],
+      "version_history": [
+        {
+          "version": "1.0.0",
+          "date": "2026-06-30T11:44:10+00:00",
+          "notes": "Initial certified release",
+          "author": "Gamechanger"
+        }
+      ]
+    },
+    {
+      "id": "MATERIAL_0002",
+      "name": "Ventilated Mesh",
+      "category": "materials",
+      "description": "Breathable mesh panels",
+      "version": "1.0.0",
+      "status": "Certified",
+      "preview_image": "previews/MATERIAL_0002.png",
+      "metadata": {},
+      "tags": [
+        "materials"
+      ],
+      "created_at": "2026-06-30T11:44:10+00:00",
+      "modified_at": "2026-06-30T11:44:10+00:00",
+      "author": "Gamechanger",
+      "notes": "",
+      "legacy_ids": [
+        "mesh"
+      ],
+      "assets": {
+        "png_preview": "previews/MATERIAL_0002.png",
+        "svg_preview": "",
+        "psd_layer_ref": "",
+        "mask_ref": "",
+        "geometry": {},
+        "anchor_points": [],
+        "rendering_metadata": {}
+      },
+      "dependencies": [],
+      "version_history": [
+        {
+          "version": "1.0.0",
+          "date": "2026-06-30T11:44:10+00:00",
+          "notes": "Initial certified release",
+          "author": "Gamechanger"
+        }
+      ]
+    },
+    {
+      "id": "MATERIAL_0003",
+      "name": "Knit Jersey",
+      "category": "materials",
+      "description": "Soft knit fabric",
+      "version": "1.0.0",
+      "status": "Certified",
+      "preview_image": "previews/MATERIAL_0003.png",
+      "metadata": {},
+      "tags": [
+        "materials"
+      ],
+      "created_at": "2026-06-30T11:44:10+00:00",
+      "modified_at": "2026-06-30T11:44:10+00:00",
+      "author": "Gamechanger",
+      "notes": "",
+      "legacy_ids": [
+        "knit"
+      ],
+      "assets": {
+        "png_preview": "previews/MATERIAL_0003.png",
+        "svg_preview": "",
+        "psd_layer_ref": "",
+        "mask_ref": "",
+        "geometry": {},
+        "anchor_points": [],
+        "rendering_metadata": {}
+      },
+      "dependencies": [],
+      "version_history": [
+        {
+          "version": "1.0.0",
+          "date": "2026-06-30T11:44:10+00:00",
+          "notes": "Initial certified release",
+          "author": "Gamechanger"
+        }
+      ]
+    },
+    {
+      "id": "MATERIAL_0004",
+      "name": "Recycled Blend",
+      "category": "materials",
+      "description": "Sustainable recycled material",
+      "version": "1.0.0",
+      "status": "Certified",
+      "preview_image": "previews/MATERIAL_0004.png",
+      "metadata": {},
+      "tags": [
+        "materials"
+      ],
+      "created_at": "2026-06-30T11:44:10+00:00",
+      "modified_at": "2026-06-30T11:44:10+00:00",
+      "author": "Gamechanger",
+      "notes": "",
+      "legacy_ids": [
+        "recycled"
+      ],
+      "assets": {
+        "png_preview": "previews/MATERIAL_0004.png",
+        "svg_preview": "",
+        "psd_layer_ref": "",
+        "mask_ref": "",
+        "geometry": {},
+        "anchor_points": [],
+        "rendering_metadata": {}
+      },
+      "dependencies": [],
+      "version_history": [
+        {
+          "version": "1.0.0",
+          "date": "2026-06-30T11:44:10+00:00",
+          "notes": "Initial certified release",
+          "author": "Gamechanger"
+        }
+      ]
+    },
+    {
+      "id": "MATERIAL_0005",
+      "name": "Authentic Cotton",
+      "category": "materials",
+      "description": "Retro cotton feel",
+      "version": "1.0.0",
+      "status": "Certified",
+      "preview_image": "previews/MATERIAL_0005.png",
+      "metadata": {},
+      "tags": [
+        "materials"
+      ],
+      "created_at": "2026-06-30T11:44:10+00:00",
+      "modified_at": "2026-06-30T11:44:10+00:00",
+      "author": "Gamechanger",
+      "notes": "",
+      "legacy_ids": [
+        "authentic-cotton"
+      ],
+      "assets": {
+        "png_preview": "previews/MATERIAL_0005.png",
+        "svg_preview": "",
+        "psd_layer_ref": "",
+        "mask_ref": "",
+        "geometry": {},
+        "anchor_points": [],
+        "rendering_metadata": {}
+      },
+      "dependencies": [],
+      "version_history": [
+        {
+          "version": "1.0.0",
+          "date": "2026-06-30T11:44:10+00:00",
+          "notes": "Initial certified release",
+          "author": "Gamechanger"
+        }
+      ]
+    }
+  ]
+}

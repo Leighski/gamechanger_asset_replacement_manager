@@ -1,0 +1,13 @@
+{
+  "theme": "dark",
+  "window": {
+    "width": 1440,
+    "height": 900,
+    "x": 100,
+    "y": 100,
+    "maximised": false
+  },
+  "autosave_interval_minutes": 5,
+  "default_project_folder": "",
+  "recent_projects": []
+}

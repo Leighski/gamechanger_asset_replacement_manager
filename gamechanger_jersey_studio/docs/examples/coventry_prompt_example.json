@@ -1,0 +1,456 @@
+{
+  "task": "Map vision measurements to Gamechanger catalogue Design Specification fields.",
+  "constraints": [
+    "Recommend only values from supplied catalogues.",
+    "Never analyse images — measurements are authoritative.",
+    "Include reasoning for every suggestion.",
+    "Return JSON array under key 'suggestions'."
+  ],
+  "project": {
+    "club": "Coventry City",
+    "competition": "Championship",
+    "season": "2025/26",
+    "kit_type": "Home"
+  },
+  "current_design_specification": {
+    "primary_colour": "",
+    "secondary_colour": "",
+    "third_colour": "",
+    "sleeve_colour": "",
+    "collar_colour": "",
+    "trim_colour": "",
+    "collar_style": "",
+    "sleeve_style": "",
+    "pattern": "",
+    "pattern_scale": 1.0,
+    "pattern_rotation": 0.0,
+    "pattern_opacity": 1.0
+  },
+  "vision_measurements": {
+    "analysis_id": "e43564b5c532418e",
+    "confidence_summary": {
+      "Shirt Detection": 82.6,
+      "Primary Colour": 99.0,
+      "Secondary Colour": 49.5,
+      "Accent Colour": 24.8,
+      "Trim Colour": 12.4,
+      "Collar Colour": 6.2,
+      "Sleeve Colour": 3.1,
+      "Collar Region": 79.3,
+      "Sleeves Region": 74.3,
+      "Body Region": 80.9,
+      "Shoulders Region": 76.8,
+      "Side Panels Region": 72.7,
+      "Trim Region": 70.2,
+      "Pattern Density": 40.6,
+      "Pattern Coverage": 45.1
+    },
+    "colours": [
+      {
+        "name": "Primary Colour",
+        "hex": "#F8F8F8",
+        "rgb": [
+          248,
+          248,
+          248
+        ],
+        "hsv": [
+          0.0,
+          0.0,
+          97.3
+        ],
+        "lab": [
+          97.6,
+          0.0,
+          -0.0
+        ],
+        "confidence": 99.0,
+        "catalogue_match": "White"
+      },
+      {
+        "name": "Secondary Colour",
+        "hex": "#F8F8F8",
+        "rgb": [
+          248,
+          248,
+          248
+        ],
+        "hsv": [
+          0.0,
+          0.0,
+          97.3
+        ],
+        "lab": [
+          97.6,
+          0.0,
+          -0.0
+        ],
+        "confidence": 49.5,
+        "catalogue_match": "White"
+      },
+      {
+        "name": "Accent Colour",
+        "hex": "#F8F8F8",
+        "rgb": [
+          248,
+          248,
+          248
+        ],
+        "hsv": [
+          0.0,
+          0.0,
+          97.3
+        ],
+        "lab": [
+          97.6,
+          0.0,
+          -0.0
+        ],
+        "confidence": 24.8,
+        "catalogue_match": "White"
+      },
+      {
+        "name": "Trim Colour",
+        "hex": "#F8F8F8",
+        "rgb": [
+          248,
+          248,
+          248
+        ],
+        "hsv": [
+          0.0,
+          0.0,
+          97.3
+        ],
+        "lab": [
+          97.6,
+          0.0,
+          -0.0
+        ],
+        "confidence": 12.4,
+        "catalogue_match": "White"
+      },
+      {
+        "name": "Collar Colour",
+        "hex": "#F8F8F8",
+        "rgb": [
+          248,
+          248,
+          248
+        ],
+        "hsv": [
+          0.0,
+          0.0,
+          97.3
+        ],
+        "lab": [
+          97.6,
+          0.0,
+          -0.0
+        ],
+        "confidence": 6.2,
+        "catalogue_match": "White"
+      },
+      {
+        "name": "Sleeve Colour",
+        "hex": "#F8F8F8",
+        "rgb": [
+          248,
+          248,
+          248
+        ],
+        "hsv": [
+          0.0,
+          0.0,
+          97.3
+        ],
+        "lab": [
+          97.6,
+          0.0,
+          -0.0
+        ],
+        "confidence": 3.1,
+        "catalogue_match": "White"
+      }
+    ],
+    "regions": [
+      {
+        "name": "Collar",
+        "confidence": 79.3
+      },
+      {
+        "name": "Sleeves",
+        "confidence": 74.3
+      },
+      {
+        "name": "Sleeves",
+        "confidence": 74.3
+      },
+      {
+        "name": "Body",
+        "confidence": 80.9
+      },
+      {
+        "name": "Shoulders",
+        "confidence": 76.8
+      },
+      {
+        "name": "Side Panels",
+        "confidence": 72.7
+      },
+      {
+        "name": "Side Panels",
+        "confidence": 72.7
+      },
+      {
+        "name": "Trim",
+        "confidence": 70.2
+      }
+    ],
+    "warnings": [],
+    "shapes": {
+      "collar_position_y": {
+        "value": 0.134,
+        "confidence": 78.5
+      },
+      "sleeve_length_ratio": {
+        "value": 0.38,
+        "confidence": 72.7
+      },
+      "neck_opening_width_ratio": {
+        "value": 0.22,
+        "confidence": 74.3
+      },
+      "shoulder_width_ratio": {
+        "value": 0.549,
+        "confidence": 76.0
+      },
+      "body_height_ratio": {
+        "value": 1.822,
+        "confidence": 77.6
+      }
+    },
+    "patterns": {
+      "coverage_percent": {
+        "value": 13.8,
+        "confidence": 45.1
+      },
+      "density": {
+        "value": 0.0,
+        "confidence": 40.6
+      },
+      "orientation_degrees": {
+        "value": 90.0,
+        "confidence": 43.1
+      },
+      "frequency": {
+        "value": 0.2,
+        "confidence": 40.1
+      }
+    },
+    "shirt_detection": {
+      "confidence": 82.6,
+      "requires_review": false
+    }
+  },
+  "catalogues": {
+    "collars": [
+      {
+        "id": "crew",
+        "label": "Crew Neck"
+      },
+      {
+        "id": "v-neck",
+        "label": "V-Neck"
+      },
+      {
+        "id": "polo",
+        "label": "Polo Collar"
+      },
+      {
+        "id": "mandarin",
+        "label": "Mandarin"
+      },
+      {
+        "id": "henley",
+        "label": "Henley"
+      }
+    ],
+    "sleeves": [
+      {
+        "id": "standard",
+        "label": "Standard Set-In"
+      },
+      {
+        "id": "raglan",
+        "label": "Raglan"
+      },
+      {
+        "id": "cap",
+        "label": "Cap Sleeve"
+      },
+      {
+        "id": "long",
+        "label": "Long Sleeve"
+      },
+      {
+        "id": "tapered",
+        "label": "Tapered Fit"
+      }
+    ],
+    "patterns": [
+      {
+        "id": "solid",
+        "label": "Solid"
+      },
+      {
+        "id": "hoops",
+        "label": "Hoops"
+      },
+      {
+        "id": "stripes",
+        "label": "Vertical Stripes"
+      },
+      {
+        "id": "chevron",
+        "label": "Chevron"
+      },
+      {
+        "id": "gradient",
+        "label": "Gradient Fade"
+      },
+      {
+        "id": "halftone",
+        "label": "Halftone"
+      }
+    ],
+    "materials": [
+      {
+        "id": "polyester",
+        "label": "Performance Polyester"
+      },
+      {
+        "id": "mesh",
+        "label": "Ventilated Mesh"
+      },
+      {
+        "id": "knit",
+        "label": "Knit Jersey"
+      },
+      {
+        "id": "recycled",
+        "label": "Recycled Blend"
+      },
+      {
+        "id": "authentic-cotton",
+        "label": "Authentic Cotton"
+      }
+    ]
+  },
+  "validation_rules": [
+    "Colour fields must be non-empty hex values (#RRGGBB).",
+    "Pattern, collar, sleeve, material must use catalogue IDs.",
+    "Pattern opacity must be between 0.0 and 1.0.",
+    "Pattern scale must be between 0.1 and 5.0."
+  ],
+  "rule_suggestions": [
+    {
+      "target_field": "primary_colour",
+      "current_value": "",
+      "proposed_value": "#F8F8F8",
+      "confidence": 99.0,
+      "reasoning": "Measured primary colour (#F8F8F8) with 99% confidence; nearest catalogue swatch is White",
+      "source_measurements": [
+        "Primary Colour",
+        "confidence:99.0"
+      ]
+    },
+    {
+      "target_field": "secondary_colour",
+      "current_value": "",
+      "proposed_value": "#F8F8F8",
+      "confidence": 49.5,
+      "reasoning": "Measured secondary colour (#F8F8F8) with 50% confidence; nearest catalogue swatch is White",
+      "source_measurements": [
+        "Secondary Colour",
+        "confidence:49.5"
+      ]
+    },
+    {
+      "target_field": "third_colour",
+      "current_value": "",
+      "proposed_value": "#F8F8F8",
+      "confidence": 24.8,
+      "reasoning": "Measured accent colour (#F8F8F8) with 25% confidence; nearest catalogue swatch is White",
+      "source_measurements": [
+        "Accent Colour",
+        "confidence:24.8"
+      ]
+    },
+    {
+      "target_field": "trim_colour",
+      "current_value": "",
+      "proposed_value": "#F8F8F8",
+      "confidence": 12.4,
+      "reasoning": "Measured trim colour (#F8F8F8) with 12% confidence; nearest catalogue swatch is White",
+      "source_measurements": [
+        "Trim Colour",
+        "confidence:12.4"
+      ]
+    },
+    {
+      "target_field": "collar_colour",
+      "current_value": "",
+      "proposed_value": "#F8F8F8",
+      "confidence": 6.2,
+      "reasoning": "Measured collar colour (#F8F8F8) with 6% confidence; nearest catalogue swatch is White",
+      "source_measurements": [
+        "Collar Colour",
+        "confidence:6.2"
+      ]
+    },
+    {
+      "target_field": "sleeve_colour",
+      "current_value": "",
+      "proposed_value": "#F8F8F8",
+      "confidence": 3.1,
+      "reasoning": "Measured sleeve colour (#F8F8F8) with 3% confidence; nearest catalogue swatch is White",
+      "source_measurements": [
+        "Sleeve Colour",
+        "confidence:3.1"
+      ]
+    },
+    {
+      "target_field": "collar_style",
+      "current_value": "",
+      "proposed_value": "v-neck",
+      "confidence": 74.3,
+      "reasoning": "Measured neck opening width ratio (0.220) and collar depth most closely match the Gamechanger V-Neck catalogue entry.",
+      "source_measurements": [
+        "neck_opening_width_ratio",
+        "collar_position_y"
+      ]
+    },
+    {
+      "target_field": "sleeve_style",
+      "current_value": "",
+      "proposed_value": "long",
+      "confidence": 72.7,
+      "reasoning": "Measured sleeve length ratio (0.380) maps to Gamechanger Long Sleeve in the sleeve catalogue.",
+      "source_measurements": [
+        "sleeve_length_ratio"
+      ]
+    },
+    {
+      "target_field": "pattern",
+      "current_value": "",
+      "proposed_value": "solid",
+      "confidence": 40.6,
+      "reasoning": "Pattern coverage 13.8% and density 0.000 suggest the Gamechanger Solid pattern catalogue entry.",
+      "source_measurements": [
+        "pattern_coverage",
+        "pattern_density"
+      ]
+    }
+  ]
+}

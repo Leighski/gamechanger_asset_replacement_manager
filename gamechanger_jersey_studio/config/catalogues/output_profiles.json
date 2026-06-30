@@ -1,0 +1,10 @@
+{
+  "catalogue_version": "1.0",
+  "category": "output_profiles",
+  "items": [
+    {"id": "gamechanger-broadcast", "label": "Gamechanger Broadcast", "description": "Broadcast-ready output profile"},
+    {"id": "authentic", "label": "Authentic", "description": "Authentic match-day reproduction"},
+    {"id": "editorial", "label": "Editorial", "description": "Editorial and marketing output"},
+    {"id": "fantasy", "label": "Fantasy", "description": "Fantasy and concept artwork"}
+  ]
+}
