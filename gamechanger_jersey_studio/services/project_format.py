@@ -8,16 +8,20 @@ from pathlib import Path
 from typing import Any
 
 from models.design_specification import DesignSpecification
-from models.project import GJS_EXTENSION, ProjectDocument, ProjectHistory, ProjectManifest
 from models.interpretation import InterpretationArchive
+from models.project import GJS_EXTENSION, ProjectDocument, ProjectHistory, ProjectManifest
+from models.learning import LearningProjectRecord
 from models.reference_image import ReferenceImageManifest
+from models.psd_template import TemplateProjectSettings
 from models.renderer import RendererSettings
 from models.vision_analysis import VisionAnalysisArchive
 from services.interpretation_service import INTERPRETATION_RESULTS_NAME
 from services.live_renderer_service import RENDERER_SETTINGS_NAME
 from services.reference_image_service import REFERENCES_MANIFEST_NAME
+from services.template_manager_service import TEMPLATE_SETTINGS_NAME
 from services.vision_analysis_service import VISION_ANALYSES_NAME
 
+LEARNING_RECORD_NAME = "learning/record.json"
 MANIFEST_NAME = "manifest.json"
 HISTORY_NAME = "history.json"
 DESIGN_SPEC_NAME = "design/specification.json"
@@ -82,6 +86,18 @@ def write_project_package(
         indent=2,
     ).encode("utf-8")
 
+    template_settings = document.template_settings or TemplateProjectSettings()
+    template_json = json.dumps(
+        template_settings.model_dump(mode="json"),
+        indent=2,
+    ).encode("utf-8")
+
+    learning_record = document.learning_record or LearningProjectRecord()
+    learning_json = json.dumps(
+        learning_record.model_dump(mode="json"),
+        indent=2,
+    ).encode("utf-8")
+
     with zipfile.ZipFile(target, mode="w", compression=zipfile.ZIP_DEFLATED) as zf:
         zf.writestr(MANIFEST_NAME, manifest_json)
         zf.writestr(HISTORY_NAME, history_json)
@@ -90,6 +106,8 @@ def write_project_package(
         zf.writestr(VISION_ANALYSES_NAME, vision_json)
         zf.writestr(INTERPRETATION_RESULTS_NAME, interpretation_json)
         zf.writestr(RENDERER_SETTINGS_NAME, renderer_json)
+        zf.writestr(TEMPLATE_SETTINGS_NAME, template_json)
+        zf.writestr(LEARNING_RECORD_NAME, learning_json)
         blobs = reference_blobs or {}
         for record in reference_manifest.images:
             data = blobs.get(record.storage_path)
@@ -118,6 +136,8 @@ def read_project_package(path: Path) -> tuple[ProjectDocument, dict[str, bytes]]
             vision_raw = _read_optional_json_member(zf, VISION_ANALYSES_NAME)
             interpretation_raw = _read_optional_json_member(zf, INTERPRETATION_RESULTS_NAME)
             renderer_raw = _read_optional_json_member(zf, RENDERER_SETTINGS_NAME)
+            template_raw = _read_optional_json_member(zf, TEMPLATE_SETTINGS_NAME)
+            learning_raw = _read_optional_json_member(zf, LEARNING_RECORD_NAME)
             blobs = _read_reference_blobs(zf)
     except (OSError, zipfile.BadZipFile, json.JSONDecodeError) as exc:
         raise ProjectFormatError(f"Invalid .gjs package: {source}") from exc
@@ -149,6 +169,16 @@ def read_project_package(path: Path) -> tuple[ProjectDocument, dict[str, bytes]]
     else:
         renderer_settings = RendererSettings()
 
+    if template_raw:
+        template_settings = TemplateProjectSettings.model_validate(template_raw)
+    else:
+        template_settings = TemplateProjectSettings()
+
+    if learning_raw:
+        learning_record = LearningProjectRecord.model_validate(learning_raw)
+    else:
+        learning_record = LearningProjectRecord()
+
     doc = ProjectDocument(
         manifest=manifest_model,
         history=history,
@@ -157,6 +187,8 @@ def read_project_package(path: Path) -> tuple[ProjectDocument, dict[str, bytes]]
         vision_analyses=vision_analyses,
         interpretation_results=interpretation_results,
         renderer_settings=renderer_settings,
+        template_settings=template_settings,
+        learning_record=learning_record,
         file_path=str(source),
         dirty=False,
     )

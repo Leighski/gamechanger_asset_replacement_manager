@@ -1,5 +1,128 @@
 # Release Notes — Gamechanger Jersey Studio
 
+## v1.0.0-rc.1 — RC1 Production Validation (Build 014)
+
+**Release date:** 2026-06-30  
+**Work package:** GJS-014
+
+### Highlights
+
+- **Validation Workspace** — load reference images, original PSD, Studio PSD, PNG preview; side-by-side comparison with pixel diff overlay and layer visibility
+- **Accuracy scoring** — overall, colour, pattern, collar, trim, sleeve, template with confidence per category
+- **Production Replay** — step through Reference Images → Vision → AI → Learning → Operator → Spec → Template → Render → Export
+- **Benchmark dataset** — `config/benchmarks/rc1_benchmark_library.json` with expected/generated specs and accuracy metrics
+- **Batch validation** — mean/median accuracy, AI acceptance rate, learning rule effectiveness, review/render times, corrected fields, missing components
+- **Knowledge Base analytics** — most/least effective rules, never triggered, overrides, suggested merges/retirements (advisory only)
+- **Stress testing** — 100 consecutive renders, large catalogues, template switches, large knowledge bases
+- **Release Readiness Report** — test, performance, accuracy, stability summaries with RC1 recommendation
+- **203 automated tests** (+47 new in `test_rc1_validation.py`)
+
+### Architecture
+
+Frozen — all validation extends existing `services/production/` via `ProductionManagerService`. No new manager layer.
+
+### RC1 sign-off
+
+Populate benchmark library with 50–100 real jerseys before final RC1 release.
+
+---
+
+## v1.0.0-alpha.13 — Learning Mode & Organisational Knowledge Base (Build 013)
+
+**Release date:** 2026-06-30  
+**Work package:** GJS-013
+
+### Highlights
+
+- **Learning Mode** — organisational knowledge system (not machine learning)
+- **Learning Events** — captures manual corrections with full project context
+- **Gamechanger Knowledge Base** — versioned rule repository at `config/learning/gamechanger_knowledge_base.json`
+- **Learning Rules** — club, manufacturer, competition, template, pattern, collar, sleeve, trim, colour, output profile categories
+- **Rule Engine** — advisory Learning Recommendations alongside AI suggestions; never auto-applies
+- **Pattern detection** — suggests reusable rules after recurring corrections
+- **Learning Dashboard** — events, active/draft rules, frequent corrections, improved fields
+- **Rule Browser** — search, filter, enable, disable, edit, duplicate, export, import
+- **Rule Inspector** — triggers, actions, usage history, performance statistics
+- **Project audit** — learning rules applied, recommendations accepted/ignored in `learning/record.json`
+- **Extended reports** — Learning Summary, Top Rules, Rule Effectiveness, Learning Growth
+
+### Not included
+
+AI model retraining, Vision Engine modification, automatic Design Specification changes.
+
+---
+
+## v1.0.0-alpha.12 — Assisted Production & Confidence Workflow (Build 012)
+
+**Release date:** 2026-06-30  
+**Work package:** GJS-012
+
+### Highlights
+
+- **Confidence workflow** — configurable Trusted (95%), Review (85%), Manual Review Required thresholds in Settings
+- **Production Queue** — cross-project pending interpretation view with filters (confidence, season, competition, status, template)
+- **Bulk review** — Accept All Trusted, Reject All Low Confidence, Accept/Reject Selected, Export Queue
+- **Visual Difference Viewer** — highlights only fields that would change with before/after values
+- **Batch rendering** — sequential multi-project PSD render with pause, resume, cancel, retry failed
+- **Production Dashboard** — awaiting review, ready to render, rendering, completed, failed, average confidence and render time
+- **Operator metrics** — projects reviewed, acceptance/modification rates, review and render times (process improvement only)
+- **Audit trail** — chain of custody from reference images through vision, AI, operator decisions, spec, template, renderer, output
+- **Production reports** — Daily Production, Confidence Summary, Operator Activity, Render Performance, Failure Report
+
+### Not included
+
+Parallel PSD rendering, queue persistence across restarts, automatic AI behaviour changes from metrics.
+
+---
+
+## v1.0.0-alpha.11 — Production PSD Renderer (Build 011)
+
+**Release date:** 2026-06-30  
+**Work package:** GJS-011
+
+### Highlights
+
+- **Production PSD Renderer** — data-driven layered Photoshop output from Design Specification
+- **Seven rendering services** — PSDRenderService, SmartObjectRenderService, LayerColourService, PatternPlacementService, TexturePlacementService, LayerVisibilityService, PSDExportService
+- **10-stage pipeline** — open PSD, resolve mappings/components, apply colours/patterns/textures, update Smart Objects, toggle layers, validate, export
+- **Template Engine PSD gate** — `open_template_psd()` is the sole application entry point for source templates
+- **Smart Object editing** — catalogue assets replace Smart Object contents without rasterisation
+- **Validation** — abort render on missing layers, colours, or catalogue components
+- **Export** — layered PSD, preview PNG, and `render_log.json` in project `renders/` folder
+- **Render queue** — sequential multi-project rendering
+- **PSD Render Progress dialog** — stage, elapsed time, layer, warnings, errors
+- **Renderer Inspector** — PSD render timings, colours, patterns, textures, Smart Objects
+- **Project history** — Render Started, Completed, Failed, PSD Saved, PNG Generated
+
+### Not included
+
+Parallel PSD rendering, Photoshop automation, additional certified templates beyond Broadcast v1.
+
+---
+
+## v1.0.0-alpha.10 — PSD Template Engine (Build 010)
+
+**Release date:** 2026-06-30  
+**Work package:** GJS-010
+
+### Highlights
+
+- **PSD Template Engine** — permanent bridge between Jersey Studio and Gamechanger Photoshop templates
+- **Seven template services** — TemplateManager, PSDTemplateLoader, LayerMappingService, AnchorPointService, SmartObjectService, TemplateValidator, TemplatePreviewGenerator
+- **Gamechanger Broadcast v1** — first certified template with analysis, mappings, and anchors
+- **Read-only PSD analysis** — layer hierarchy, Smart Objects, blend modes, masks, canvas metadata stored separately
+- **Configurable layer mappings** — Design Specification fields → PSD layers via JSON configuration
+- **Anchor system** — collar, sleeve, badge, sponsor, manufacturer, number, name anchors
+- **Libraries panel** — Components and PSD Templates tabs with Template Browser and Inspector
+- **Project integration** — `template/settings.json` stores active Template ID (not PSD path)
+- **Render Engine bridge** — live renderer requests published mappings without knowing PSD filename
+
+### Not included
+
+PSD editing, production PSD output, Vision/Interpretation/Component Library architecture changes.
+
+---
+
 ## v1.0.0-alpha.9 — Live Renderer & Component Assembly Engine (Build 009)
 
 **Release date:** 2026-06-30  

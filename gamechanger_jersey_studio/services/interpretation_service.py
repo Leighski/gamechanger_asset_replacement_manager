@@ -15,6 +15,7 @@ from models.interpretation import (
     OperatorDecision,
     SuggestionStatus,
 )
+from models.learning import LearningProjectRecord
 from models.project import HistoryEventType, ProjectDocument
 from models.vision_analysis import VisionAnalysisResult
 from services.ai_settings_manager import AISettingsManager
@@ -28,6 +29,9 @@ from services.interpretation.rule_engine import RuleEngine
 from services.interpretation.suggestion_history import SuggestionHistoryService
 from services.logging_manager import get_logger
 from services.project_history_service import ProjectHistoryService
+
+if False:  # TYPE_CHECKING pattern without import cycle at runtime
+    from services.learning_manager_service import LearningManagerService
 
 logger = get_logger()
 
@@ -63,6 +67,10 @@ class InterpretationService:
         self._confidence = ConfidenceEvaluationService()
         self._feedback = SuggestionHistoryService()
         self._providers = ProviderRegistry(self._ai_settings.settings)
+        self._learning: "LearningManagerService | None" = None
+
+    def set_learning_manager(self, learning: "LearningManagerService") -> None:
+        self._learning = learning
 
     @property
     def archive(self) -> InterpretationArchive:
@@ -123,6 +131,28 @@ class InterpretationService:
                 spec=spec,
                 ai_provider=response.provider_name,
             )
+            suggestions = self._confidence.evaluate_all(suggestions)
+            learning_recommendations = []
+            template_id = ""
+            if document.template_settings and document.template_settings.active_template_id:
+                template_id = document.template_settings.active_template_id
+            if self._learning is not None:
+                suggestions, learning_recommendations = self._learning.evaluate_for_interpretation(
+                    document,
+                    suggestions,
+                    template_id=template_id,
+                )
+                if learning_recommendations:
+                    self._ensure_learning_record(document)
+                    for rec in learning_recommendations:
+                        if rec.rule_id not in document.learning_record.rules_applied:
+                            document.learning_record.rules_applied.append(rec.rule_id)
+                    self._record_history(
+                        document,
+                        HistoryEventType.LEARNING_RULE_APPLIED,
+                        user,
+                        {"count": len(learning_recommendations)},
+                    )
             process_ms = (time.perf_counter() - process_started) * 1000.0
             total_ms = (time.perf_counter() - started) * 1000.0
 
@@ -133,6 +163,7 @@ class InterpretationService:
                 ai_provider=response.provider_name,
                 prompt_text=prompt,
                 suggestions=suggestions,
+                learning_recommendations=learning_recommendations,
                 offline_mode=offline,
                 performance=InterpretationPerformance(
                     prompt_generation_ms=round(prompt_ms, 2),
@@ -239,6 +270,29 @@ class InterpretationService:
                     "confidence": suggestion.confidence,
                 },
             )
+            if modified and self._learning is not None:
+                template_id = ""
+                if document.template_settings:
+                    template_id = document.template_settings.active_template_id or ""
+                event = self._learning.events.record_correction(
+                    document,
+                    target_field=suggestion.target_field,
+                    original_ai_value=suggestion.proposed_value,
+                    final_operator_value=value,
+                    confidence=suggestion.confidence,
+                    operator=user,
+                    interpretation_id=interpretation_id,
+                    suggestion_id=suggestion.suggestion_id,
+                    vision_measurements=list(suggestion.source_measurements),
+                    template_id=template_id,
+                )
+                self._record_history(
+                    document,
+                    HistoryEventType.LEARNING_EVENT_RECORDED,
+                    user,
+                    {"event_id": event.event_id, "field": suggestion.target_field},
+                )
+                self._learning.check_for_rule_suggestions()
             accepted_fields.append(suggestion.target_field)
 
         document.mark_dirty()
@@ -328,6 +382,11 @@ class InterpretationService:
             updated if item.suggestion_id == updated.suggestion_id else item
             for item in interpretation.suggestions
         ]
+
+    def _ensure_learning_record(self, document: ProjectDocument) -> LearningProjectRecord:
+        if document.learning_record is None:
+            document.learning_record = LearningProjectRecord()
+        return document.learning_record
 
     def _record_history(
         self,

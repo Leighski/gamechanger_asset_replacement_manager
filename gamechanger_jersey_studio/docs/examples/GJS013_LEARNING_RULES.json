@@ -1,0 +1,45 @@
+[
+  {
+    "rule_id": "LR_COVENTRY_COLLAR",
+    "title": "Coventry City v-neck collar preference",
+    "description": "Coventry City home kits consistently use v-neck collars when AI suggests crew.",
+    "category": "Collar-specific",
+    "triggers": {
+      "field_name": "collar_style",
+      "club": "Coventry City",
+      "original_value": "crew"
+    },
+    "action": {
+      "target_field": "collar_style",
+      "recommended_value": "v-neck",
+      "catalogue_component": "COLLAR_0002",
+      "advisory_note": "Based on 8 similar corrections across Coventry City projects",
+      "confidence_boost": 5.0
+    },
+    "confidence": 92.0,
+    "created_by": "Learning Mode",
+    "status": "Approved",
+    "usage_count": 0
+  },
+  {
+    "rule_id": "LR_HUMMEL_HOOPS",
+    "title": "Hummel manufacturer hoops pattern",
+    "description": "Hummel-manufactured kits with stripes often map to hoops pattern catalogue entry.",
+    "category": "Manufacturer-specific",
+    "triggers": {
+      "field_name": "pattern",
+      "manufacturer": "Hummel"
+    },
+    "action": {
+      "target_field": "pattern",
+      "recommended_value": "hoops",
+      "catalogue_component": "PATTERN_0002",
+      "advisory_note": "Verify against reference image before accepting",
+      "confidence_boost": 3.0
+    },
+    "confidence": 85.0,
+    "created_by": "Operator",
+    "status": "Approved",
+    "usage_count": 0
+  }
+]

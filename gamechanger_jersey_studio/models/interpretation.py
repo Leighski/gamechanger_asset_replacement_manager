@@ -8,6 +8,8 @@ from uuid import uuid4
 
 from pydantic import BaseModel, Field
 
+from models.learning import LearningRecommendation
+
 INTERPRETATION_SCHEMA_VERSION = "1.0"
 INTERPRETATION_ENGINE_VERSION = "1.0.0-alpha.7"
 
@@ -31,10 +33,12 @@ class OperatorDecision(str, Enum):
     MODIFIED = "Modified"
 
 
-def confidence_band(value: float) -> ConfidenceBand:
+def confidence_band(value: float, thresholds: "ConfidenceThresholds | None" = None) -> ConfidenceBand:
+    if thresholds is not None:
+        return thresholds.band_for(value)
     if value >= 95.0:
         return ConfidenceBand.HIGH
-    if value >= 80.0:
+    if value >= 85.0:
         return ConfidenceBand.MEDIUM
     return ConfidenceBand.LOW
 
@@ -104,6 +108,7 @@ class InterpretationResult(BaseModel):
     ai_provider: str = "offline"
     prompt_text: str = ""
     suggestions: list[InterpretationSuggestion] = Field(default_factory=list)
+    learning_recommendations: list[LearningRecommendation] = Field(default_factory=list)
     performance: InterpretationPerformance | None = None
     offline_mode: bool = False
 

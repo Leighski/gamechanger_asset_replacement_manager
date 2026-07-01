@@ -1,0 +1,6 @@
+{
+  "hide_when_unmapped": {
+    "lighting_style": ["Lighting"],
+    "shadow_style": ["Shadows"]
+  }
+}

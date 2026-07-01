@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0",
+  "template_id": "TEMPLATE_BROADCAST_0001",
+  "template_version": "1.0.0",
+  "project_name": "Coventry_Benchmark_3",
+  "started_at": "2026-06-30T15:42:00+00:00",
+  "completed_at": "2026-06-30T15:42:01+00:00",
+  "success": true,
+  "total_ms": 968.47,
+  "stages": [
+    {
+      "stage": "Open PSD template",
+      "duration_ms": 11.66,
+      "layer_name": "",
+      "message": "/Users/leigh/Desktop/Inspired_Delivery_Generator/gamechanger_jersey_studio/docs/examples/_benchmark_tmp/renders/Coventry_Benchmark_3_20260630_154200/Coventry_Benchmark_3_working.psd",
+      "success": true
+    },
+    {
+      "stage": "Resolve template mappings",
+      "duration_ms": 0.01,
+      "layer_name": "",
+      "message": "10 rules",
+      "success": true
+    },
+    {
+      "stage": "Resolve component IDs",
+      "duration_ms": 0.03,
+      "layer_name": "",
+      "message": "9 components",
+      "success": true
+    },
+    {
+      "stage": "Apply colours",
+      "duration_ms": 96.11,
+      "layer_name": "",
+      "message": "",
+      "success": true
+    },
+    {
+      "stage": "Apply patterns",
+      "duration_ms": 195.69,
+      "layer_name": "",
+      "message": "",
+      "success": true
+    },
+    {
+      "stage": "Apply textures",
+      "duration_ms": 105.26,
+      "layer_name": "",
+      "message": "",
+      "success": true
+    },
+    {
+      "stage": "Update Smart Objects",
+      "duration_ms": 518.31,
+      "layer_name": "",
+      "message": "",
+      "success": true
+    },
+    {
+      "stage": "Toggle optional layers",
+      "duration_ms": 0.24,
+      "layer_name": "",
+      "message": "8 toggles",
+      "success": true
+    },
+    {
+      "stage": "Validate layer state",
+      "duration_ms": 0.03,
+      "layer_name": "",
+      "message": "",
+      "success": true
+    }
+  ],
+  "component_ids": {
+    "collar_style": "COLLAR_0002",
+    "sleeve_style": "SLEEVE_0001",
+    "trim_style": "TRIM_0002",
+    "material_style": "MATERIAL_0001",
+    "pattern": "PATTERN_0002",
+    "shadow_style": "SHADOW_0003",
+    "lighting_style": "LIGHT_0002",
+    "texture_style": "TEXTURE_0002",
+    "output_profile": "OutputProfile.GAMECHANGER_BROADCAST"
+  },
+  "colours_applied": {
+    "primary_colour": "#69B3E7",
+    "secondary_colour": "#FFFFFF",
+    "third_colour": "#1C1C1C",
+    "sleeve_colour": "#69B3E7",
+    "collar_colour": "#FFFFFF",
+    "trim_colour": "#1C1C1C"
+  },
+  "patterns_applied": [
+    "Pattern Smart Object"
+  ],
+  "textures_applied": [
+    "Texture Overlay"
+  ],
+  "smart_objects_updated": [
+    "SO0001",
+    "Sleeves",
+    "Trim"
+  ],
+  "layers_toggled": [
+    "show:Base Shirt",
+    "show:Sleeves",
+    "show:Collar Smart Object",
+    "show:Trim",
+    "show:Pattern Smart Object",
+    "show:Texture Overlay",
+    "show:Shadows",
+    "show:Lighting"
+  ],
+  "warnings": [],
+  "errors": [],
+  "validation_issues": []
+}

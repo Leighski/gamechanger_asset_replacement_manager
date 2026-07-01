@@ -39,6 +39,7 @@ class ApplicationController:
         self.recent_projects_manager = RecentProjectsManager(self.settings_manager)
         self.projects_manager = ProjectsManager(
             self.recent_projects_manager,
+            settings_manager=self.settings_manager,
             application_version=self.version_manager.info.version,
         )
 

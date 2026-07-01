@@ -12,6 +12,7 @@ from PySide6.QtWidgets import (
     QHBoxLayout,
     QMainWindow,
     QMessageBox,
+    QDialog,
     QSplitter,
     QStackedWidget,
     QWidget,
@@ -23,14 +24,19 @@ from services.projects_manager import ProjectsManager
 from services.settings_manager import SettingsManager
 from services.version_manager import VersionManager
 from ui.about_dialog import AboutDialog
+from ui.action_validation import validate_action_callbacks
 from ui.animations import crossfade_stack, fade_in
+from ui.dialogs.batch_render_dialog import BatchRenderDialog
 from ui.dialogs.new_project_wizard import NewProjectWizard
+from ui.dialogs.psd_render_progress_dialog import PSDRenderProgressDialog
 from ui.theme import Theme
-from ui.widgets.catalogue_browser import CatalogueBrowserPanel
+from ui.widgets.libraries_panel import LibrariesPanel
 from ui.widgets.reference_images_panel import ReferenceImagesPanel
 from ui.widgets.design_specification_editor import DesignSpecificationEditor
-from ui.widgets.vision_analysis_review import VisionAnalysisReviewPanel
+from ui.widgets.validation_panel import ValidationPanel
+from ui.widgets.learning_panel import LearningPanel
 from ui.widgets.preview_panel import PreviewPanel
+from ui.widgets.production_panel import ProductionPanel
 from ui.widgets.project_dashboard import ProjectDashboard
 from ui.widgets.project_tree import ProjectTree
 from ui.widgets.sidebar import Sidebar
@@ -72,6 +78,7 @@ class MainWindow(QMainWindow):
 
         self._restore_window_state()
         self._configure_autosave_timer()
+        self._validate_menu_actions()
         self._sidebar.select("projects")
         self.refresh_project_ui()
 
@@ -144,10 +151,12 @@ class MainWindow(QMainWindow):
         self._action_project_info = QAction("Project &Information", self)
         self._action_project_settings = QAction("Project &Settings", self)
         self._action_export = QAction("&Export Package…", self)
+        self._action_render_psd = QAction("Render Production &PSD…", self)
         for action in (
             self._action_project_info,
             self._action_project_settings,
             self._action_export,
+            self._action_render_psd,
         ):
             action.setEnabled(False)
             project_menu.addAction(action)
@@ -157,8 +166,9 @@ class MainWindow(QMainWindow):
         self._action_reports = QAction("Generate &Reports", self)
         self._action_batch = QAction("&Batch Processing", self)
         for action in (self._action_validate, self._action_reports, self._action_batch):
-            action.setEnabled(False)
             tools_menu.addAction(action)
+        self._action_reports.setEnabled(True)
+        self._action_batch.setEnabled(True)
 
         window_menu = menu.addMenu("&Window")
         self._action_minimize = QAction("&Minimize", self)
@@ -192,6 +202,47 @@ class MainWindow(QMainWindow):
         self._action_docs.triggered.connect(self._open_documentation)
         self._action_release_notes.triggered.connect(self._open_release_notes)
         self._action_about.triggered.connect(self._show_about)
+        self._action_render_psd.triggered.connect(self._render_production_psd)
+        self._action_validate.triggered.connect(self._validate_project)
+        self._action_reports.triggered.connect(self._open_production_reports)
+        self._action_batch.triggered.connect(self._open_batch_render_from_queue)
+
+    def _validate_menu_actions(self) -> None:
+        """Verify menu callbacks exist before the window is shown."""
+        bindings = [
+            (self._action_new, "_new_project"),
+            (self._action_open, "_open_project"),
+            (self._action_save, "_save_project"),
+            (self._action_save_as, "_save_project_as"),
+            (self._action_close, "_close_project"),
+            (self._action_duplicate, "_duplicate_project"),
+            (self._action_archive, "_archive_project"),
+            (self._action_delete, "_delete_project"),
+            (self._action_quit, "close"),
+            (self._action_minimize, "showMinimized"),
+            (self._action_docs, "_open_documentation"),
+            (self._action_release_notes, "_open_release_notes"),
+            (self._action_about, "_show_about"),
+            (self._action_render_psd, "_render_production_psd"),
+            (self._action_validate, "_validate_project"),
+            (self._action_reports, "_open_production_reports"),
+            (self._action_batch, "_open_batch_render_from_queue"),
+            (self._action_undo, "_undo_design_spec"),
+            (self._action_redo, "_redo_design_spec"),
+        ]
+        errors = validate_action_callbacks(self, bindings)
+        if errors:
+            logger.warning("Disabled {} menu action(s) with invalid callbacks", len(errors))
+
+    def _open_production_reports(self) -> None:
+        self._sidebar.select("production")
+        self._show_content_page(5)
+        self._production.refresh()
+
+    def _validate_project(self) -> None:
+        self._sidebar.select("validation")
+        self._show_content_page(3)
+        self._validation.refresh()
 
     def _build_toolbar(self) -> None:
         self._toolbar = ApplicationToolBar(self)
@@ -215,14 +266,21 @@ class MainWindow(QMainWindow):
         self._dashboard = ProjectDashboard(self)
         self._design_editor = DesignSpecificationEditor(self)
         self._reference_panel = ReferenceImagesPanel(self)
-        self._vision_review = VisionAnalysisReviewPanel(self)
-        self._catalogue_browser = CatalogueBrowserPanel(self)
+        self._validation = ValidationPanel(self)
+        self._libraries = LibrariesPanel(self)
+        self._production = ProductionPanel(self)
+        self._learning = LearningPanel(self)
         self._welcome = WelcomeScreen(self)
 
         self._design_editor.set_service(self._projects.design_specification_service)
         self._reference_panel.set_service(self._projects.reference_image_service)
-        self._catalogue_browser.set_manager(self._projects.catalogue_manager)
-        self._vision_review.set_services(
+        self._libraries.set_catalogue_manager(self._projects.catalogue_manager)
+        self._libraries.set_template_manager(self._projects.template_manager_service)
+        self._production.set_services(self._projects)
+        self._production.queue_panel.batch_render_requested.connect(self._start_batch_render)
+        self._learning.set_services(self._projects)
+        self._validation.set_services(self._projects)
+        self._validation.set_review_services(
             self._projects.vision_analysis_service,
             self._projects.reference_image_service,
             self._projects.interpretation_service,
@@ -246,8 +304,10 @@ class MainWindow(QMainWindow):
         self._content_stack.addWidget(self._dashboard)
         self._content_stack.addWidget(self._design_editor)
         self._content_stack.addWidget(self._reference_panel)
-        self._content_stack.addWidget(self._vision_review)
-        self._content_stack.addWidget(self._catalogue_browser)
+        self._content_stack.addWidget(self._validation)
+        self._content_stack.addWidget(self._libraries)
+        self._content_stack.addWidget(self._production)
+        self._content_stack.addWidget(self._learning)
         centre_split.addWidget(self._content_stack)
         centre_split.setStretchFactor(0, 1)
         centre_split.setStretchFactor(1, 3)
@@ -280,7 +340,7 @@ class MainWindow(QMainWindow):
         self._design_editor.specification_changed.connect(self._on_design_spec_changed)
         self._reference_panel.images_changed.connect(self._on_reference_images_changed)
         self._reference_panel.analyse_requested.connect(self._on_analyse_requested)
-        self._vision_review.analysis_changed.connect(self._on_vision_analysis_changed)
+        self._validation.review_panel.analysis_changed.connect(self._on_vision_analysis_changed)
         self._tree.section_selected.connect(self._on_tree_section_selected)
         self._dashboard.references_clicked.connect(lambda: self._show_content_page(2))
         self._action_undo.triggered.connect(self._undo_design_spec)
@@ -300,7 +360,7 @@ class MainWindow(QMainWindow):
             self._dashboard.set_project(document)
             self._design_editor.set_project(document)
             self._reference_panel.set_project(document)
-            self._vision_review.set_project(document)
+            self._validation.set_project(document)
             self._preview.set_project(document)
             self._status_bar.set_project(
                 document.manifest.project_name,
@@ -313,7 +373,7 @@ class MainWindow(QMainWindow):
             self._dashboard.clear()
             self._design_editor.set_project(None)
             self._reference_panel.set_project(None)
-            self._vision_review.set_project(None)
+            self._validation.set_project(None)
             self._preview.set_project(None)
             self._status_bar.set_project("", "")
             self._status_bar.set_autosave("Autosave: idle")
@@ -337,6 +397,33 @@ class MainWindow(QMainWindow):
         self._action_duplicate.setEnabled(loaded)
         self._action_archive.setEnabled(loaded)
         self._action_delete.setEnabled(loaded)
+        self._action_render_psd.setEnabled(loaded)
+
+    def _render_production_psd(self) -> None:
+        document = self._projects.session.document
+        if document is None:
+            return
+        dialog = PSDRenderProgressDialog(self)
+        dialog.show()
+
+        def on_progress(progress) -> None:
+            dialog.update_progress(progress)
+
+        result = self._projects.psd_renderer_service.render_document(
+            document,
+            user=document.manifest.author or "Operator",
+            progress_callback=on_progress,
+        )
+        if result.success:
+            self._preview._inspector.update_psd_render(result.log)
+            QMessageBox.information(
+                self,
+                "PSD Render Complete",
+                f"Rendered PSD saved to:\n{result.psd_path}",
+            )
+        else:
+            QMessageBox.warning(self, "PSD Render Failed", result.error or "Unknown error")
+        dialog.accept()
 
     def _configure_autosave_timer(self) -> None:
         minutes = self._settings_manager.settings.autosave_interval_minutes
@@ -360,11 +447,23 @@ class MainWindow(QMainWindow):
             "libraries": "Libraries",
             "preview": "Preview",
             "validation": "Validation",
-            "reports": "Reports",
+            "production": "Production",
+            "learning": "Learning",
             "settings": "Settings",
         }
         self._status_bar.set_ready(f"{labels.get(key, key)} — Ready")
-        if not self._projects.session.loaded:
+        if key == "settings":
+            self._show_production_settings()
+            return
+        if key == "learning":
+            self._show_content_page(6)
+            self._learning.refresh()
+            return
+        if not self._projects.session.loaded and key not in ("production", "learning"):
+            return
+        if key == "production":
+            self._show_content_page(5)
+            self._production.refresh()
             return
         if key == "design":
             self._show_content_page(1)
@@ -372,8 +471,26 @@ class MainWindow(QMainWindow):
             self._show_content_page(0)
         elif key == "validation":
             self._show_content_page(3)
+            self._validation.refresh()
         elif key == "libraries":
             self._show_content_page(4)
+
+    def _show_production_settings(self) -> None:
+        if self._projects.session.loaded:
+            self._show_content_page(5)
+        self._production.show_settings_tab()
+        self._production.refresh()
+
+    def _start_batch_render(self, items) -> None:
+        dialog = BatchRenderDialog(self._projects, items, self)
+        dialog.exec()
+        self._production.refresh()
+
+    def _open_batch_render_from_queue(self) -> None:
+        self._sidebar.select("production")
+        self._show_content_page(5)
+        self._production.refresh()
+        self._production.show_queue_tab()
 
     def _show_content_page(self, index: int) -> None:
         self._content_stack.setCurrentIndex(index)
@@ -381,7 +498,7 @@ class MainWindow(QMainWindow):
     def _on_analyse_requested(self, image_id: str) -> None:
         self._sidebar.select("validation")
         self._show_content_page(3)
-        self._vision_review.run_analysis(image_id)
+        self._validation.run_analysis(image_id)
 
     def _on_vision_analysis_changed(self) -> None:
         document = self._projects.session.document
@@ -391,6 +508,8 @@ class MainWindow(QMainWindow):
         self._dashboard.set_project(document)
         self._reference_panel.set_project(document)
         self._design_editor.set_project(document)
+        self._validation.refresh()
+        self._schedule_preview_refresh()
 
     def _on_tree_section_selected(self, section: str) -> None:
         if section == "references":
@@ -402,6 +521,7 @@ class MainWindow(QMainWindow):
             return
         self._tree.set_project(document)
         self._dashboard.set_project(document)
+        self._validation.review_panel.refresh()
 
     def _on_design_spec_changed(self) -> None:
         document = self._projects.session.document
@@ -463,7 +583,7 @@ class MainWindow(QMainWindow):
             default_output_folder=str(self._projects.default_project_folder()),
             parent=self,
         )
-        if wizard.exec() != NewProjectWizard.DialogCode.Accepted:
+        if wizard.exec() != QDialog.DialogCode.Accepted:
             return
         request = wizard.request()
         if request is None:

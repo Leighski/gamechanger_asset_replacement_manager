@@ -1,0 +1,54 @@
+{
+  "report_type": "Learning Summary",
+  "version": "1.0.0-alpha.13",
+  "work_package": "GJS-013",
+  "generated_at": "2026-06-30T17:00:00+00:00",
+  "dashboard": {
+    "total_events": 24,
+    "active_rules": 2,
+    "draft_rules": 1,
+    "most_used_rule": "Coventry City v-neck collar preference",
+    "most_frequent_correction": "collar_style",
+    "most_improved_field": "collar_style",
+    "recent_activity_count": 10
+  },
+  "learning_growth": {
+    "events": 24,
+    "rules": 3,
+    "approved_rules": 2,
+    "usage_records": 18
+  },
+  "top_rules": [
+    {
+      "rule_id": "LR_COVENTRY_COLLAR",
+      "title": "Coventry City v-neck collar preference",
+      "usage_count": 12,
+      "acceptance_rate": 83.33,
+      "confidence_improvement": 5.0
+    },
+    {
+      "rule_id": "LR_HUMMEL_HOOPS",
+      "title": "Hummel manufacturer hoops pattern",
+      "usage_count": 6,
+      "acceptance_rate": 66.67,
+      "confidence_improvement": 3.0
+    }
+  ],
+  "rule_effectiveness": {
+    "operator_acceptance_rate": 75.0,
+    "average_confidence_boost": 4.0,
+    "ignored_count": 4,
+    "modification_rate": 11.11
+  },
+  "time_saved": {
+    "estimated_minutes_per_accepted_recommendation": 0.5,
+    "total_estimated_minutes_saved": 9.0,
+    "note": "Process improvement metric only — does not alter AI behaviour"
+  },
+  "operator_activity": {
+    "rules_created": 2,
+    "recommendations_accepted": 14,
+    "recommendations_ignored": 4,
+    "corrections_captured": 24
+  }
+}

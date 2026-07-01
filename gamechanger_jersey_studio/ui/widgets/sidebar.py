@@ -17,8 +17,9 @@ NAV_ITEMS = (
     ("libraries", "Libraries", "libraries", "Ctrl+3"),
     ("preview", "Preview", "preview", "Ctrl+4"),
     ("validation", "Validation", "validation", "Ctrl+5"),
-    ("reports", "Reports", "reports", "Ctrl+6"),
-    ("settings", "Settings", "settings", "Ctrl+7"),
+    ("production", "Production", "activity", "Ctrl+6"),
+    ("learning", "Learning", "doc", "Ctrl+7"),
+    ("settings", "Settings", "settings", "Ctrl+8"),
 )
 
 
@@ -66,7 +67,7 @@ class Sidebar(QFrame):
         self._buttons["projects"].setChecked(True)
         layout.addStretch(1)
 
-        hint = QLabel("Ctrl+1–7 navigate")
+        hint = QLabel("Ctrl+1–8 navigate")
         hint.setProperty("muted", True)
         hint.setFont(Typography.caption())
         layout.addWidget(hint)

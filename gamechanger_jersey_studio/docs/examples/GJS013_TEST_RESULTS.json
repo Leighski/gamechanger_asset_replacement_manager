@@ -1,0 +1,23 @@
+{
+  "test_suite": "gamechanger_jersey_studio",
+  "version": "1.0.0-alpha.13",
+  "work_package": "GJS-013",
+  "total_tests": 156,
+  "passed": 156,
+  "failed": 0,
+  "new_tests": 9,
+  "test_files": [
+    "tests/test_learning_mode.py"
+  ],
+  "categories": {
+    "learning_event_capture": 1,
+    "rule_crud": 1,
+    "rule_engine_advisory": 1,
+    "pattern_detection": 1,
+    "knowledge_base_import_export": 1,
+    "project_persistence": 1,
+    "rule_search": 1,
+    "analytics_dashboard": 1,
+    "rule_enable_disable": 1
+  }
+}

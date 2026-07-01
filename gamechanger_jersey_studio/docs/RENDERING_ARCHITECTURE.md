@@ -2,7 +2,9 @@
 
 ## Overview
 
-The Live Renderer assembles jersey previews from **certified Component Library** assets. It is the visual feedback engine for Design Specification editing — not the production PSD renderer.
+The Live Renderer assembles jersey previews from **certified Component Library** assets. It is the visual feedback engine for Design Specification editing.
+
+For production layered Photoshop output, see **[PSD Rendering Architecture](PSD_RENDERING_ARCHITECTURE.md)** (Build 011).
 
 ## Subsystem layout
 

@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0-rc.1",
+  "all_consistent": true,
+  "scenarios": [
+    {
+      "scenario": "100 Consecutive Renders",
+      "iterations": 100,
+      "success_count": 100,
+      "failure_count": 0,
+      "peak_memory_mb": 0.42,
+      "average_duration_ms": 0.08,
+      "consistent": true
+    },
+    {
+      "scenario": "Large Component Library",
+      "iterations": 20,
+      "success_count": 20,
+      "failure_count": 0,
+      "peak_memory_mb": 0.51,
+      "average_duration_ms": 0.12,
+      "consistent": true
+    },
+    {
+      "scenario": "Multiple Template Switches",
+      "iterations": 50,
+      "success_count": 50,
+      "failure_count": 0,
+      "peak_memory_mb": 0.38,
+      "average_duration_ms": 0.01,
+      "consistent": true
+    },
+    {
+      "scenario": "Large Knowledge Base",
+      "iterations": 30,
+      "success_count": 30,
+      "failure_count": 0,
+      "peak_memory_mb": 0.45,
+      "average_duration_ms": 0.02,
+      "consistent": true
+    }
+  ]
+}

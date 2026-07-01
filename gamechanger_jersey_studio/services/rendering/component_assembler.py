@@ -54,9 +54,18 @@ class ComponentAssembler:
         *,
         resampling: int = Image.Resampling.BILINEAR,
     ) -> tuple[Image.Image, CatalogueComponent]:
+        if not reference or not reference.strip():
+            label = field_name.replace("_", " ").title()
+            raise RenderingError(
+                f"Missing {label} ({field_name}) — assign a certified catalogue component "
+                "in Design Specification"
+            )
         component = self.resolve_field(field_name, reference)
         if component is None:
-            raise RenderingError(f"No certified component for {field_name}={reference!r}")
+            raise RenderingError(
+                f"No certified component for {field_name}={reference!r} — verify the catalogue "
+                "entry exists or update Design Specification"
+            )
         return self.load_component_image(component, size, resampling=resampling), component
 
     def spec_references(self, spec: DesignSpecification) -> dict[str, str]:

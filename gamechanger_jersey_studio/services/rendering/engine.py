@@ -8,6 +8,7 @@ from typing import Callable
 from PIL import Image
 
 from models.design_specification import DesignSpecification
+from models.psd_template import PublishedTemplateMappings
 from models.renderer import LayerTiming, RenderLayerId, RendererSettings, RenderQuality, RenderResult, RenderStats
 from services.catalogue_manager_service import CatalogueManagerService
 from services.logging_manager import get_logger
@@ -78,6 +79,7 @@ class RenderingEngine:
         settings: RendererSettings,
         *,
         token_check: Callable[[], bool] | None = None,
+        template_mappings: PublishedTemplateMappings | None = None,
     ) -> RenderResult:
         started = time.perf_counter()
         quality = settings.quality
@@ -87,12 +89,14 @@ class RenderingEngine:
         stats = RenderStats(quality=quality, width=width, height=height)
         built: dict[RenderLayerId, Image.Image] = {}
 
+        template_label = template_mappings.template_id if template_mappings else "none"
         logger.info(
-            "Render started — quality={}, size={}x{}, club={}",
+            "Render started — quality={}, size={}x{}, club={}, template={}",
             quality.value,
             width,
             height,
             spec.club or "—",
+            template_label,
         )
 
         try:

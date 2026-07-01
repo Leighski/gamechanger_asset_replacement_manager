@@ -1,0 +1,9 @@
+{
+  "job_count": 3,
+  "successes": 3,
+  "failures": 0,
+  "total_batch_ms": 3158.51,
+  "mean_render_ms": 1049.21,
+  "median_render_ms": 972.29,
+  "target_100_jerseys_estimated_minutes": 1.75
+}

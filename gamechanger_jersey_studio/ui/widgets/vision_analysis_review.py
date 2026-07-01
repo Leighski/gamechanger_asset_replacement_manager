@@ -22,6 +22,7 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
+from core.dev_flags import is_developer_diagnostics_enabled
 from models.interpretation import ConfidenceBand, InterpretationResult, InterpretationSuggestion, SuggestionStatus
 from models.project import ProjectDocument
 from models.vision_analysis import VisionAnalysisResult
@@ -33,6 +34,7 @@ from services.vision_analysis_service import VisionAnalysisService
 from ui.icons import icon
 from ui.theme import Theme
 from ui.typography import Typography
+from ui.widgets.developer_diagnostics_panel import DeveloperDiagnosticsPanel
 
 
 class _AnalysisCanvas(QLabel):
@@ -53,58 +55,68 @@ class _AnalysisCanvas(QLabel):
 
     def _render(self) -> None:
         if self._base is None or self._base.isNull():
-            self.setText("No image selected")
             self.setPixmap(QPixmap())
+            self.setText("No image selected")
+            self.update()
+            return
+        target_w = max(1, self.width() - 16)
+        target_h = max(1, self.height() - 16)
+        if target_w < 2 or target_h < 2:
             return
         scaled = self._base.scaled(
-            max(360, self.width() - 16),
-            max(420, self.height() - 16),
+            max(360, target_w),
+            max(420, target_h),
             Qt.AspectRatioMode.KeepAspectRatio,
             Qt.TransformationMode.SmoothTransformation,
         )
         composed = QPixmap(scaled.size())
         composed.fill(Qt.GlobalColor.transparent)
         painter = QPainter(composed)
-        painter.drawPixmap(0, 0, scaled)
-        if self._analysis is not None:
-            scale_x = scaled.width() / max(1, self._base.width())
-            scale_y = scaled.height() / max(1, self._base.height())
-            if self._analysis.shirt_detection:
-                pen = QPen(QColor(Theme.ACCENT))
-                pen.setWidth(2)
-                painter.setPen(pen)
-                outline = self._analysis.shirt_detection.outline_points
-                if len(outline) >= 2:
-                    for index in range(len(outline)):
-                        x0, y0 = outline[index]
-                        x1, y1 = outline[(index + 1) % len(outline)]
-                        painter.drawLine(
-                            int(x0 * scale_x),
-                            int(y0 * scale_y),
-                            int(x1 * scale_x),
-                            int(y1 * scale_y),
+        if not painter.isActive():
+            return
+        try:
+            painter.drawPixmap(0, 0, scaled)
+            if self._analysis is not None:
+                scale_x = scaled.width() / max(1, self._base.width())
+                scale_y = scaled.height() / max(1, self._base.height())
+                if self._analysis.shirt_detection:
+                    pen = QPen(QColor(Theme.ACCENT))
+                    pen.setWidth(2)
+                    painter.setPen(pen)
+                    outline = self._analysis.shirt_detection.outline_points
+                    if len(outline) >= 2:
+                        for index in range(len(outline)):
+                            x0, y0 = outline[index]
+                            x1, y1 = outline[(index + 1) % len(outline)]
+                            painter.drawLine(
+                                int(x0 * scale_x),
+                                int(y0 * scale_y),
+                                int(x1 * scale_x),
+                                int(y1 * scale_y),
+                            )
+                region_colours = {
+                    "Collar": "#E74C3C",
+                    "Sleeves": "#3498DB",
+                    "Body": "#2ECC71",
+                    "Shoulders": "#F39C12",
+                    "Side Panels": "#9B59B6",
+                    "Trim": "#1ABC9C",
+                }
+                for region in self._analysis.regions:
+                    colour = QColor(region_colours.get(region.name, Theme.TEXT_MUTED))
+                    colour.setAlpha(60)
+                    painter.setBrush(colour)
+                    painter.setPen(QPen(QColor(region_colours.get(region.name, Theme.TEXT_MUTED)), 1))
+                    if len(region.points) >= 3:
+                        polygon = QPolygon(
+                            [QPoint(int(x * scale_x), int(y * scale_y)) for x, y in region.points]
                         )
-            region_colours = {
-                "Collar": "#E74C3C",
-                "Sleeves": "#3498DB",
-                "Body": "#2ECC71",
-                "Shoulders": "#F39C12",
-                "Side Panels": "#9B59B6",
-                "Trim": "#1ABC9C",
-            }
-            for region in self._analysis.regions:
-                colour = QColor(region_colours.get(region.name, Theme.TEXT_MUTED))
-                colour.setAlpha(60)
-                painter.setBrush(colour)
-                painter.setPen(QPen(QColor(region_colours.get(region.name, Theme.TEXT_MUTED)), 1))
-                if len(region.points) >= 3:
-                    polygon = QPolygon(
-                        [QPoint(int(x * scale_x), int(y * scale_y)) for x, y in region.points]
-                    )
-                    painter.drawPolygon(polygon)
-        painter.end()
+                        painter.drawPolygon(polygon)
+        finally:
+            painter.end()
         self.setPixmap(composed)
         self.setText("")
+        self.update()
 
     def resizeEvent(self, event) -> None:  # noqa: N802
         super().resizeEvent(event)
@@ -328,6 +340,11 @@ class VisionAnalysisReviewPanel(QFrame):
         self._reject_ai_selected_btn.clicked.connect(self._reject_ai_selected)
         self._reject_ai_all_btn.clicked.connect(self._reject_ai_all)
 
+        self._diagnostics: DeveloperDiagnosticsPanel | None = None
+        if is_developer_diagnostics_enabled():
+            self._diagnostics = DeveloperDiagnosticsPanel(self)
+            root.addWidget(self._diagnostics)
+
     def set_services(
         self,
         vision: VisionAnalysisService,
@@ -343,9 +360,6 @@ class VisionAnalysisReviewPanel(QFrame):
     def set_project(self, document: ProjectDocument | None) -> None:
         self._document = document
         self._current = None
-        self._image_selector.blockSignals(True)
-        self._image_selector.clear()
-        self._image_selector.blockSignals(False)
         enabled = document is not None and self._vision is not None and self._references is not None
         self.setEnabled(enabled)
         for button in (
@@ -361,20 +375,25 @@ class VisionAnalysisReviewPanel(QFrame):
         ):
             button.setEnabled(False)
         if not enabled:
+            self._image_selector.blockSignals(True)
+            self._image_selector.clear()
+            self._image_selector.blockSignals(False)
             self._canvas.set_analysis(None, None)
             self._summary.setText("Open a project to review vision analysis.")
             self._clear_detail_panels()
+            self._refresh_diagnostics()
             return
-        for record in self._references.manifest.sorted_images():
-            self._image_selector.addItem(record.filename, record.image_id)
-        if self._image_selector.count():
-            self._image_selector.setCurrentIndex(0)
-            self._on_image_changed(0)
+        self.refresh()
+
+    def refresh(self, *, select_image_id: str | None = None) -> None:
+        """Reload reference list and analysis state from the current project."""
+        if self._document is None or self._vision is None or self._references is None:
+            return
+        self._reload_image_selector(select_image_id=select_image_id)
+        self._refresh_diagnostics()
 
     def show_analysis_for_image(self, image_id: str) -> None:
-        index = self._image_selector.findData(image_id)
-        if index >= 0:
-            self._image_selector.setCurrentIndex(index)
+        self.refresh(select_image_id=image_id)
 
     def run_analysis(self, image_id: str) -> None:
         if self._vision is None or self._document is None:
@@ -382,16 +401,66 @@ class VisionAnalysisReviewPanel(QFrame):
         user = self._document.manifest.author or "Operator"
         try:
             self._vision.analyse_image(self._document, image_id, user=user)
-            self.show_analysis_for_image(image_id)
+            self.refresh(select_image_id=image_id)
             self.analysis_changed.emit()
         except VisionEngineError as exc:
             QMessageBox.warning(self, "Analysis Failed", str(exc))
+
+    def _reload_image_selector(self, *, select_image_id: str | None = None) -> None:
+        if self._references is None:
+            return
+        self._image_selector.blockSignals(True)
+        self._image_selector.clear()
+        for record in self._references.manifest.sorted_images():
+            self._image_selector.addItem(record.filename, record.image_id)
+        self._image_selector.blockSignals(False)
+
+        pick = select_image_id or self._default_image_id()
+        if pick:
+            index = self._image_selector.findData(pick)
+            if index >= 0:
+                self._image_selector.blockSignals(True)
+                self._image_selector.setCurrentIndex(index)
+                self._image_selector.blockSignals(False)
+                self._load_image_analysis(pick)
+                return
+        if self._image_selector.count():
+            self._image_selector.setCurrentIndex(0)
+        else:
+            self._current = None
+            self._canvas.set_analysis(None, None)
+            self._clear_detail_panels()
+            self._summary.setText("Import reference images to begin analysis.")
+            self._refresh_view()
+
+    def _default_image_id(self) -> str | None:
+        if self._references is None or self._vision is None:
+            return None
+        images = self._references.manifest.sorted_images()
+        if not images:
+            return None
+        analysed = [
+            record.image_id
+            for record in images
+            if self._vision.latest_for_image(record.image_id) is not None
+        ]
+        if len(analysed) == 1:
+            return analysed[0]
+        if len(images) == 1:
+            return images[0].image_id
+        return images[0].image_id
 
     def _on_image_changed(self, index: int) -> None:
         if index < 0 or self._references is None or self._vision is None:
             return
         image_id = self._image_selector.itemData(index)
         if not image_id:
+            return
+        self._load_image_analysis(image_id)
+        self._refresh_diagnostics()
+
+    def _load_image_analysis(self, image_id: str) -> None:
+        if self._vision is None:
             return
         self._current = self._vision.latest_for_image(image_id)
         pixmap = self._load_pixmap(image_id)
@@ -403,9 +472,10 @@ class VisionAnalysisReviewPanel(QFrame):
             self._accept_selected_btn,
             self._reject_btn,
             self._reanalyse_btn,
-            self._interpret_btn,
         ):
             button.setEnabled(has_analysis)
+        self._interpret_btn.setEnabled(has_analysis and self._interpretation is not None)
+        self._refresh_view()
 
     def _load_pixmap(self, image_id: str) -> QPixmap | None:
         if self._references is None or self._document is None:
@@ -523,6 +593,39 @@ class VisionAnalysisReviewPanel(QFrame):
 
         self._populate_spec_table()
         self._populate_interpretation()
+        self._refresh_view()
+
+    def _refresh_view(self) -> None:
+        """Force immediate repaint after data-binding changes."""
+        for table in (self._confidence_table, self._measurements_table, self._spec_table):
+            table.resizeColumnsToContents()
+            table.viewport().update()
+        self._canvas.update()
+        self.update()
+
+    def _refresh_diagnostics(self) -> None:
+        if self._diagnostics is None:
+            return
+        project_name = ""
+        spec_loaded = False
+        if self._document is not None:
+            project_name = self._document.manifest.project_name
+            spec_loaded = self._document.design_spec is not None
+        reference_label = "—"
+        index = self._image_selector.currentIndex()
+        if index >= 0:
+            reference_label = self._image_selector.currentText() or "—"
+        ai_ready = self._interpretation_result is not None
+        if not ai_ready and self._interpretation is not None and self._current is not None:
+            ai_ready = self._interpretation.latest_for_analysis(self._current.analysis_id) is not None
+        self._diagnostics.update_state(
+            project_name=project_name,
+            reference_image=reference_label,
+            vision_loaded=self._current is not None,
+            ai_ready=ai_ready,
+            spec_loaded=spec_loaded,
+            renderer_ready=spec_loaded,
+        )
 
     def _populate_spec_table(self) -> None:
         if self._design is None or self._document is None:
@@ -550,10 +653,11 @@ class VisionAnalysisReviewPanel(QFrame):
             return
         self._interpretation_result = self._interpretation.latest_for_analysis(self._current.analysis_id)
         has_analysis = self._current is not None
-        self._interpret_btn.setEnabled(has_analysis)
+        self._interpret_btn.setEnabled(has_analysis and self._interpretation is not None)
         if self._interpretation_result is None:
             mode = "offline manual mode" if self._interpretation.is_offline_mode else "AI provider ready"
             self._ai_status.setText(f"No interpretation yet. Provider: {mode}.")
+            self._refresh_diagnostics()
             return
         result = self._interpretation_result
         perf = result.performance
@@ -575,6 +679,7 @@ class VisionAnalysisReviewPanel(QFrame):
             self._reject_ai_all_btn,
         ):
             button.setEnabled(has_pending)
+        self._refresh_diagnostics()
 
     def _generate_interpretation(self) -> None:
         if self._interpretation is None or self._document is None or self._current is None:
@@ -593,6 +698,8 @@ class VisionAnalysisReviewPanel(QFrame):
                 user=user,
             )
             self._populate_interpretation()
+            self._refresh_view()
+            self._refresh_diagnostics()
             self.analysis_changed.emit()
         except InterpretationError as exc:
             QMessageBox.warning(self, "Interpretation Failed", str(exc))

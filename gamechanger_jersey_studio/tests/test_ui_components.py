@@ -64,8 +64,8 @@ def test_design_editor_loads_project(qapp) -> None:  # noqa: ARG001
 
 def test_version_branding_constants() -> None:
     assert APP_NAME == "Gamechanger Jersey Studio"
-    assert "Alpha" in VERSION_LABEL
-    assert BUILD_LABEL == "Build 009"
+    assert "RC1" in VERSION_LABEL
+    assert BUILD_LABEL == "Build 014"
 
 
 def test_main_window_instantiates(qapp) -> None:  # noqa: ARG001

@@ -15,12 +15,12 @@ except ImportError:  # pragma: no cover
 from core.paths import APPLICATION_LOG_PATH, CONFIG_DIR, PROJECT_ROOT
 
 APP_NAME = "Gamechanger Jersey Studio"
-APP_VERSION = "1.0.0-alpha.9"
-VERSION_LABEL = "Version 1.0 Alpha"
-BUILD_NUMBER = "009"
+APP_VERSION = "1.0.0-rc.1"
+VERSION_LABEL = "Version 1.0 RC1"
+BUILD_NUMBER = "014"
 BUILD_LABEL = f"Build {BUILD_NUMBER}"
 COPYRIGHT = "© Gamechanger Sports"
-WORK_PACKAGE = "GJS-009"
+WORK_PACKAGE = "GJS-014"
 RELEASE_DATE = "2026-06-30"
 
 VERSION_HISTORY = {
@@ -33,6 +33,11 @@ VERSION_HISTORY = {
     "1.0.0-alpha.7": "AI Interpretation & Operator Review Engine",
     "1.0.0-alpha.8": "Component Library & Asset Catalogue System",
     "1.0.0-alpha.9": "Live Renderer & Component Assembly Engine",
+    "1.0.0-alpha.10": "PSD Template Engine",
+    "1.0.0-alpha.11": "Production PSD Renderer",
+    "1.0.0-alpha.12": "Assisted Production & Confidence Workflow",
+    "1.0.0-alpha.13": "Learning Mode & Organisational Knowledge Base",
+    "1.0.0-rc.1": "RC1 Production Validation & Release Readiness",
 }
 
 

@@ -5,6 +5,9 @@ from __future__ import annotations
 from pydantic import BaseModel, Field
 
 
+from models.production import ConfidenceThresholds
+
+
 class WindowGeometry(BaseModel):
     width: int = Field(default=1440, ge=400, le=10000)
     height: int = Field(default=900, ge=300, le=10000)
@@ -27,3 +30,4 @@ class AppSettings(BaseModel):
     autosave_interval_minutes: int = Field(default=5, ge=1, le=120)
     default_project_folder: str = ""
     recent_projects: list[RecentProjectEntry] = Field(default_factory=list)
+    confidence_thresholds: ConfidenceThresholds = Field(default_factory=ConfidenceThresholds)

@@ -167,8 +167,10 @@ class DesignSpecification(BaseModel):
 def _rebuild_project_document() -> None:
     from models.project import ProjectDocument
     from models.interpretation import InterpretationArchive
+    from models.learning import LearningProjectRecord
     from models.reference_image import ReferenceImageManifest
     from models.renderer import RendererSettings
+    from models.psd_template import TemplateProjectSettings
     from models.vision_analysis import VisionAnalysisArchive
 
     ProjectDocument.model_rebuild(
@@ -177,7 +179,9 @@ def _rebuild_project_document() -> None:
             "ReferenceImageManifest": ReferenceImageManifest,
             "VisionAnalysisArchive": VisionAnalysisArchive,
             "InterpretationArchive": InterpretationArchive,
+            "LearningProjectRecord": LearningProjectRecord,
             "RendererSettings": RendererSettings,
+            "TemplateProjectSettings": TemplateProjectSettings,
         }
     )
 

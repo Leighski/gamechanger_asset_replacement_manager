@@ -27,6 +27,10 @@ from models.reference_image import ReferenceImageManifest
 from models.vision_analysis import VisionAnalysisArchive
 from services.interpretation_service import InterpretationService
 from services.live_renderer_service import LiveRendererService
+from services.learning_manager_service import LearningManagerService
+from services.production_manager_service import ProductionManagerService
+from services.psd_renderer_service import PSDRendererService
+from services.template_manager_service import TemplateManagerService
 from services.reference_image_service import ReferenceImageService
 from services.vision_analysis_service import VisionAnalysisService
 from services.logging_manager import get_logger
@@ -34,6 +38,7 @@ from services.project_format import ProjectFormatError, read_project_package, wr
 from services.project_history_service import ProjectHistoryService
 from services.project_validator import assert_valid_new_project, default_project_file_path
 from services.recent_projects_manager import RecentProjectsManager
+from services.settings_manager import SettingsManager
 from services.workspace_service import WorkspaceService
 
 logger = get_logger()
@@ -59,12 +64,14 @@ class ProjectsManager:
         self,
         recent_projects: RecentProjectsManager,
         *,
+        settings_manager: SettingsManager | None = None,
         workspace: WorkspaceService | None = None,
         history_service: ProjectHistoryService | None = None,
         autosave: AutosaveService | None = None,
         application_version: str = APP_VERSION,
     ) -> None:
         self._recent = recent_projects
+        self._settings_manager = settings_manager
         self._workspace = workspace or WorkspaceService()
         self._history = history_service or ProjectHistoryService()
         self._autosave = autosave or AutosaveService(self._workspace)
@@ -95,6 +102,23 @@ class ProjectsManager:
             application_version=application_version,
         )
         self._live_renderer = LiveRendererService(self._catalogues)
+        self._templates = TemplateManagerService()
+        self._live_renderer.set_template_manager(self._templates)
+        self._psd_renderer = PSDRendererService(
+            self._templates,
+            self._catalogues,
+            self._history,
+            application_version=application_version,
+        )
+        self._production = (
+            ProductionManagerService(self._settings_manager, self._templates)
+            if self._settings_manager is not None
+            else None
+        )
+        self._learning = LearningManagerService()
+        self._interpretation.set_learning_manager(self._learning)
+        if self._production is not None:
+            self._production.set_learning_manager(self._learning)
 
     @property
     def catalogue_manager(self) -> CatalogueManagerService:
@@ -116,6 +140,26 @@ class ProjectsManager:
     @property
     def live_renderer_service(self) -> LiveRendererService:
         return self._live_renderer
+
+    @property
+    def template_manager_service(self) -> TemplateManagerService:
+        return self._templates
+
+    @property
+    def psd_renderer_service(self) -> PSDRendererService:
+        return self._psd_renderer
+
+    @property
+    def production_manager(self) -> ProductionManagerService | None:
+        return self._production
+
+    @property
+    def learning_manager(self) -> LearningManagerService:
+        return self._learning
+
+    @property
+    def settings_manager(self) -> SettingsManager | None:
+        return self._settings_manager
 
     @property
     def autosave_service(self) -> AutosaveService:

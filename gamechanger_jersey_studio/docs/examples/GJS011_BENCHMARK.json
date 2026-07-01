@@ -1,0 +1,66 @@
+{
+  "template_id": "TEMPLATE_BROADCAST_0001",
+  "runs": [
+    {
+      "total_ms": 1147.0,
+      "stages": {
+        "Open PSD template": 100.14,
+        "Resolve template mappings": 0.01,
+        "Resolve component IDs": 0.05,
+        "Apply colours": 115.85,
+        "Apply patterns": 217.13,
+        "Apply textures": 124.84,
+        "Update Smart Objects": 543.3,
+        "Toggle optional layers": 0.35,
+        "Validate layer state": 0.04,
+        "Save rendered PSD": 38.08
+      }
+    },
+    {
+      "total_ms": 987.76,
+      "stages": {
+        "Open PSD template": 12.9,
+        "Resolve template mappings": 0.01,
+        "Resolve component IDs": 0.04,
+        "Apply colours": 97.09,
+        "Apply patterns": 198.48,
+        "Apply textures": 105.49,
+        "Update Smart Objects": 532.38,
+        "Toggle optional layers": 0.26,
+        "Validate layer state": 0.03,
+        "Save rendered PSD": 34.53
+      }
+    },
+    {
+      "total_ms": 970.03,
+      "stages": {
+        "Open PSD template": 11.66,
+        "Resolve template mappings": 0.01,
+        "Resolve component IDs": 0.03,
+        "Apply colours": 96.11,
+        "Apply patterns": 195.69,
+        "Apply textures": 105.26,
+        "Update Smart Objects": 518.31,
+        "Toggle optional layers": 0.24,
+        "Validate layer state": 0.03,
+        "Save rendered PSD": 35.51
+      }
+    }
+  ],
+  "total_ms_mean": 1034.93,
+  "total_ms_median": 987.76,
+  "total_ms_min": 970.03,
+  "total_ms_max": 1147.0,
+  "stage_ms_mean": {
+    "Open PSD template": 41.57,
+    "Resolve template mappings": 0.01,
+    "Resolve component IDs": 0.04,
+    "Apply colours": 103.02,
+    "Apply patterns": 203.77,
+    "Apply textures": 111.86,
+    "Update Smart Objects": 531.33,
+    "Toggle optional layers": 0.28,
+    "Validate layer state": 0.03,
+    "Save rendered PSD": 36.04
+  }
+}

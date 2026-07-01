@@ -12,6 +12,7 @@ from pydantic import BaseModel, Field, field_validator
 if TYPE_CHECKING:
     from models.design_specification import DesignSpecification
     from models.interpretation import InterpretationArchive
+    from models.learning import LearningProjectRecord
     from models.reference_image import ReferenceImageManifest
     from models.vision_analysis import VisionAnalysisArchive
 
@@ -63,6 +64,24 @@ class HistoryEventType(str, Enum):
     SUGGESTION_ACCEPTED = "Suggestion Accepted"
     SUGGESTION_REJECTED = "Suggestion Rejected"
     SUGGESTION_MODIFIED = "Suggestion Modified"
+    RENDER_STARTED = "Render Started"
+    RENDER_COMPLETED = "Render Completed"
+    RENDER_FAILED = "Render Failed"
+    PSD_SAVED = "PSD Saved"
+    PNG_GENERATED = "PNG Generated"
+    PRODUCTION_QUEUE_ADDED = "Production Queue Added"
+    BULK_REVIEW_COMPLETED = "Bulk Review Completed"
+    BATCH_RENDER_STARTED = "Batch Render Started"
+    BATCH_RENDER_PAUSED = "Batch Render Paused"
+    BATCH_RENDER_RESUMED = "Batch Render Resumed"
+    BATCH_RENDER_CANCELLED = "Batch Render Cancelled"
+    BATCH_RENDER_COMPLETED = "Batch Render Completed"
+    PRODUCTION_AUDIT_RECORDED = "Production Audit Recorded"
+    LEARNING_EVENT_RECORDED = "Learning Event Recorded"
+    LEARNING_RULE_CREATED = "Learning Rule Created"
+    LEARNING_RULE_APPLIED = "Learning Rule Applied"
+    LEARNING_RECOMMENDATION_ACCEPTED = "Learning Recommendation Accepted"
+    LEARNING_RECOMMENDATION_IGNORED = "Learning Recommendation Ignored"
 
 
 DEFAULT_BUILD_PROFILE = "Gamechanger Broadcast"
@@ -172,7 +191,9 @@ class ProjectDocument(BaseModel):
     reference_manifest: "ReferenceImageManifest | None" = None
     vision_analyses: "VisionAnalysisArchive | None" = None
     interpretation_results: "InterpretationArchive | None" = None
+    learning_record: "LearningProjectRecord | None" = None
     renderer_settings: "RendererSettings | None" = None
+    template_settings: "TemplateProjectSettings | None" = None
     file_path: str = ""
     dirty: bool = False
 
@@ -202,4 +223,6 @@ class ProjectDocument(BaseModel):
             payload["interpretation_results"] = self.interpretation_results.model_dump(mode="json")
         if self.renderer_settings is not None:
             payload["renderer_settings"] = self.renderer_settings.model_dump(mode="json")
+        if self.template_settings is not None:
+            payload["template_settings"] = self.template_settings.model_dump(mode="json")
         return payload

@@ -1,0 +1,31 @@
+{
+  "version": "1.0.0-rc.1",
+  "recommendation": "Conditional — address outstanding issues",
+  "test_summary": {
+    "total": 203,
+    "passed": 203,
+    "failed": 0,
+    "pass_rate": 100.0
+  },
+  "performance_summary": {
+    "app_version": "1.0.0-rc.1",
+    "build": "014",
+    "mean_render_ms": 1049,
+    "batch_100_jerseys_estimate_minutes": 1.75
+  },
+  "accuracy_summary": {
+    "mean_accuracy": 91.4,
+    "median_accuracy": 92.8,
+    "project_count": 5,
+    "ai_acceptance_rate": 78.5
+  },
+  "stability_summary": {
+    "all_consistent": true,
+    "stress_scenarios_passed": 4
+  },
+  "outstanding_issues": [
+    "Rule suggestion UI dialog not yet wired in interpretation workflow",
+    "Inline Learning Recommendation badges pending in review UI",
+    "RC1 validation requires 50–100 real Gamechanger jersey dataset"
+  ]
+}

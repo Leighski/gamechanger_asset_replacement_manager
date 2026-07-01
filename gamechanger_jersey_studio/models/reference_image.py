@@ -3,10 +3,11 @@
 from __future__ import annotations
 
 from datetime import datetime, timezone
+from typing import Any
 from enum import Enum
 from uuid import uuid4
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, model_validator
 
 from models.project import ValidationStatus
 
@@ -31,6 +32,9 @@ class ImageCategory(str, Enum):
 
 ALL_CATEGORIES = tuple(category.value for category in ImageCategory)
 REQUIRED_CATEGORIES = (ImageCategory.FRONT_VIEW.value,)
+
+_LEGACY_IMPORT_DATE_FIELDS = ("imported_at", "import_timestamp", "created_at")
+_LEGACY_CATEGORY_FIELDS = ("view_type", "image_category", "reference_type", "category")
 
 
 class AnalysisStatus(str, Enum):
@@ -62,9 +66,67 @@ class ReferenceImageRecord(BaseModel):
     storage_path: str = ""
     media_type: str = ""
 
+    @model_validator(mode="before")
+    @classmethod
+    def _coerce_legacy_fields(cls, data: Any) -> Any:
+        """Map legacy manifest fields onto the current schema when loading .gjs packages."""
+        if not isinstance(data, dict):
+            return data
+        merged = dict(data)
+        if not merged.get("import_date"):
+            for legacy in _LEGACY_IMPORT_DATE_FIELDS:
+                if merged.get(legacy):
+                    merged["import_date"] = merged[legacy]
+                    break
+        if not merged.get("tags"):
+            for legacy in _LEGACY_CATEGORY_FIELDS:
+                value = merged.get(legacy)
+                if not value:
+                    continue
+                if isinstance(value, str):
+                    merged["tags"] = [value]
+                elif isinstance(value, list):
+                    merged["tags"] = [str(item) for item in value]
+                break
+        return merged
+
     @property
     def dimensions_label(self) -> str:
         return f"{self.width} × {self.height}"
+
+    def category_labels(self) -> list[str]:
+        """Category tags for this image (canonical representation)."""
+        return list(self.tags)
+
+    def primary_category_label(self) -> str:
+        """First category tag, if any."""
+        labels = self.category_labels()
+        return labels[0] if labels else ""
+
+    def import_timestamp(self) -> str:
+        """When the image was imported (ISO timestamp)."""
+        return self.import_date
+
+    def replay_entry(self) -> dict[str, object]:
+        """Serialise for production replay — omits missing optional fields."""
+        entry: dict[str, object] = {
+            "id": self.image_id,
+            "filename": self.filename,
+        }
+        labels = self.category_labels()
+        if labels:
+            entry["categories"] = labels
+        timestamp = self.import_timestamp()
+        if timestamp:
+            entry["imported"] = timestamp
+        return entry
+
+    def audit_details(self) -> str:
+        """Summary line for production audit chain links."""
+        labels = self.category_labels()
+        if labels:
+            return ", ".join(labels)
+        return self.filename
 
     def has_tag(self, tag: str) -> bool:
         return tag in self.tags

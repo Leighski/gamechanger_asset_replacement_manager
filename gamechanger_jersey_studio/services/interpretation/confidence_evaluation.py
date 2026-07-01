@@ -2,14 +2,21 @@
 
 from __future__ import annotations
 
-from models.interpretation import ConfidenceBand, InterpretationSuggestion, confidence_band
+from models.interpretation import ConfidenceBand, InterpretationSuggestion
+from models.production import ConfidenceThresholds
 
 
 class ConfidenceEvaluationService:
     """Assign confidence bands and auto-selection eligibility."""
 
+    def __init__(self, thresholds: ConfidenceThresholds | None = None) -> None:
+        self._thresholds = thresholds or ConfidenceThresholds()
+
+    def set_thresholds(self, thresholds: ConfidenceThresholds) -> None:
+        self._thresholds = thresholds
+
     def evaluate(self, suggestion: InterpretationSuggestion) -> InterpretationSuggestion:
-        band = confidence_band(suggestion.confidence)
+        band = self._thresholds.band_for(suggestion.confidence)
         return suggestion.model_copy(update={"confidence_band": band})
 
     def evaluate_all(self, suggestions: list[InterpretationSuggestion]) -> list[InterpretationSuggestion]:

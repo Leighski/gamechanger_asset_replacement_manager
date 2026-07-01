@@ -145,7 +145,7 @@ class PreviewPanel(QFrame):
         from models.design_specification import DesignSpecification
 
         spec = self._document.design_spec or DesignSpecification.from_manifest(self._document.manifest)
-        result = self._renderer.render_spec(spec, settings)
+        result = self._renderer.render_document(self._document)
         self._last_result = result
         if result.success and result.image_png:
             pixmap = QPixmap()
@@ -156,6 +156,11 @@ class PreviewPanel(QFrame):
                 Qt.AspectRatioMode.KeepAspectRatio,
                 Qt.TransformationMode.SmoothTransformation,
             )
+            self._image_label.setStyleSheet(
+                f"background: {Theme.PANEL_ELEVATED}; border: 1px solid {Theme.BORDER_SUBTLE}; "
+                f"border-radius: {Theme.RADIUS_MD}px;"
+            )
+            self._image_label.setText("")
             self._image_label.setPixmap(scaled)
             total_cache = result.stats.cache_hits + result.stats.cache_misses
             self._timing_label.setText(
@@ -164,7 +169,23 @@ class PreviewPanel(QFrame):
             active = [layer_id for layer_id in RenderLayerId if settings.is_layer_visible(layer_id)]
             self._inspector.update_stats(result.stats, active)
         elif not result.success:
-            self._timing_label.setText(f"Render failed: {result.error}")
+            self._image_label.clear()
+            self._image_label.setText(self._format_render_error(result.error or "Unknown render error"))
+            self._image_label.setStyleSheet(
+                f"background: {Theme.PANEL_ELEVATED}; border: 1px solid {Theme.BORDER_SUBTLE}; "
+                f"border-radius: {Theme.RADIUS_MD}px; color: {Theme.WARNING}; padding: 8px;"
+            )
+            self._timing_label.setText("")
+            self._inspector.clear()
+        self._image_label.update()
+
+    @staticmethod
+    def _format_render_error(error: str) -> str:
+        if error.startswith("Missing "):
+            return f"{error}\n\nOpen Design Specification and assign catalogue components."
+        if "No certified component" in error:
+            return f"{error}\n\nCheck the component library or update Design Specification."
+        return f"Render failed: {error}"
 
     def _sync_settings_to_document(self) -> RendererSettings:
         quality = self._quality.currentData()
