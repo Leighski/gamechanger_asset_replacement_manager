@@ -1,0 +1,701 @@
+{
+  "master_psd": "/Volumes/04_GRAPHICS/03_JERSEYS/02_ENGLISH_FOOTBALL_JERSEYS/base_template.psd",
+  "master_size": [
+    8190,
+    8190
+  ],
+  "max_edge": 2048,
+  "exported": [
+    {
+      "kind": "panel_mask",
+      "layer_path": "Shirt base/Editable parts/Collar",
+      "asset": "masks/shirt_base_editable_parts_collar.png",
+      "old_size": [
+        207,
+        90
+      ],
+      "new_size": [
+        1392,
+        600
+      ]
+    },
+    {
+      "kind": "panel_mask",
+      "layer_path": "Shirt base/Editable parts/Shirt Back",
+      "asset": "masks/shirt_base_editable_parts_shirt_back.png",
+      "old_size": [
+        170,
+        54
+      ],
+      "new_size": [
+        1144,
+        350
+      ]
+    },
+    {
+      "kind": "panel_mask",
+      "layer_path": "Shirt base/Editable parts/Shirt",
+      "asset": "masks/shirt_base_editable_parts_shirt.png",
+      "old_size": [
+        559,
+        785
+      ],
+      "new_size": [
+        1455,
+        2048
+      ]
+    },
+    {
+      "kind": "panel_mask",
+      "layer_path": "Shirt base/Editable parts/Shirt Bottom",
+      "asset": "masks/shirt_base_editable_parts_shirt_bottom.png",
+      "old_size": [
+        421,
+        26
+      ],
+      "new_size": [
+        2048,
+        113
+      ]
+    },
+    {
+      "kind": "panel_mask",
+      "layer_path": "Short Sleeves/Editable parts/Right Sleeve/Sleeve Buttom",
+      "asset": "masks/short_sleeves_editable_parts_right_sleeve_sleeve_buttom.png",
+      "old_size": [
+        144,
+        66
+      ],
+      "new_size": [
+        965,
+        439
+      ]
+    },
+    {
+      "kind": "panel_mask",
+      "layer_path": "Short Sleeves/Editable parts/Right Sleeve/Sleeves",
+      "asset": "masks/short_sleeves_editable_parts_right_sleeve_sleeves.png",
+      "old_size": [
+        154,
+        296
+      ],
+      "new_size": [
+        1028,
+        2002
+      ]
+    },
+    {
+      "kind": "panel_mask",
+      "layer_path": "Short Sleeves/Editable parts/Left Sleeve/Sleeve Buttom",
+      "asset": "masks/short_sleeves_editable_parts_left_sleeve_sleeve_buttom.png",
+      "old_size": [
+        143,
+        60
+      ],
+      "new_size": [
+        957,
+        398
+      ]
+    },
+    {
+      "kind": "panel_mask",
+      "layer_path": "Short Sleeves/Editable parts/Left Sleeve/Sleeves copy",
+      "asset": "masks/short_sleeves_editable_parts_left_sleeve_sleeves_copy.png",
+      "old_size": [
+        153,
+        297
+      ],
+      "new_size": [
+        1029,
+        2011
+      ]
+    },
+    {
+      "kind": "stitch_mask",
+      "layer_path": "Short Sleeves/Editable parts/Stitches",
+      "asset": "masks/short_sleeves_editable_parts_stitches.png",
+      "old_size": [
+        722,
+        44
+      ],
+      "new_size": [
+        2048,
+        119
+      ]
+    },
+    {
+      "kind": "panel_mask",
+      "layer_path": "V Neck Collar 1/Editable parts/Back of Shirt",
+      "asset": "masks/v_neck_collar_1_editable_parts_back_of_shirt.png",
+      "old_size": [
+        173,
+        100
+      ],
+      "new_size": [
+        1160,
+        660
+      ]
+    },
+    {
+      "kind": "panel_mask",
+      "layer_path": "V Neck Collar 1/Editable parts/Collar",
+      "asset": "masks/v_neck_collar_1_editable_parts_collar.png",
+      "old_size": [
+        220,
+        128
+      ],
+      "new_size": [
+        1478,
+        859
+      ]
+    },
+    {
+      "kind": "panel_mask",
+      "layer_path": "V Neck Collar 1/Editable parts/Collar back",
+      "asset": "masks/v_neck_collar_1_editable_parts_collar_back.png",
+      "old_size": [
+        180,
+        29
+      ],
+      "new_size": [
+        1212,
+        186
+      ]
+    },
+    {
+      "kind": "panel_mask",
+      "layer_path": "V Neck Collar 1/Editable parts/Collar trim",
+      "asset": "masks/v_neck_collar_1_editable_parts_collar_trim.png",
+      "old_size": [
+        189,
+        128
+      ],
+      "new_size": [
+        1269,
+        858
+      ]
+    },
+    {
+      "kind": "panel_mask",
+      "layer_path": "V Neck Collar 1/Editable parts/Band",
+      "asset": "masks/v_neck_collar_1_editable_parts_band.png",
+      "old_size": [
+        173,
+        15
+      ],
+      "new_size": [
+        1162,
+        81
+      ]
+    },
+    {
+      "kind": "stitch_mask",
+      "layer_path": "V Neck Collar 1/Editable parts/Stitches",
+      "asset": "masks/v_neck_collar_1_editable_parts_stitches.png",
+      "old_size": [
+        173,
+        14
+      ],
+      "new_size": [
+        1161,
+        73
+      ]
+    },
+    {
+      "kind": "shadow_layers",
+      "layer_path": "Shirt base/Effects/Base Shadows",
+      "asset": "raster/shirt_base_effects_base_shadows.png",
+      "old_size": [
+        558,
+        808
+      ],
+      "new_size": [
+        1412,
+        2048
+      ]
+    },
+    {
+      "kind": "shadow_layers",
+      "layer_path": "Shirt base/Effects/Shadows for whites",
+      "asset": "raster/shirt_base_effects_shadows_for_whites.png",
+      "old_size": [
+        639,
+        808
+      ],
+      "new_size": [
+        1620,
+        2048
+      ]
+    },
+    {
+      "kind": "shadow_layers",
+      "layer_path": "Shirt base/Effects/Small Shadows",
+      "asset": "raster/shirt_base_effects_small_shadows.png",
+      "old_size": [
+        558,
+        808
+      ],
+      "new_size": [
+        1412,
+        2048
+      ]
+    },
+    {
+      "kind": "shadow_layers",
+      "layer_path": "Shirt base/Effects/Side Shadows",
+      "asset": "raster/shirt_base_effects_side_shadows.png",
+      "old_size": [
+        558,
+        808
+      ],
+      "new_size": [
+        1412,
+        2048
+      ]
+    },
+    {
+      "kind": "shadow_layers",
+      "layer_path": "Shirt base/Effects/Shadows2",
+      "asset": "raster/shirt_base_effects_shadows2.png",
+      "old_size": [
+        558,
+        808
+      ],
+      "new_size": [
+        1412,
+        2048
+      ]
+    },
+    {
+      "kind": "shadow_layers",
+      "layer_path": "Shirt base/Effects/Lighting",
+      "asset": "raster/shirt_base_effects_lighting.png",
+      "old_size": [
+        558,
+        808
+      ],
+      "new_size": [
+        1412,
+        2048
+      ]
+    },
+    {
+      "kind": "shadow_layers",
+      "layer_path": "Short Sleeves/Effects/Base Shadows",
+      "asset": "raster/short_sleeves_effects_base_shadows.png",
+      "old_size": [
+        728,
+        321
+      ],
+      "new_size": [
+        2048,
+        900
+      ]
+    },
+    {
+      "kind": "shadow_layers",
+      "layer_path": "Short Sleeves/Effects/Shadows for whites",
+      "asset": "raster/short_sleeves_effects_shadows_for_whites.png",
+      "old_size": [
+        728,
+        331
+      ],
+      "new_size": [
+        2048,
+        932
+      ]
+    },
+    {
+      "kind": "shadow_layers",
+      "layer_path": "Short Sleeves/Effects/Small Shadows",
+      "asset": "raster/short_sleeves_effects_small_shadows.png",
+      "old_size": [
+        728,
+        321
+      ],
+      "new_size": [
+        2048,
+        900
+      ]
+    },
+    {
+      "kind": "shadow_layers",
+      "layer_path": "Short Sleeves/Effects/Side Shadows",
+      "asset": "raster/short_sleeves_effects_side_shadows.png",
+      "old_size": [
+        728,
+        321
+      ],
+      "new_size": [
+        2048,
+        900
+      ]
+    },
+    {
+      "kind": "shadow_layers",
+      "layer_path": "Short Sleeves/Effects/Shadows2",
+      "asset": "raster/short_sleeves_effects_shadows2.png",
+      "old_size": [
+        728,
+        321
+      ],
+      "new_size": [
+        2048,
+        900
+      ]
+    },
+    {
+      "kind": "shadow_layers",
+      "layer_path": "Short Sleeves/Effects/Lighting",
+      "asset": "raster/short_sleeves_effects_lighting.png",
+      "old_size": [
+        728,
+        321
+      ],
+      "new_size": [
+        2048,
+        900
+      ]
+    },
+    {
+      "kind": "shadow_layers",
+      "layer_path": "V Neck Collar 1/Effects/Shadows base",
+      "asset": "raster/v_neck_collar_1_effects_shadows_base.png",
+      "old_size": [
+        218,
+        126
+      ],
+      "new_size": [
+        1477,
+        856
+      ]
+    },
+    {
+      "kind": "shadow_layers",
+      "layer_path": "V Neck Collar 1/Effects/Shadows for whites",
+      "asset": "raster/v_neck_collar_1_effects_shadows_for_whites.png",
+      "old_size": [
+        218,
+        126
+      ],
+      "new_size": [
+        1477,
+        856
+      ]
+    },
+    {
+      "kind": "shadow_layers",
+      "layer_path": "V Neck Collar 1/Effects/Small Shadows",
+      "asset": "raster/v_neck_collar_1_effects_small_shadows.png",
+      "old_size": [
+        218,
+        126
+      ],
+      "new_size": [
+        1477,
+        856
+      ]
+    },
+    {
+      "kind": "shadow_layers",
+      "layer_path": "V Neck Collar 1/Effects/Small Shadows copy",
+      "asset": "raster/v_neck_collar_1_effects_small_shadows_copy.png",
+      "old_size": [
+        218,
+        126
+      ],
+      "new_size": [
+        1477,
+        856
+      ]
+    },
+    {
+      "kind": "shadow_layers",
+      "layer_path": "V Neck Collar 1/Effects/Side Shadows",
+      "asset": "raster/v_neck_collar_1_effects_side_shadows.png",
+      "old_size": [
+        218,
+        126
+      ],
+      "new_size": [
+        1477,
+        856
+      ]
+    },
+    {
+      "kind": "shadow_layers",
+      "layer_path": "V Neck Collar 1/Effects/Shadows3",
+      "asset": "raster/v_neck_collar_1_effects_shadows3.png",
+      "old_size": [
+        218,
+        126
+      ],
+      "new_size": [
+        1477,
+        856
+      ]
+    },
+    {
+      "kind": "shadow_layers",
+      "layer_path": "V Neck Collar 1/Effects/Lighting2",
+      "asset": "raster/v_neck_collar_1_effects_lighting2.png",
+      "old_size": [
+        218,
+        126
+      ],
+      "new_size": [
+        1477,
+        856
+      ]
+    },
+    {
+      "kind": "highlight_layers",
+      "layer_path": "Shirt base/Effects/Main Highlights",
+      "asset": "raster/shirt_base_effects_main_highlights.png",
+      "old_size": [
+        558,
+        808
+      ],
+      "new_size": [
+        1412,
+        2048
+      ]
+    },
+    {
+      "kind": "highlight_layers",
+      "layer_path": "Shirt base/Effects/Small Highlights",
+      "asset": "raster/shirt_base_effects_small_highlights.png",
+      "old_size": [
+        558,
+        808
+      ],
+      "new_size": [
+        1412,
+        2048
+      ]
+    },
+    {
+      "kind": "highlight_layers",
+      "layer_path": "Shirt base/Effects/Lighting2",
+      "asset": "raster/shirt_base_effects_lighting2.png",
+      "old_size": [
+        558,
+        808
+      ],
+      "new_size": [
+        1412,
+        2048
+      ]
+    },
+    {
+      "kind": "highlight_layers",
+      "layer_path": "Shirt base/Effects/Reflections",
+      "asset": "raster/shirt_base_effects_reflections.png",
+      "old_size": [
+        558,
+        808
+      ],
+      "new_size": [
+        1412,
+        2048
+      ]
+    },
+    {
+      "kind": "highlight_layers",
+      "layer_path": "Shirt base/Effects/Details",
+      "asset": "raster/shirt_base_effects_details.png",
+      "old_size": [
+        558,
+        808
+      ],
+      "new_size": [
+        1412,
+        2048
+      ]
+    },
+    {
+      "kind": "highlight_layers",
+      "layer_path": "Short Sleeves/Effects/Main Highlights",
+      "asset": "raster/short_sleeves_effects_main_highlights.png",
+      "old_size": [
+        728,
+        321
+      ],
+      "new_size": [
+        2048,
+        900
+      ]
+    },
+    {
+      "kind": "highlight_layers",
+      "layer_path": "Short Sleeves/Effects/Small Highlights",
+      "asset": "raster/short_sleeves_effects_small_highlights.png",
+      "old_size": [
+        728,
+        321
+      ],
+      "new_size": [
+        2048,
+        900
+      ]
+    },
+    {
+      "kind": "highlight_layers",
+      "layer_path": "Short Sleeves/Effects/Lighting2",
+      "asset": "raster/short_sleeves_effects_lighting2.png",
+      "old_size": [
+        728,
+        321
+      ],
+      "new_size": [
+        2048,
+        900
+      ]
+    },
+    {
+      "kind": "highlight_layers",
+      "layer_path": "Short Sleeves/Effects/Reflections",
+      "asset": "raster/short_sleeves_effects_reflections.png",
+      "old_size": [
+        728,
+        321
+      ],
+      "new_size": [
+        2048,
+        900
+      ]
+    },
+    {
+      "kind": "highlight_layers",
+      "layer_path": "Short Sleeves/Effects/Details",
+      "asset": "raster/short_sleeves_effects_details.png",
+      "old_size": [
+        728,
+        321
+      ],
+      "new_size": [
+        2048,
+        900
+      ]
+    },
+    {
+      "kind": "highlight_layers",
+      "layer_path": "V Neck Collar 1/Effects/Highlights",
+      "asset": "raster/v_neck_collar_1_effects_highlights.png",
+      "old_size": [
+        218,
+        126
+      ],
+      "new_size": [
+        1477,
+        856
+      ]
+    },
+    {
+      "kind": "highlight_layers",
+      "layer_path": "V Neck Collar 1/Effects/Small Highlights",
+      "asset": "raster/v_neck_collar_1_effects_small_highlights.png",
+      "old_size": [
+        218,
+        126
+      ],
+      "new_size": [
+        1477,
+        856
+      ]
+    },
+    {
+      "kind": "highlight_layers",
+      "layer_path": "V Neck Collar 1/Effects/Lighting",
+      "asset": "raster/v_neck_collar_1_effects_lighting.png",
+      "old_size": [
+        218,
+        126
+      ],
+      "new_size": [
+        1477,
+        856
+      ]
+    },
+    {
+      "kind": "highlight_layers",
+      "layer_path": "V Neck Collar 1/Effects/Reflections",
+      "asset": "raster/v_neck_collar_1_effects_reflections.png",
+      "old_size": [
+        218,
+        126
+      ],
+      "new_size": [
+        1477,
+        856
+      ]
+    },
+    {
+      "kind": "highlight_layers",
+      "layer_path": "V Neck Collar 1/Effects/Details",
+      "asset": "raster/v_neck_collar_1_effects_details.png",
+      "old_size": [
+        218,
+        126
+      ],
+      "new_size": [
+        1477,
+        856
+      ]
+    },
+    {
+      "kind": "highlight_layers",
+      "layer_path": "V Neck Collar 1/Effects/Collar copy 2",
+      "asset": "raster/v_neck_collar_1_effects_collar_copy_2.png",
+      "old_size": [
+        170,
+        25
+      ],
+      "new_size": [
+        1158,
+        166
+      ]
+    },
+    {
+      "kind": "dynamic_lighting",
+      "layer_path": "Shirt base/Dynamic lighting",
+      "asset": "raster/dynamic_lighting_shirt_base_dynamic_lighting.png",
+      "old_size": [
+        4960,
+        5510
+      ],
+      "new_size": [
+        1844,
+        2048
+      ]
+    },
+    {
+      "kind": "dynamic_lighting",
+      "layer_path": "Short Sleeves/Dynamic Lighting",
+      "asset": "raster/dynamic_lighting_short_sleeves_dynamic_lighting.png",
+      "old_size": [
+        4961,
+        2180
+      ],
+      "new_size": [
+        2048,
+        900
+      ]
+    },
+    {
+      "kind": "dynamic_lighting",
+      "layer_path": "V Neck Collar 1/Dynamic lighting",
+      "asset": "raster/dynamic_lighting_v_neck_collar_1_dynamic_lighting.png",
+      "old_size": [
+        1477,
+        856
+      ],
+      "new_size": [
+        1477,
+        856
+      ]
+    }
+  ],
+  "missing": [],
+  "definition": "/Users/leigh/Desktop/Inspired_Delivery_Generator/gamechanger_jersey_studio/config/garment_templates/definitions/GARMENT_ENGLISH_FOOTBALL_BASE_0001.json"
+}

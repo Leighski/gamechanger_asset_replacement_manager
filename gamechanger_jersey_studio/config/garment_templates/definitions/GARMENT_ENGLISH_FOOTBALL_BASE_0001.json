@@ -1,0 +1,1597 @@
+{
+  "schema_version": "1.0",
+  "template_id": "GARMENT_ENGLISH_FOOTBALL_BASE_0001",
+  "name": "English Football Base Template",
+  "garment_type": "football_jersey",
+  "view": "front",
+  "canvas": {
+    "width": 1200,
+    "height": 1200,
+    "resolution_ppi": 72.0,
+    "color_mode": "RGB"
+  },
+  "modules": [
+    {
+      "module_id": "shirt_base",
+      "name": "Shirt base",
+      "layer_path": "Shirt base",
+      "visible_default": true,
+      "variant_group": "body"
+    },
+    {
+      "module_id": "short_sleeves",
+      "name": "Short Sleeves",
+      "layer_path": "Short Sleeves",
+      "visible_default": true,
+      "variant_group": "sleeve"
+    },
+    {
+      "module_id": "v_neck_collar_1",
+      "name": "V Neck Collar 1",
+      "layer_path": "V Neck Collar 1",
+      "visible_default": true,
+      "variant_group": "collar"
+    }
+  ],
+  "panels": [
+    {
+      "panel_id": "panel_shirt_base_editable_parts_collar",
+      "name": "Collar",
+      "layer_path": "Shirt base/Editable parts/Collar",
+      "module": "shirt_base",
+      "bounds": {
+        "x": 493,
+        "y": 205,
+        "width": 207,
+        "height": 90
+      },
+      "mask_id": "mask_shirt_base_editable_parts_collar",
+      "editable": true,
+      "role": "panel",
+      "blend_mode": "normal",
+      "opacity": 1.0
+    },
+    {
+      "panel_id": "panel_shirt_base_editable_parts_shirt_back",
+      "name": "Shirt Back",
+      "layer_path": "Shirt base/Editable parts/Shirt Back",
+      "module": "shirt_base",
+      "bounds": {
+        "x": 514,
+        "y": 220,
+        "width": 170,
+        "height": 54
+      },
+      "mask_id": "mask_shirt_base_editable_parts_shirt_back",
+      "editable": true,
+      "role": "panel",
+      "blend_mode": "normal",
+      "opacity": 1.0
+    },
+    {
+      "panel_id": "panel_shirt_base_editable_parts_shirt",
+      "name": "Shirt",
+      "layer_path": "Shirt base/Editable parts/Shirt",
+      "module": "shirt_base",
+      "bounds": {
+        "x": 321,
+        "y": 217,
+        "width": 559,
+        "height": 785
+      },
+      "mask_id": "mask_shirt_base_editable_parts_shirt",
+      "editable": true,
+      "role": "panel",
+      "blend_mode": "normal",
+      "opacity": 1.0
+    },
+    {
+      "panel_id": "panel_shirt_base_editable_parts_shirt_bottom",
+      "name": "Shirt Bottom",
+      "layer_path": "Shirt base/Editable parts/Shirt Bottom",
+      "module": "shirt_base",
+      "bounds": {
+        "x": 389,
+        "y": 989,
+        "width": 421,
+        "height": 26
+      },
+      "mask_id": "mask_shirt_base_editable_parts_shirt_bottom",
+      "editable": true,
+      "role": "panel",
+      "blend_mode": "normal",
+      "opacity": 1.0
+    },
+    {
+      "panel_id": "panel_short_sleeves_editable_parts_right_sleeve_sleeve_buttom",
+      "name": "Sleeve Buttom",
+      "layer_path": "Short Sleeves/Editable parts/Right Sleeve/Sleeve Buttom",
+      "module": "short_sleeves",
+      "bounds": {
+        "x": 233,
+        "y": 542,
+        "width": 144,
+        "height": 66
+      },
+      "mask_id": "mask_short_sleeves_editable_parts_right_sleeve_sleeve_buttom",
+      "editable": true,
+      "role": "panel",
+      "blend_mode": "normal",
+      "opacity": 1.0
+    },
+    {
+      "panel_id": "panel_short_sleeves_editable_parts_right_sleeve_sleeves",
+      "name": "Sleeves",
+      "layer_path": "Short Sleeves/Editable parts/Right Sleeve/Sleeves",
+      "module": "short_sleeves",
+      "bounds": {
+        "x": 239,
+        "y": 286,
+        "width": 154,
+        "height": 296
+      },
+      "mask_id": "mask_short_sleeves_editable_parts_right_sleeve_sleeves",
+      "editable": true,
+      "role": "panel",
+      "blend_mode": "normal",
+      "opacity": 1.0
+    },
+    {
+      "panel_id": "panel_short_sleeves_editable_parts_left_sleeve_sleeve_buttom",
+      "name": "Sleeve Buttom",
+      "layer_path": "Short Sleeves/Editable parts/Left Sleeve/Sleeve Buttom",
+      "module": "short_sleeves",
+      "bounds": {
+        "x": 820,
+        "y": 546,
+        "width": 143,
+        "height": 60
+      },
+      "mask_id": "mask_short_sleeves_editable_parts_left_sleeve_sleeve_buttom",
+      "editable": true,
+      "role": "panel",
+      "blend_mode": "normal",
+      "opacity": 1.0
+    },
+    {
+      "panel_id": "panel_short_sleeves_editable_parts_left_sleeve_sleeves_copy",
+      "name": "Sleeves copy",
+      "layer_path": "Short Sleeves/Editable parts/Left Sleeve/Sleeves copy",
+      "module": "short_sleeves",
+      "bounds": {
+        "x": 805,
+        "y": 288,
+        "width": 153,
+        "height": 297
+      },
+      "mask_id": "mask_short_sleeves_editable_parts_left_sleeve_sleeves_copy",
+      "editable": true,
+      "role": "panel",
+      "blend_mode": "normal",
+      "opacity": 1.0
+    },
+    {
+      "panel_id": "panel_v_neck_collar_1_editable_parts_back_of_shirt",
+      "name": "Back of Shirt",
+      "layer_path": "V Neck Collar 1/Editable parts/Back of Shirt",
+      "module": "v_neck_collar_1",
+      "bounds": {
+        "x": 511,
+        "y": 224,
+        "width": 173,
+        "height": 100
+      },
+      "mask_id": "mask_v_neck_collar_1_editable_parts_back_of_shirt",
+      "editable": true,
+      "role": "panel",
+      "blend_mode": "normal",
+      "opacity": 1.0
+    },
+    {
+      "panel_id": "panel_v_neck_collar_1_editable_parts_collar",
+      "name": "Collar",
+      "layer_path": "V Neck Collar 1/Editable parts/Collar",
+      "module": "v_neck_collar_1",
+      "bounds": {
+        "x": 488,
+        "y": 198,
+        "width": 220,
+        "height": 128
+      },
+      "mask_id": "mask_v_neck_collar_1_editable_parts_collar",
+      "editable": true,
+      "role": "panel",
+      "blend_mode": "normal",
+      "opacity": 1.0
+    },
+    {
+      "panel_id": "panel_v_neck_collar_1_editable_parts_collar_back",
+      "name": "Collar back",
+      "layer_path": "V Neck Collar 1/Editable parts/Collar back",
+      "module": "v_neck_collar_1",
+      "bounds": {
+        "x": 510,
+        "y": 198,
+        "width": 180,
+        "height": 29
+      },
+      "mask_id": "mask_v_neck_collar_1_editable_parts_collar_back",
+      "editable": true,
+      "role": "panel",
+      "blend_mode": "normal",
+      "opacity": 1.0
+    },
+    {
+      "panel_id": "panel_v_neck_collar_1_editable_parts_collar_trim",
+      "name": "Collar trim",
+      "layer_path": "V Neck Collar 1/Editable parts/Collar trim",
+      "module": "v_neck_collar_1",
+      "bounds": {
+        "x": 504,
+        "y": 198,
+        "width": 189,
+        "height": 128
+      },
+      "mask_id": "mask_v_neck_collar_1_editable_parts_collar_trim",
+      "editable": true,
+      "role": "panel",
+      "blend_mode": "normal",
+      "opacity": 1.0
+    },
+    {
+      "panel_id": "panel_v_neck_collar_1_editable_parts_band",
+      "name": "Band",
+      "layer_path": "V Neck Collar 1/Editable parts/Band",
+      "module": "v_neck_collar_1",
+      "bounds": {
+        "x": 511,
+        "y": 216,
+        "width": 173,
+        "height": 15
+      },
+      "mask_id": "mask_v_neck_collar_1_editable_parts_band",
+      "editable": true,
+      "role": "panel",
+      "blend_mode": "normal",
+      "opacity": 1.0
+    }
+  ],
+  "vector_masks": [
+    {
+      "mask_id": "mask_shirt_base_editable_parts_collar",
+      "name": "Collar",
+      "layer_path": "Shirt base/Editable parts/Collar",
+      "bounds": {
+        "x": 493,
+        "y": 205,
+        "width": 207,
+        "height": 90
+      },
+      "asset": {
+        "path": "masks/shirt_base_editable_parts_collar.png",
+        "format": "png"
+      },
+      "module": "shirt_base"
+    },
+    {
+      "mask_id": "mask_shirt_base_editable_parts_shirt_back",
+      "name": "Shirt Back",
+      "layer_path": "Shirt base/Editable parts/Shirt Back",
+      "bounds": {
+        "x": 514,
+        "y": 220,
+        "width": 170,
+        "height": 54
+      },
+      "asset": {
+        "path": "masks/shirt_base_editable_parts_shirt_back.png",
+        "format": "png"
+      },
+      "module": "shirt_base"
+    },
+    {
+      "mask_id": "mask_shirt_base_editable_parts_shirt",
+      "name": "Shirt",
+      "layer_path": "Shirt base/Editable parts/Shirt",
+      "bounds": {
+        "x": 321,
+        "y": 217,
+        "width": 559,
+        "height": 785
+      },
+      "asset": {
+        "path": "masks/shirt_base_editable_parts_shirt.png",
+        "format": "png"
+      },
+      "module": "shirt_base"
+    },
+    {
+      "mask_id": "mask_shirt_base_editable_parts_shirt_bottom",
+      "name": "Shirt Bottom",
+      "layer_path": "Shirt base/Editable parts/Shirt Bottom",
+      "bounds": {
+        "x": 389,
+        "y": 989,
+        "width": 421,
+        "height": 26
+      },
+      "asset": {
+        "path": "masks/shirt_base_editable_parts_shirt_bottom.png",
+        "format": "png"
+      },
+      "module": "shirt_base"
+    },
+    {
+      "mask_id": "mask_short_sleeves_editable_parts_right_sleeve_sleeve_buttom",
+      "name": "Sleeve Buttom",
+      "layer_path": "Short Sleeves/Editable parts/Right Sleeve/Sleeve Buttom",
+      "bounds": {
+        "x": 233,
+        "y": 542,
+        "width": 144,
+        "height": 66
+      },
+      "asset": {
+        "path": "masks/short_sleeves_editable_parts_right_sleeve_sleeve_buttom.png",
+        "format": "png"
+      },
+      "module": "short_sleeves"
+    },
+    {
+      "mask_id": "mask_short_sleeves_editable_parts_right_sleeve_sleeves",
+      "name": "Sleeves",
+      "layer_path": "Short Sleeves/Editable parts/Right Sleeve/Sleeves",
+      "bounds": {
+        "x": 239,
+        "y": 286,
+        "width": 154,
+        "height": 296
+      },
+      "asset": {
+        "path": "masks/short_sleeves_editable_parts_right_sleeve_sleeves.png",
+        "format": "png"
+      },
+      "module": "short_sleeves"
+    },
+    {
+      "mask_id": "mask_short_sleeves_editable_parts_left_sleeve_sleeve_buttom",
+      "name": "Sleeve Buttom",
+      "layer_path": "Short Sleeves/Editable parts/Left Sleeve/Sleeve Buttom",
+      "bounds": {
+        "x": 820,
+        "y": 546,
+        "width": 143,
+        "height": 60
+      },
+      "asset": {
+        "path": "masks/short_sleeves_editable_parts_left_sleeve_sleeve_buttom.png",
+        "format": "png"
+      },
+      "module": "short_sleeves"
+    },
+    {
+      "mask_id": "mask_short_sleeves_editable_parts_left_sleeve_sleeves_copy",
+      "name": "Sleeves copy",
+      "layer_path": "Short Sleeves/Editable parts/Left Sleeve/Sleeves copy",
+      "bounds": {
+        "x": 805,
+        "y": 288,
+        "width": 153,
+        "height": 297
+      },
+      "asset": {
+        "path": "masks/short_sleeves_editable_parts_left_sleeve_sleeves_copy.png",
+        "format": "png"
+      },
+      "module": "short_sleeves"
+    },
+    {
+      "mask_id": "mask_short_sleeves_editable_parts_stitches",
+      "name": "Stitches",
+      "layer_path": "Short Sleeves/Editable parts/Stitches",
+      "bounds": {
+        "x": 238,
+        "y": 545,
+        "width": 722,
+        "height": 44
+      },
+      "asset": {
+        "path": "masks/short_sleeves_editable_parts_stitches.png",
+        "format": "png"
+      },
+      "module": "short_sleeves"
+    },
+    {
+      "mask_id": "mask_v_neck_collar_1_editable_parts_back_of_shirt",
+      "name": "Back of Shirt",
+      "layer_path": "V Neck Collar 1/Editable parts/Back of Shirt",
+      "bounds": {
+        "x": 511,
+        "y": 224,
+        "width": 173,
+        "height": 100
+      },
+      "asset": {
+        "path": "masks/v_neck_collar_1_editable_parts_back_of_shirt.png",
+        "format": "png"
+      },
+      "module": "v_neck_collar_1"
+    },
+    {
+      "mask_id": "mask_v_neck_collar_1_editable_parts_collar",
+      "name": "Collar",
+      "layer_path": "V Neck Collar 1/Editable parts/Collar",
+      "bounds": {
+        "x": 488,
+        "y": 198,
+        "width": 220,
+        "height": 128
+      },
+      "asset": {
+        "path": "masks/v_neck_collar_1_editable_parts_collar.png",
+        "format": "png"
+      },
+      "module": "v_neck_collar_1"
+    },
+    {
+      "mask_id": "mask_v_neck_collar_1_editable_parts_collar_back",
+      "name": "Collar back",
+      "layer_path": "V Neck Collar 1/Editable parts/Collar back",
+      "bounds": {
+        "x": 510,
+        "y": 198,
+        "width": 180,
+        "height": 29
+      },
+      "asset": {
+        "path": "masks/v_neck_collar_1_editable_parts_collar_back.png",
+        "format": "png"
+      },
+      "module": "v_neck_collar_1"
+    },
+    {
+      "mask_id": "mask_v_neck_collar_1_editable_parts_collar_trim",
+      "name": "Collar trim",
+      "layer_path": "V Neck Collar 1/Editable parts/Collar trim",
+      "bounds": {
+        "x": 504,
+        "y": 198,
+        "width": 189,
+        "height": 128
+      },
+      "asset": {
+        "path": "masks/v_neck_collar_1_editable_parts_collar_trim.png",
+        "format": "png"
+      },
+      "module": "v_neck_collar_1"
+    },
+    {
+      "mask_id": "mask_v_neck_collar_1_editable_parts_band",
+      "name": "Band",
+      "layer_path": "V Neck Collar 1/Editable parts/Band",
+      "bounds": {
+        "x": 511,
+        "y": 216,
+        "width": 173,
+        "height": 15
+      },
+      "asset": {
+        "path": "masks/v_neck_collar_1_editable_parts_band.png",
+        "format": "png"
+      },
+      "module": "v_neck_collar_1"
+    },
+    {
+      "mask_id": "mask_v_neck_collar_1_editable_parts_stitches",
+      "name": "Stitches",
+      "layer_path": "V Neck Collar 1/Editable parts/Stitches",
+      "bounds": {
+        "x": 511,
+        "y": 217,
+        "width": 173,
+        "height": 14
+      },
+      "asset": {
+        "path": "masks/v_neck_collar_1_editable_parts_stitches.png",
+        "format": "png"
+      },
+      "module": "v_neck_collar_1"
+    }
+  ],
+  "editable_regions": [
+    {
+      "region_id": "edit_shirt_base_editable_parts_collar",
+      "name": "Collar",
+      "layer_path": "Shirt base/Editable parts/Collar",
+      "panel_id": "panel_shirt_base_editable_parts_collar",
+      "module": "shirt_base",
+      "bounds": {
+        "x": 493,
+        "y": 205,
+        "width": 207,
+        "height": 90
+      },
+      "mask_id": "mask_shirt_base_editable_parts_collar"
+    },
+    {
+      "region_id": "edit_shirt_base_editable_parts_shirt_back",
+      "name": "Shirt Back",
+      "layer_path": "Shirt base/Editable parts/Shirt Back",
+      "panel_id": "panel_shirt_base_editable_parts_shirt_back",
+      "module": "shirt_base",
+      "bounds": {
+        "x": 514,
+        "y": 220,
+        "width": 170,
+        "height": 54
+      },
+      "mask_id": "mask_shirt_base_editable_parts_shirt_back"
+    },
+    {
+      "region_id": "edit_shirt_base_editable_parts_shirt",
+      "name": "Shirt",
+      "layer_path": "Shirt base/Editable parts/Shirt",
+      "panel_id": "panel_shirt_base_editable_parts_shirt",
+      "module": "shirt_base",
+      "bounds": {
+        "x": 321,
+        "y": 217,
+        "width": 559,
+        "height": 785
+      },
+      "mask_id": "mask_shirt_base_editable_parts_shirt"
+    },
+    {
+      "region_id": "edit_shirt_base_editable_parts_shirt_bottom",
+      "name": "Shirt Bottom",
+      "layer_path": "Shirt base/Editable parts/Shirt Bottom",
+      "panel_id": "panel_shirt_base_editable_parts_shirt_bottom",
+      "module": "shirt_base",
+      "bounds": {
+        "x": 389,
+        "y": 989,
+        "width": 421,
+        "height": 26
+      },
+      "mask_id": "mask_shirt_base_editable_parts_shirt_bottom"
+    },
+    {
+      "region_id": "edit_short_sleeves_editable_parts_right_sleeve_sleeve_buttom",
+      "name": "Sleeve Buttom",
+      "layer_path": "Short Sleeves/Editable parts/Right Sleeve/Sleeve Buttom",
+      "panel_id": "panel_short_sleeves_editable_parts_right_sleeve_sleeve_buttom",
+      "module": "short_sleeves",
+      "bounds": {
+        "x": 233,
+        "y": 542,
+        "width": 144,
+        "height": 66
+      },
+      "mask_id": "mask_short_sleeves_editable_parts_right_sleeve_sleeve_buttom"
+    },
+    {
+      "region_id": "edit_short_sleeves_editable_parts_right_sleeve_sleeves",
+      "name": "Sleeves",
+      "layer_path": "Short Sleeves/Editable parts/Right Sleeve/Sleeves",
+      "panel_id": "panel_short_sleeves_editable_parts_right_sleeve_sleeves",
+      "module": "short_sleeves",
+      "bounds": {
+        "x": 239,
+        "y": 286,
+        "width": 154,
+        "height": 296
+      },
+      "mask_id": "mask_short_sleeves_editable_parts_right_sleeve_sleeves"
+    },
+    {
+      "region_id": "edit_short_sleeves_editable_parts_left_sleeve_sleeve_buttom",
+      "name": "Sleeve Buttom",
+      "layer_path": "Short Sleeves/Editable parts/Left Sleeve/Sleeve Buttom",
+      "panel_id": "panel_short_sleeves_editable_parts_left_sleeve_sleeve_buttom",
+      "module": "short_sleeves",
+      "bounds": {
+        "x": 820,
+        "y": 546,
+        "width": 143,
+        "height": 60
+      },
+      "mask_id": "mask_short_sleeves_editable_parts_left_sleeve_sleeve_buttom"
+    },
+    {
+      "region_id": "edit_short_sleeves_editable_parts_left_sleeve_sleeves_copy",
+      "name": "Sleeves copy",
+      "layer_path": "Short Sleeves/Editable parts/Left Sleeve/Sleeves copy",
+      "panel_id": "panel_short_sleeves_editable_parts_left_sleeve_sleeves_copy",
+      "module": "short_sleeves",
+      "bounds": {
+        "x": 805,
+        "y": 288,
+        "width": 153,
+        "height": 297
+      },
+      "mask_id": "mask_short_sleeves_editable_parts_left_sleeve_sleeves_copy"
+    },
+    {
+      "region_id": "edit_v_neck_collar_1_editable_parts_back_of_shirt",
+      "name": "Back of Shirt",
+      "layer_path": "V Neck Collar 1/Editable parts/Back of Shirt",
+      "panel_id": "panel_v_neck_collar_1_editable_parts_back_of_shirt",
+      "module": "v_neck_collar_1",
+      "bounds": {
+        "x": 511,
+        "y": 224,
+        "width": 173,
+        "height": 100
+      },
+      "mask_id": "mask_v_neck_collar_1_editable_parts_back_of_shirt"
+    },
+    {
+      "region_id": "edit_v_neck_collar_1_editable_parts_collar",
+      "name": "Collar",
+      "layer_path": "V Neck Collar 1/Editable parts/Collar",
+      "panel_id": "panel_v_neck_collar_1_editable_parts_collar",
+      "module": "v_neck_collar_1",
+      "bounds": {
+        "x": 488,
+        "y": 198,
+        "width": 220,
+        "height": 128
+      },
+      "mask_id": "mask_v_neck_collar_1_editable_parts_collar"
+    },
+    {
+      "region_id": "edit_v_neck_collar_1_editable_parts_collar_back",
+      "name": "Collar back",
+      "layer_path": "V Neck Collar 1/Editable parts/Collar back",
+      "panel_id": "panel_v_neck_collar_1_editable_parts_collar_back",
+      "module": "v_neck_collar_1",
+      "bounds": {
+        "x": 510,
+        "y": 198,
+        "width": 180,
+        "height": 29
+      },
+      "mask_id": "mask_v_neck_collar_1_editable_parts_collar_back"
+    },
+    {
+      "region_id": "edit_v_neck_collar_1_editable_parts_collar_trim",
+      "name": "Collar trim",
+      "layer_path": "V Neck Collar 1/Editable parts/Collar trim",
+      "panel_id": "panel_v_neck_collar_1_editable_parts_collar_trim",
+      "module": "v_neck_collar_1",
+      "bounds": {
+        "x": 504,
+        "y": 198,
+        "width": 189,
+        "height": 128
+      },
+      "mask_id": "mask_v_neck_collar_1_editable_parts_collar_trim"
+    },
+    {
+      "region_id": "edit_v_neck_collar_1_editable_parts_band",
+      "name": "Band",
+      "layer_path": "V Neck Collar 1/Editable parts/Band",
+      "panel_id": "panel_v_neck_collar_1_editable_parts_band",
+      "module": "v_neck_collar_1",
+      "bounds": {
+        "x": 511,
+        "y": 216,
+        "width": 173,
+        "height": 15
+      },
+      "mask_id": "mask_v_neck_collar_1_editable_parts_band"
+    }
+  ],
+  "fixed_artwork": [],
+  "stitch_layers": [
+    {
+      "layer_id": "stitch_short_sleeves_editable_parts_stitches",
+      "name": "Stitches",
+      "layer_path": "Short Sleeves/Editable parts/Stitches",
+      "role": "stitch",
+      "module": "short_sleeves",
+      "bounds": {
+        "x": 238,
+        "y": 545,
+        "width": 722,
+        "height": 44
+      },
+      "blend_mode": "normal",
+      "opacity": 1.0,
+      "asset": {
+        "path": "masks/short_sleeves_editable_parts_stitches.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    },
+    {
+      "layer_id": "stitch_v_neck_collar_1_editable_parts_stitches",
+      "name": "Stitches",
+      "layer_path": "V Neck Collar 1/Editable parts/Stitches",
+      "role": "stitch",
+      "module": "v_neck_collar_1",
+      "bounds": {
+        "x": 511,
+        "y": 217,
+        "width": 173,
+        "height": 14
+      },
+      "blend_mode": "normal",
+      "opacity": 1.0,
+      "asset": {
+        "path": "masks/v_neck_collar_1_editable_parts_stitches.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    }
+  ],
+  "shadow_layers": [
+    {
+      "layer_id": "shadow_shirt_base_effects_base_shadows",
+      "name": "Base Shadows",
+      "layer_path": "Shirt base/Effects/Base Shadows",
+      "role": "shadow",
+      "module": "shirt_base",
+      "bounds": {
+        "x": 322,
+        "y": 206,
+        "width": 558,
+        "height": 808
+      },
+      "blend_mode": "linear_burn",
+      "opacity": 1.0,
+      "asset": {
+        "path": "raster/shirt_base_effects_base_shadows.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    },
+    {
+      "layer_id": "shadow_shirt_base_effects_shadows_for_whites",
+      "name": "Shadows for whites",
+      "layer_path": "Shirt base/Effects/Shadows for whites",
+      "role": "shadow",
+      "module": "shirt_base",
+      "bounds": {
+        "x": 280,
+        "y": 206,
+        "width": 639,
+        "height": 808
+      },
+      "blend_mode": "linear_burn",
+      "opacity": 1.0,
+      "asset": {
+        "path": "raster/shirt_base_effects_shadows_for_whites.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    },
+    {
+      "layer_id": "shadow_shirt_base_effects_small_shadows",
+      "name": "Small Shadows",
+      "layer_path": "Shirt base/Effects/Small Shadows",
+      "role": "shadow",
+      "module": "shirt_base",
+      "bounds": {
+        "x": 322,
+        "y": 206,
+        "width": 558,
+        "height": 808
+      },
+      "blend_mode": "linear_burn",
+      "opacity": 1.0,
+      "asset": {
+        "path": "raster/shirt_base_effects_small_shadows.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    },
+    {
+      "layer_id": "shadow_shirt_base_effects_side_shadows",
+      "name": "Side Shadows",
+      "layer_path": "Shirt base/Effects/Side Shadows",
+      "role": "shadow",
+      "module": "shirt_base",
+      "bounds": {
+        "x": 322,
+        "y": 206,
+        "width": 558,
+        "height": 808
+      },
+      "blend_mode": "linear_burn",
+      "opacity": 1.0,
+      "asset": {
+        "path": "raster/shirt_base_effects_side_shadows.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    },
+    {
+      "layer_id": "shadow_shirt_base_effects_shadows2",
+      "name": "Shadows2",
+      "layer_path": "Shirt base/Effects/Shadows2",
+      "role": "shadow",
+      "module": "shirt_base",
+      "bounds": {
+        "x": 322,
+        "y": 206,
+        "width": 558,
+        "height": 808
+      },
+      "blend_mode": "linear_burn",
+      "opacity": 1.0,
+      "asset": {
+        "path": "raster/shirt_base_effects_shadows2.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    },
+    {
+      "layer_id": "shadow_shirt_base_effects_lighting",
+      "name": "Lighting",
+      "layer_path": "Shirt base/Effects/Lighting",
+      "role": "shadow",
+      "module": "shirt_base",
+      "bounds": {
+        "x": 322,
+        "y": 206,
+        "width": 558,
+        "height": 808
+      },
+      "blend_mode": "color_burn",
+      "opacity": 1.0,
+      "asset": {
+        "path": "raster/shirt_base_effects_lighting.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    },
+    {
+      "layer_id": "shadow_short_sleeves_effects_base_shadows",
+      "name": "Base Shadows",
+      "layer_path": "Short Sleeves/Effects/Base Shadows",
+      "role": "shadow",
+      "module": "short_sleeves",
+      "bounds": {
+        "x": 234,
+        "y": 287,
+        "width": 728,
+        "height": 321
+      },
+      "blend_mode": "linear_burn",
+      "opacity": 1.0,
+      "asset": {
+        "path": "raster/short_sleeves_effects_base_shadows.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    },
+    {
+      "layer_id": "shadow_short_sleeves_effects_shadows_for_whites",
+      "name": "Shadows for whites",
+      "layer_path": "Short Sleeves/Effects/Shadows for whites",
+      "role": "shadow",
+      "module": "short_sleeves",
+      "bounds": {
+        "x": 234,
+        "y": 283,
+        "width": 728,
+        "height": 331
+      },
+      "blend_mode": "linear_burn",
+      "opacity": 1.0,
+      "asset": {
+        "path": "raster/short_sleeves_effects_shadows_for_whites.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    },
+    {
+      "layer_id": "shadow_short_sleeves_effects_small_shadows",
+      "name": "Small Shadows",
+      "layer_path": "Short Sleeves/Effects/Small Shadows",
+      "role": "shadow",
+      "module": "short_sleeves",
+      "bounds": {
+        "x": 234,
+        "y": 287,
+        "width": 728,
+        "height": 321
+      },
+      "blend_mode": "linear_burn",
+      "opacity": 1.0,
+      "asset": {
+        "path": "raster/short_sleeves_effects_small_shadows.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    },
+    {
+      "layer_id": "shadow_short_sleeves_effects_side_shadows",
+      "name": "Side Shadows",
+      "layer_path": "Short Sleeves/Effects/Side Shadows",
+      "role": "shadow",
+      "module": "short_sleeves",
+      "bounds": {
+        "x": 234,
+        "y": 287,
+        "width": 728,
+        "height": 321
+      },
+      "blend_mode": "linear_burn",
+      "opacity": 1.0,
+      "asset": {
+        "path": "raster/short_sleeves_effects_side_shadows.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    },
+    {
+      "layer_id": "shadow_short_sleeves_effects_shadows2",
+      "name": "Shadows2",
+      "layer_path": "Short Sleeves/Effects/Shadows2",
+      "role": "shadow",
+      "module": "short_sleeves",
+      "bounds": {
+        "x": 234,
+        "y": 287,
+        "width": 728,
+        "height": 321
+      },
+      "blend_mode": "linear_burn",
+      "opacity": 1.0,
+      "asset": {
+        "path": "raster/short_sleeves_effects_shadows2.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    },
+    {
+      "layer_id": "shadow_short_sleeves_effects_lighting",
+      "name": "Lighting",
+      "layer_path": "Short Sleeves/Effects/Lighting",
+      "role": "shadow",
+      "module": "short_sleeves",
+      "bounds": {
+        "x": 234,
+        "y": 287,
+        "width": 728,
+        "height": 321
+      },
+      "blend_mode": "color_burn",
+      "opacity": 1.0,
+      "asset": {
+        "path": "raster/short_sleeves_effects_lighting.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    },
+    {
+      "layer_id": "shadow_v_neck_collar_1_effects_shadows_base",
+      "name": "Shadows base",
+      "layer_path": "V Neck Collar 1/Effects/Shadows base",
+      "role": "shadow",
+      "module": "v_neck_collar_1",
+      "bounds": {
+        "x": 489,
+        "y": 199,
+        "width": 218,
+        "height": 126
+      },
+      "blend_mode": "linear_burn",
+      "opacity": 1.0,
+      "asset": {
+        "path": "raster/v_neck_collar_1_effects_shadows_base.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    },
+    {
+      "layer_id": "shadow_v_neck_collar_1_effects_shadows_for_whites",
+      "name": "Shadows for whites",
+      "layer_path": "V Neck Collar 1/Effects/Shadows for whites",
+      "role": "shadow",
+      "module": "v_neck_collar_1",
+      "bounds": {
+        "x": 489,
+        "y": 199,
+        "width": 218,
+        "height": 126
+      },
+      "blend_mode": "linear_burn",
+      "opacity": 1.0,
+      "asset": {
+        "path": "raster/v_neck_collar_1_effects_shadows_for_whites.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    },
+    {
+      "layer_id": "shadow_v_neck_collar_1_effects_small_shadows",
+      "name": "Small Shadows",
+      "layer_path": "V Neck Collar 1/Effects/Small Shadows",
+      "role": "shadow",
+      "module": "v_neck_collar_1",
+      "bounds": {
+        "x": 489,
+        "y": 199,
+        "width": 218,
+        "height": 126
+      },
+      "blend_mode": "linear_burn",
+      "opacity": 1.0,
+      "asset": {
+        "path": "raster/v_neck_collar_1_effects_small_shadows.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    },
+    {
+      "layer_id": "shadow_v_neck_collar_1_effects_small_shadows_copy",
+      "name": "Small Shadows copy",
+      "layer_path": "V Neck Collar 1/Effects/Small Shadows copy",
+      "role": "shadow",
+      "module": "v_neck_collar_1",
+      "bounds": {
+        "x": 489,
+        "y": 199,
+        "width": 218,
+        "height": 126
+      },
+      "blend_mode": "linear_burn",
+      "opacity": 1.0,
+      "asset": {
+        "path": "raster/v_neck_collar_1_effects_small_shadows_copy.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    },
+    {
+      "layer_id": "shadow_v_neck_collar_1_effects_side_shadows",
+      "name": "Side Shadows",
+      "layer_path": "V Neck Collar 1/Effects/Side Shadows",
+      "role": "shadow",
+      "module": "v_neck_collar_1",
+      "bounds": {
+        "x": 489,
+        "y": 199,
+        "width": 218,
+        "height": 126
+      },
+      "blend_mode": "linear_burn",
+      "opacity": 1.0,
+      "asset": {
+        "path": "raster/v_neck_collar_1_effects_side_shadows.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    },
+    {
+      "layer_id": "shadow_v_neck_collar_1_effects_shadows3",
+      "name": "Shadows3",
+      "layer_path": "V Neck Collar 1/Effects/Shadows3",
+      "role": "shadow",
+      "module": "v_neck_collar_1",
+      "bounds": {
+        "x": 489,
+        "y": 199,
+        "width": 218,
+        "height": 126
+      },
+      "blend_mode": "linear_burn",
+      "opacity": 1.0,
+      "asset": {
+        "path": "raster/v_neck_collar_1_effects_shadows3.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    },
+    {
+      "layer_id": "shadow_v_neck_collar_1_effects_lighting2",
+      "name": "Lighting2",
+      "layer_path": "V Neck Collar 1/Effects/Lighting2",
+      "role": "shadow",
+      "module": "v_neck_collar_1",
+      "bounds": {
+        "x": 489,
+        "y": 199,
+        "width": 218,
+        "height": 126
+      },
+      "blend_mode": "color_burn",
+      "opacity": 1.0,
+      "asset": {
+        "path": "raster/v_neck_collar_1_effects_lighting2.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    }
+  ],
+  "highlight_layers": [
+    {
+      "layer_id": "highlight_shirt_base_effects_main_highlights",
+      "name": "Main Highlights",
+      "layer_path": "Shirt base/Effects/Main Highlights",
+      "role": "highlight",
+      "module": "shirt_base",
+      "bounds": {
+        "x": 322,
+        "y": 206,
+        "width": 558,
+        "height": 808
+      },
+      "blend_mode": "screen",
+      "opacity": 1.0,
+      "asset": {
+        "path": "raster/shirt_base_effects_main_highlights.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    },
+    {
+      "layer_id": "highlight_shirt_base_effects_small_highlights",
+      "name": "Small Highlights",
+      "layer_path": "Shirt base/Effects/Small Highlights",
+      "role": "highlight",
+      "module": "shirt_base",
+      "bounds": {
+        "x": 322,
+        "y": 206,
+        "width": 558,
+        "height": 808
+      },
+      "blend_mode": "screen",
+      "opacity": 1.0,
+      "asset": {
+        "path": "raster/shirt_base_effects_small_highlights.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    },
+    {
+      "layer_id": "lighting_shirt_base_effects_lighting2",
+      "name": "Lighting2",
+      "layer_path": "Shirt base/Effects/Lighting2",
+      "role": "lighting",
+      "module": "shirt_base",
+      "bounds": {
+        "x": 322,
+        "y": 206,
+        "width": 558,
+        "height": 808
+      },
+      "blend_mode": "linear_light",
+      "opacity": 1.0,
+      "asset": {
+        "path": "raster/shirt_base_effects_lighting2.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    },
+    {
+      "layer_id": "highlight_shirt_base_effects_reflections",
+      "name": "Reflections",
+      "layer_path": "Shirt base/Effects/Reflections",
+      "role": "highlight",
+      "module": "shirt_base",
+      "bounds": {
+        "x": 322,
+        "y": 206,
+        "width": 558,
+        "height": 808
+      },
+      "blend_mode": "screen",
+      "opacity": 1.0,
+      "asset": {
+        "path": "raster/shirt_base_effects_reflections.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    },
+    {
+      "layer_id": "lighting_shirt_base_effects_details",
+      "name": "Details",
+      "layer_path": "Shirt base/Effects/Details",
+      "role": "lighting",
+      "module": "shirt_base",
+      "bounds": {
+        "x": 322,
+        "y": 206,
+        "width": 558,
+        "height": 808
+      },
+      "blend_mode": "hard_light",
+      "opacity": 1.0,
+      "asset": {
+        "path": "raster/shirt_base_effects_details.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    },
+    {
+      "layer_id": "highlight_short_sleeves_effects_main_highlights",
+      "name": "Main Highlights",
+      "layer_path": "Short Sleeves/Effects/Main Highlights",
+      "role": "highlight",
+      "module": "short_sleeves",
+      "bounds": {
+        "x": 234,
+        "y": 287,
+        "width": 728,
+        "height": 321
+      },
+      "blend_mode": "screen",
+      "opacity": 1.0,
+      "asset": {
+        "path": "raster/short_sleeves_effects_main_highlights.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    },
+    {
+      "layer_id": "highlight_short_sleeves_effects_small_highlights",
+      "name": "Small Highlights",
+      "layer_path": "Short Sleeves/Effects/Small Highlights",
+      "role": "highlight",
+      "module": "short_sleeves",
+      "bounds": {
+        "x": 234,
+        "y": 287,
+        "width": 728,
+        "height": 321
+      },
+      "blend_mode": "screen",
+      "opacity": 1.0,
+      "asset": {
+        "path": "raster/short_sleeves_effects_small_highlights.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    },
+    {
+      "layer_id": "lighting_short_sleeves_effects_lighting2",
+      "name": "Lighting2",
+      "layer_path": "Short Sleeves/Effects/Lighting2",
+      "role": "lighting",
+      "module": "short_sleeves",
+      "bounds": {
+        "x": 234,
+        "y": 287,
+        "width": 728,
+        "height": 321
+      },
+      "blend_mode": "linear_light",
+      "opacity": 1.0,
+      "asset": {
+        "path": "raster/short_sleeves_effects_lighting2.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    },
+    {
+      "layer_id": "highlight_short_sleeves_effects_reflections",
+      "name": "Reflections",
+      "layer_path": "Short Sleeves/Effects/Reflections",
+      "role": "highlight",
+      "module": "short_sleeves",
+      "bounds": {
+        "x": 234,
+        "y": 287,
+        "width": 728,
+        "height": 321
+      },
+      "blend_mode": "screen",
+      "opacity": 1.0,
+      "asset": {
+        "path": "raster/short_sleeves_effects_reflections.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    },
+    {
+      "layer_id": "lighting_short_sleeves_effects_details",
+      "name": "Details",
+      "layer_path": "Short Sleeves/Effects/Details",
+      "role": "lighting",
+      "module": "short_sleeves",
+      "bounds": {
+        "x": 234,
+        "y": 287,
+        "width": 728,
+        "height": 321
+      },
+      "blend_mode": "hard_light",
+      "opacity": 1.0,
+      "asset": {
+        "path": "raster/short_sleeves_effects_details.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    },
+    {
+      "layer_id": "highlight_v_neck_collar_1_effects_highlights",
+      "name": "Highlights",
+      "layer_path": "V Neck Collar 1/Effects/Highlights",
+      "role": "highlight",
+      "module": "v_neck_collar_1",
+      "bounds": {
+        "x": 489,
+        "y": 199,
+        "width": 218,
+        "height": 126
+      },
+      "blend_mode": "screen",
+      "opacity": 1.0,
+      "asset": {
+        "path": "raster/v_neck_collar_1_effects_highlights.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    },
+    {
+      "layer_id": "highlight_v_neck_collar_1_effects_small_highlights",
+      "name": "Small Highlights",
+      "layer_path": "V Neck Collar 1/Effects/Small Highlights",
+      "role": "highlight",
+      "module": "v_neck_collar_1",
+      "bounds": {
+        "x": 489,
+        "y": 199,
+        "width": 218,
+        "height": 126
+      },
+      "blend_mode": "screen",
+      "opacity": 1.0,
+      "asset": {
+        "path": "raster/v_neck_collar_1_effects_small_highlights.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    },
+    {
+      "layer_id": "lighting_v_neck_collar_1_effects_lighting",
+      "name": "Lighting",
+      "layer_path": "V Neck Collar 1/Effects/Lighting",
+      "role": "lighting",
+      "module": "v_neck_collar_1",
+      "bounds": {
+        "x": 489,
+        "y": 199,
+        "width": 218,
+        "height": 126
+      },
+      "blend_mode": "linear_light",
+      "opacity": 1.0,
+      "asset": {
+        "path": "raster/v_neck_collar_1_effects_lighting.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    },
+    {
+      "layer_id": "highlight_v_neck_collar_1_effects_reflections",
+      "name": "Reflections",
+      "layer_path": "V Neck Collar 1/Effects/Reflections",
+      "role": "highlight",
+      "module": "v_neck_collar_1",
+      "bounds": {
+        "x": 489,
+        "y": 199,
+        "width": 218,
+        "height": 126
+      },
+      "blend_mode": "screen",
+      "opacity": 1.0,
+      "asset": {
+        "path": "raster/v_neck_collar_1_effects_reflections.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    },
+    {
+      "layer_id": "lighting_v_neck_collar_1_effects_details",
+      "name": "Details",
+      "layer_path": "V Neck Collar 1/Effects/Details",
+      "role": "lighting",
+      "module": "v_neck_collar_1",
+      "bounds": {
+        "x": 489,
+        "y": 199,
+        "width": 218,
+        "height": 126
+      },
+      "blend_mode": "hard_light",
+      "opacity": 1.0,
+      "asset": {
+        "path": "raster/v_neck_collar_1_effects_details.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    },
+    {
+      "layer_id": "lighting_v_neck_collar_1_effects_collar_copy_2",
+      "name": "Collar copy 2",
+      "layer_path": "V Neck Collar 1/Effects/Collar copy 2",
+      "role": "lighting",
+      "module": "v_neck_collar_1",
+      "bounds": {
+        "x": 513,
+        "y": 203,
+        "width": 170,
+        "height": 25
+      },
+      "blend_mode": "linear_light",
+      "opacity": 1.0,
+      "asset": {
+        "path": "raster/v_neck_collar_1_effects_collar_copy_2.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    }
+  ],
+  "dynamic_lighting_layers": [
+    {
+      "layer_id": "dynamic_lighting_shirt_base_dynamic_lighting",
+      "name": "Dynamic lighting",
+      "layer_path": "Shirt base/Dynamic lighting",
+      "role": "dynamic_lighting",
+      "module": "shirt_base",
+      "bounds": {
+        "x": 235,
+        "y": 206,
+        "width": 727,
+        "height": 807
+      },
+      "blend_mode": "screen",
+      "opacity": 0.6392156862745098,
+      "asset": {
+        "path": "raster/dynamic_lighting_shirt_base_dynamic_lighting.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    },
+    {
+      "layer_id": "dynamic_lighting_short_sleeves_dynamic_lighting",
+      "name": "Dynamic Lighting",
+      "layer_path": "Short Sleeves/Dynamic Lighting",
+      "role": "dynamic_lighting",
+      "module": "short_sleeves",
+      "bounds": {
+        "x": 235,
+        "y": 288,
+        "width": 727,
+        "height": 319
+      },
+      "blend_mode": "screen",
+      "opacity": 0.6392156862745098,
+      "asset": {
+        "path": "raster/dynamic_lighting_short_sleeves_dynamic_lighting.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    },
+    {
+      "layer_id": "dynamic_lighting_v_neck_collar_1_dynamic_lighting",
+      "name": "Dynamic lighting",
+      "layer_path": "V Neck Collar 1/Dynamic lighting",
+      "role": "dynamic_lighting",
+      "module": "v_neck_collar_1",
+      "bounds": {
+        "x": 490,
+        "y": 199,
+        "width": 216,
+        "height": 125
+      },
+      "blend_mode": "screen",
+      "opacity": 0.6392156862745098,
+      "asset": {
+        "path": "raster/dynamic_lighting_v_neck_collar_1_dynamic_lighting.png",
+        "format": "png"
+      },
+      "clip_to": ""
+    }
+  ],
+  "smart_object_placeholders": [
+    {
+      "placeholder_id": "so_short_sleeves_editable_parts_right_sleeve_right_sleeve",
+      "name": "Right Sleeve",
+      "layer_path": "Short Sleeves/Editable parts/Right Sleeve/Right Sleeve",
+      "module": "short_sleeves",
+      "bounds": {
+        "x": 237,
+        "y": 282,
+        "width": 215,
+        "height": 303
+      },
+      "anchor_type": "sleeve_graphic",
+      "blend_mode": "normal",
+      "opacity": 1.0,
+      "clip_to": "Short Sleeves/Editable parts/Right Sleeve",
+      "clipping": true
+    },
+    {
+      "placeholder_id": "so_short_sleeves_editable_parts_left_sleeve_left_sleeve",
+      "name": "Left Sleeve",
+      "layer_path": "Short Sleeves/Editable parts/Left Sleeve/Left Sleeve",
+      "module": "short_sleeves",
+      "bounds": {
+        "x": 745,
+        "y": 285,
+        "width": 214,
+        "height": 302
+      },
+      "anchor_type": "sleeve_graphic",
+      "blend_mode": "normal",
+      "opacity": 1.0,
+      "clip_to": "Short Sleeves/Editable parts/Left Sleeve",
+      "clipping": true
+    }
+  ],
+  "logo_anchors": [
+    {
+      "anchor_id": "anchor_short_sleeves_editable_parts_right_sleeve_right_sleeve",
+      "name": "Right Sleeve",
+      "anchor_type": "sleeve_graphic",
+      "x": 237.0,
+      "y": 282.0,
+      "width": 215.0,
+      "height": 303.0,
+      "source_layer_path": "Short Sleeves/Editable parts/Right Sleeve/Right Sleeve",
+      "placeholder_id": "so_short_sleeves_editable_parts_right_sleeve_right_sleeve"
+    },
+    {
+      "anchor_id": "anchor_short_sleeves_editable_parts_left_sleeve_left_sleeve",
+      "name": "Left Sleeve",
+      "anchor_type": "sleeve_graphic",
+      "x": 745.0,
+      "y": 285.0,
+      "width": 214.0,
+      "height": 302.0,
+      "source_layer_path": "Short Sleeves/Editable parts/Left Sleeve/Left Sleeve",
+      "placeholder_id": "so_short_sleeves_editable_parts_left_sleeve_left_sleeve"
+    }
+  ],
+  "typography_anchors": [],
+  "print_safe_regions": [
+    {
+      "region_id": "print_safe_panels",
+      "name": "Panel union",
+      "region_type": "print_safe",
+      "bounds": {
+        "x": 209,
+        "y": 174,
+        "width": 778,
+        "height": 865
+      },
+      "derived_from": "panel_bounds_union"
+    }
+  ],
+  "export_regions": [
+    {
+      "region_id": "export_canvas",
+      "name": "Full canvas",
+      "region_type": "export",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1200,
+        "height": 1200
+      },
+      "derived_from": "canvas"
+    }
+  ],
+  "extraction": {
+    "source_psd": "/Volumes/04_GRAPHICS/03_JERSEYS/02_ENGLISH_FOOTBALL_JERSEYS/base_template.psd",
+    "extracted_at": "2026-07-02T02:16:50.117411+00:00",
+    "layer_count": 63,
+    "canonical_master": true,
+    "asset_regenerated_at": "2026-07-03T20:43:46.391232+00:00",
+    "asset_source_size": [
+      8190,
+      8190
+    ],
+    "asset_max_edge": 2048,
+    "asset_mask_channel": "alpha",
+    "notes": "Assets regenerated from canonical base_template.psd at production resolution. Logical coordinates unchanged (1200-space); runtime renderer downsamples assets to render size as before."
+  }
+}

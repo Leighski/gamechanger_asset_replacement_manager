@@ -1,0 +1,60 @@
+{
+  "milestone": "Canonical Base Template Upgrade (base_template.psd)",
+  "generated_at": "2026-07-03T20:46:56.931893+00:00",
+  "references": {
+    "base": {
+      "before": {
+        "overall": 62.75,
+        "categories": {
+          "Colour Accuracy": 64.18,
+          "Lighting": 53.38,
+          "Shadow Behaviour": 73.79,
+          "Garment Silhouette": 58.77,
+          "Structural Similarity": 66.14
+        },
+        "highlight_rolloff": 0.0,
+        "colour_distribution": 88.78
+      },
+      "after": {
+        "overall": 62.47,
+        "categories": {
+          "Colour Accuracy": 64.23,
+          "Lighting": 53.59,
+          "Shadow Behaviour": 71.05,
+          "Garment Silhouette": 59.17,
+          "Structural Similarity": 66.66
+        },
+        "highlight_rolloff": 0.0,
+        "colour_distribution": 88.44
+      },
+      "delta_overall": -0.28
+    },
+    "coventry": {
+      "before": {
+        "overall": 73.16,
+        "categories": {
+          "Colour Accuracy": 84.59,
+          "Lighting": 72.2,
+          "Shadow Behaviour": 77.41,
+          "Garment Silhouette": 59.89,
+          "Structural Similarity": 68.12
+        },
+        "highlight_rolloff": 34.41,
+        "colour_distribution": 89.65
+      },
+      "after": {
+        "overall": 73.33,
+        "categories": {
+          "Colour Accuracy": 83.47,
+          "Lighting": 73.23,
+          "Shadow Behaviour": 78.33,
+          "Garment Silhouette": 60.01,
+          "Structural Similarity": 68.36
+        },
+        "highlight_rolloff": 38.97,
+        "colour_distribution": 89.36
+      },
+      "delta_overall": 0.17
+    }
+  }
+}
