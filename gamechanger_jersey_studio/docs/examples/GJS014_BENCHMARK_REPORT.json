@@ -1,0 +1,22 @@
+{
+  "library_name": "Gamechanger RC1 Benchmark",
+  "version": "1.0.0-rc.1",
+  "project_count": 5,
+  "mean_accuracy": 91.4,
+  "median_accuracy": 92.8,
+  "ai_acceptance_rate": 78.5,
+  "learning_rule_effectiveness": 72.0,
+  "average_review_time_ms": 12400.0,
+  "average_render_time_ms": 1049.0,
+  "most_corrected_fields": [
+    "collar_style",
+    "pattern",
+    "trim_style",
+    "primary_colour",
+    "sleeve_style"
+  ],
+  "missing_catalogue_components": [
+    "Trim component",
+    "Material component"
+  ]
+}

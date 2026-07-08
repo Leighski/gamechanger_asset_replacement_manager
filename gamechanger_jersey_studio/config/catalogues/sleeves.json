@@ -1,0 +1,11 @@
+{
+  "catalogue_version": "1.0",
+  "category": "sleeves",
+  "items": [
+    {"id": "standard", "label": "Standard Set-In", "description": "Classic set-in sleeve"},
+    {"id": "raglan", "label": "Raglan", "description": "Raglan shoulder seam"},
+    {"id": "cap", "label": "Cap Sleeve", "description": "Short cap sleeve"},
+    {"id": "long", "label": "Long Sleeve", "description": "Full long sleeve"},
+    {"id": "tapered", "label": "Tapered Fit", "description": "Athletic tapered sleeve"}
+  ]
+}

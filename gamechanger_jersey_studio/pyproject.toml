@@ -1,0 +1,20 @@
+[project]
+name = "gamechanger-jersey-studio"
+version = "1.0.0-alpha.8"
+description = "Gamechanger Jersey Studio — professional jersey design desktop application"
+requires-python = ">=3.12"
+dependencies = [
+    "PySide6>=6.8.0",
+    "loguru>=0.7.2",
+    "pydantic>=2.9.0",
+    "Pillow>=10.0.0",
+    "psd-tools>=1.9.0",
+    "numpy>=1.26.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.3.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

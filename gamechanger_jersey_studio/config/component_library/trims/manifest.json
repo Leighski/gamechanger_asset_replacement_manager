@@ -1,0 +1,79 @@
+{
+  "catalogue_id": "trims",
+  "catalogue_version": "1.0.0",
+  "category": "trims",
+  "components": [
+    {
+      "id": "TRIM_0001",
+      "name": "Standard Hem",
+      "category": "trims",
+      "description": "Standard bottom hem trim",
+      "version": "1.0.0",
+      "status": "Certified",
+      "preview_image": "previews/TRIM_0001.png",
+      "metadata": {},
+      "tags": [
+        "trim"
+      ],
+      "created_at": "2026-06-30T11:44:10+00:00",
+      "modified_at": "2026-06-30T11:44:10+00:00",
+      "author": "Gamechanger",
+      "notes": "",
+      "legacy_ids": [],
+      "assets": {
+        "png_preview": "previews/TRIM_0001.png",
+        "svg_preview": "",
+        "psd_layer_ref": "",
+        "mask_ref": "",
+        "geometry": {},
+        "anchor_points": [],
+        "rendering_metadata": {}
+      },
+      "dependencies": [],
+      "version_history": [
+        {
+          "version": "1.0.0",
+          "date": "2026-06-30T11:44:10+00:00",
+          "notes": "Initial certified release",
+          "author": "Gamechanger"
+        }
+      ]
+    },
+    {
+      "id": "TRIM_0002",
+      "name": "Contrast Piping",
+      "category": "trims",
+      "description": "Contrast colour piping",
+      "version": "1.0.0",
+      "status": "Certified",
+      "preview_image": "previews/TRIM_0002.png",
+      "metadata": {},
+      "tags": [
+        "trim"
+      ],
+      "created_at": "2026-06-30T11:44:10+00:00",
+      "modified_at": "2026-06-30T11:44:10+00:00",
+      "author": "Gamechanger",
+      "notes": "",
+      "legacy_ids": [],
+      "assets": {
+        "png_preview": "previews/TRIM_0002.png",
+        "svg_preview": "",
+        "psd_layer_ref": "",
+        "mask_ref": "",
+        "geometry": {},
+        "anchor_points": [],
+        "rendering_metadata": {}
+      },
+      "dependencies": [],
+      "version_history": [
+        {
+          "version": "1.0.0",
+          "date": "2026-06-30T11:44:10+00:00",
+          "notes": "Initial certified release",
+          "author": "Gamechanger"
+        }
+      ]
+    }
+  ]
+}

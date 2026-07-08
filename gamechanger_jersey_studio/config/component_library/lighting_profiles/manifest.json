@@ -1,0 +1,121 @@
+{
+  "catalogue_id": "lighting_profiles",
+  "catalogue_version": "1.0.0",
+  "category": "lighting_profiles",
+  "components": [
+    {
+      "id": "LIGHT_0001",
+      "name": "Flat",
+      "category": "lighting_profiles",
+      "description": "Even flat lighting",
+      "version": "1.0.0",
+      "status": "Certified",
+      "preview_image": "previews/LIGHT_0001.png",
+      "metadata": {},
+      "tags": [
+        "lighting_profiles"
+      ],
+      "created_at": "2026-06-30T11:44:10+00:00",
+      "modified_at": "2026-06-30T11:44:10+00:00",
+      "author": "Gamechanger",
+      "notes": "",
+      "legacy_ids": [
+        "flat"
+      ],
+      "assets": {
+        "png_preview": "previews/LIGHT_0001.png",
+        "svg_preview": "",
+        "psd_layer_ref": "",
+        "mask_ref": "",
+        "geometry": {},
+        "anchor_points": [],
+        "rendering_metadata": {}
+      },
+      "dependencies": [],
+      "version_history": [
+        {
+          "version": "1.0.0",
+          "date": "2026-06-30T11:44:10+00:00",
+          "notes": "Initial certified release",
+          "author": "Gamechanger"
+        }
+      ]
+    },
+    {
+      "id": "LIGHT_0002",
+      "name": "Studio",
+      "category": "lighting_profiles",
+      "description": "Three-point studio lighting",
+      "version": "1.0.0",
+      "status": "Certified",
+      "preview_image": "previews/LIGHT_0002.png",
+      "metadata": {},
+      "tags": [
+        "lighting_profiles"
+      ],
+      "created_at": "2026-06-30T11:44:10+00:00",
+      "modified_at": "2026-06-30T11:44:10+00:00",
+      "author": "Gamechanger",
+      "notes": "",
+      "legacy_ids": [
+        "studio"
+      ],
+      "assets": {
+        "png_preview": "previews/LIGHT_0002.png",
+        "svg_preview": "",
+        "psd_layer_ref": "",
+        "mask_ref": "",
+        "geometry": {},
+        "anchor_points": [],
+        "rendering_metadata": {}
+      },
+      "dependencies": [],
+      "version_history": [
+        {
+          "version": "1.0.0",
+          "date": "2026-06-30T11:44:10+00:00",
+          "notes": "Initial certified release",
+          "author": "Gamechanger"
+        }
+      ]
+    },
+    {
+      "id": "LIGHT_0003",
+      "name": "Stadium",
+      "category": "lighting_profiles",
+      "description": "Outdoor stadium lighting",
+      "version": "1.0.0",
+      "status": "Certified",
+      "preview_image": "previews/LIGHT_0003.png",
+      "metadata": {},
+      "tags": [
+        "lighting_profiles"
+      ],
+      "created_at": "2026-06-30T11:44:10+00:00",
+      "modified_at": "2026-06-30T11:44:10+00:00",
+      "author": "Gamechanger",
+      "notes": "",
+      "legacy_ids": [
+        "stadium"
+      ],
+      "assets": {
+        "png_preview": "previews/LIGHT_0003.png",
+        "svg_preview": "",
+        "psd_layer_ref": "",
+        "mask_ref": "",
+        "geometry": {},
+        "anchor_points": [],
+        "rendering_metadata": {}
+      },
+      "dependencies": [],
+      "version_history": [
+        {
+          "version": "1.0.0",
+          "date": "2026-06-30T11:44:10+00:00",
+          "notes": "Initial certified release",
+          "author": "Gamechanger"
+        }
+      ]
+    }
+  ]
+}

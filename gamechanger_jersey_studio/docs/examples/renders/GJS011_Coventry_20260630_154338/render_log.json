@@ -1,0 +1,125 @@
+{
+  "schema_version": "1.0",
+  "template_id": "TEMPLATE_BROADCAST_0001",
+  "template_version": "1.0.0",
+  "project_name": "GJS011_Coventry",
+  "started_at": "2026-06-30T15:43:38+00:00",
+  "completed_at": "2026-06-30T15:43:39+00:00",
+  "success": true,
+  "total_ms": 1078.86,
+  "stages": [
+    {
+      "stage": "Open PSD template",
+      "duration_ms": 72.07,
+      "layer_name": "",
+      "message": "/Users/leigh/Desktop/Inspired_Delivery_Generator/gamechanger_jersey_studio/docs/examples/renders/GJS011_Coventry_20260630_154338/GJS011_Coventry_working.psd",
+      "success": true
+    },
+    {
+      "stage": "Resolve template mappings",
+      "duration_ms": 0.01,
+      "layer_name": "",
+      "message": "10 rules",
+      "success": true
+    },
+    {
+      "stage": "Resolve component IDs",
+      "duration_ms": 0.05,
+      "layer_name": "",
+      "message": "9 components",
+      "success": true
+    },
+    {
+      "stage": "Apply colours",
+      "duration_ms": 114.71,
+      "layer_name": "",
+      "message": "",
+      "success": true
+    },
+    {
+      "stage": "Apply patterns",
+      "duration_ms": 205.01,
+      "layer_name": "",
+      "message": "",
+      "success": true
+    },
+    {
+      "stage": "Apply textures",
+      "duration_ms": 115.27,
+      "layer_name": "",
+      "message": "",
+      "success": true
+    },
+    {
+      "stage": "Update Smart Objects",
+      "duration_ms": 527.11,
+      "layer_name": "",
+      "message": "",
+      "success": true
+    },
+    {
+      "stage": "Toggle optional layers",
+      "duration_ms": 0.24,
+      "layer_name": "",
+      "message": "8 toggles",
+      "success": true
+    },
+    {
+      "stage": "Validate layer state",
+      "duration_ms": 0.03,
+      "layer_name": "",
+      "message": "",
+      "success": true
+    },
+    {
+      "stage": "Save rendered PSD",
+      "duration_ms": 38.05,
+      "layer_name": "",
+      "message": "/Users/leigh/Desktop/Inspired_Delivery_Generator/gamechanger_jersey_studio/docs/examples/renders/GJS011_Coventry_20260630_154338/GJS011_Coventry_render.psd",
+      "success": true
+    }
+  ],
+  "component_ids": {
+    "collar_style": "COLLAR_0002",
+    "sleeve_style": "SLEEVE_0001",
+    "trim_style": "TRIM_0002",
+    "material_style": "MATERIAL_0001",
+    "pattern": "PATTERN_0002",
+    "shadow_style": "SHADOW_0003",
+    "lighting_style": "LIGHT_0002",
+    "texture_style": "TEXTURE_0002",
+    "output_profile": "OutputProfile.GAMECHANGER_BROADCAST"
+  },
+  "colours_applied": {
+    "primary_colour": "#69B3E7",
+    "secondary_colour": "#FFFFFF",
+    "third_colour": "#1C1C1C",
+    "sleeve_colour": "#69B3E7",
+    "collar_colour": "#FFFFFF",
+    "trim_colour": "#1C1C1C"
+  },
+  "patterns_applied": [
+    "Pattern Smart Object"
+  ],
+  "textures_applied": [
+    "Texture Overlay"
+  ],
+  "smart_objects_updated": [
+    "SO0001",
+    "Sleeves",
+    "Trim"
+  ],
+  "layers_toggled": [
+    "show:Base Shirt",
+    "show:Sleeves",
+    "show:Collar Smart Object",
+    "show:Trim",
+    "show:Pattern Smart Object",
+    "show:Texture Overlay",
+    "show:Shadows",
+    "show:Lighting"
+  ],
+  "warnings": [],
+  "errors": [],
+  "validation_issues": []
+}

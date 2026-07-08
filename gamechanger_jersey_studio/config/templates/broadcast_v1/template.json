@@ -1,0 +1,33 @@
+{
+  "template_id": "TEMPLATE_BROADCAST_0001",
+  "name": "Gamechanger Broadcast v1",
+  "version": "1.0.0",
+  "description": "Primary broadcast jersey PSD template for Gamechanger output.",
+  "psd_path": "gamechanger_broadcast_v1.psd",
+  "preview_image": "preview.png",
+  "status": "Certified",
+  "build_profile_compatibility": [
+    "Gamechanger Broadcast"
+  ],
+  "supported_collar_types": [
+    "COLLAR_0001",
+    "COLLAR_0002",
+    "crew",
+    "v-neck"
+  ],
+  "supported_sleeve_types": [
+    "SLEEVE_0001",
+    "SLEEVE_0002",
+    "standard",
+    "long"
+  ],
+  "supported_output_profiles": [
+    "Gamechanger Broadcast"
+  ],
+  "slug": "broadcast_v1",
+  "tags": [
+    "broadcast",
+    "primary"
+  ],
+  "metadata": {}
+}

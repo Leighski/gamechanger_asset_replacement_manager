@@ -1,0 +1,471 @@
+{
+  "analysis_id": "69f22b722b084852",
+  "image_id": "coventry_demo",
+  "image_filename": "coventry_home_front.png",
+  "created_at": "2026-06-30T11:10:38+00:00",
+  "engine_version": "1.0.0-alpha.6",
+  "status": "Complete",
+  "review_status": "Pending Review",
+  "shirt_detection": {
+    "bounding_box": [
+      148,
+      98,
+      491,
+      701
+    ],
+    "outline_points": [
+      [
+        148,
+        98
+      ],
+      [
+        491,
+        98
+      ],
+      [
+        491,
+        701
+      ],
+      [
+        148,
+        701
+      ]
+    ],
+    "confidence": 82.1,
+    "requires_review": false
+  },
+  "colours": [
+    {
+      "name": "Primary Colour",
+      "channels": {
+        "rgb": [
+          248,
+          248,
+          248
+        ],
+        "hsv": [
+          0.0,
+          0.0,
+          97.3
+        ],
+        "lab": [
+          97.6,
+          0.0,
+          -0.0
+        ],
+        "hex_value": "#F8F8F8"
+      },
+      "confidence": 99.0,
+      "catalogue_match": "White"
+    },
+    {
+      "name": "Secondary Colour",
+      "channels": {
+        "rgb": [
+          248,
+          248,
+          248
+        ],
+        "hsv": [
+          0.0,
+          0.0,
+          97.3
+        ],
+        "lab": [
+          97.6,
+          0.0,
+          -0.0
+        ],
+        "hex_value": "#F8F8F8"
+      },
+      "confidence": 49.5,
+      "catalogue_match": "White"
+    },
+    {
+      "name": "Accent Colour",
+      "channels": {
+        "rgb": [
+          248,
+          248,
+          248
+        ],
+        "hsv": [
+          0.0,
+          0.0,
+          97.3
+        ],
+        "lab": [
+          97.6,
+          0.0,
+          -0.0
+        ],
+        "hex_value": "#F8F8F8"
+      },
+      "confidence": 24.8,
+      "catalogue_match": "White"
+    },
+    {
+      "name": "Trim Colour",
+      "channels": {
+        "rgb": [
+          248,
+          248,
+          248
+        ],
+        "hsv": [
+          0.0,
+          0.0,
+          97.3
+        ],
+        "lab": [
+          97.6,
+          0.0,
+          -0.0
+        ],
+        "hex_value": "#F8F8F8"
+      },
+      "confidence": 12.4,
+      "catalogue_match": "White"
+    },
+    {
+      "name": "Collar Colour",
+      "channels": {
+        "rgb": [
+          248,
+          248,
+          248
+        ],
+        "hsv": [
+          0.0,
+          0.0,
+          97.3
+        ],
+        "lab": [
+          97.6,
+          0.0,
+          -0.0
+        ],
+        "hex_value": "#F8F8F8"
+      },
+      "confidence": 6.2,
+      "catalogue_match": "White"
+    },
+    {
+      "name": "Sleeve Colour",
+      "channels": {
+        "rgb": [
+          248,
+          248,
+          248
+        ],
+        "hsv": [
+          0.0,
+          0.0,
+          97.3
+        ],
+        "lab": [
+          97.6,
+          0.0,
+          -0.0
+        ],
+        "hex_value": "#F8F8F8"
+      },
+      "confidence": 3.1,
+      "catalogue_match": "White"
+    }
+  ],
+  "regions": [
+    {
+      "name": "Collar",
+      "points": [
+        [
+          268,
+          98
+        ],
+        [
+          370,
+          98
+        ],
+        [
+          370,
+          170
+        ],
+        [
+          268,
+          170
+        ]
+      ],
+      "confidence": 78.8
+    },
+    {
+      "name": "Sleeves",
+      "points": [
+        [
+          148,
+          170
+        ],
+        [
+          209,
+          170
+        ],
+        [
+          209,
+          369
+        ],
+        [
+          148,
+          369
+        ]
+      ],
+      "confidence": 73.9
+    },
+    {
+      "name": "Sleeves",
+      "points": [
+        [
+          429,
+          170
+        ],
+        [
+          491,
+          170
+        ],
+        [
+          491,
+          369
+        ],
+        [
+          429,
+          369
+        ]
+      ],
+      "confidence": 73.9
+    },
+    {
+      "name": "Body",
+      "points": [
+        [
+          216,
+          170
+        ],
+        [
+          422,
+          170
+        ],
+        [
+          422,
+          628
+        ],
+        [
+          216,
+          628
+        ]
+      ],
+      "confidence": 80.5
+    },
+    {
+      "name": "Shoulders",
+      "points": [
+        [
+          209,
+          158
+        ],
+        [
+          429,
+          158
+        ],
+        [
+          429,
+          230
+        ],
+        [
+          209,
+          230
+        ]
+      ],
+      "confidence": 76.4
+    },
+    {
+      "name": "Side Panels",
+      "points": [
+        [
+          199,
+          309
+        ],
+        [
+          244,
+          309
+        ],
+        [
+          244,
+          580
+        ],
+        [
+          199,
+          580
+        ]
+      ],
+      "confidence": 72.2
+    },
+    {
+      "name": "Side Panels",
+      "points": [
+        [
+          394,
+          309
+        ],
+        [
+          439,
+          309
+        ],
+        [
+          439,
+          580
+        ],
+        [
+          394,
+          580
+        ]
+      ],
+      "confidence": 72.2
+    },
+    {
+      "name": "Trim",
+      "points": [
+        [
+          250,
+          616
+        ],
+        [
+          388,
+          616
+        ],
+        [
+          388,
+          670
+        ],
+        [
+          250,
+          670
+        ]
+      ],
+      "confidence": 69.8
+    }
+  ],
+  "shapes": {
+    "collar_position_y": {
+      "value": 0.14,
+      "confidence": 78.0
+    },
+    "sleeve_length_ratio": {
+      "value": 0.38,
+      "confidence": 72.2
+    },
+    "neck_opening_width_ratio": {
+      "value": 0.22,
+      "confidence": 73.9
+    },
+    "shoulder_width_ratio": {
+      "value": 0.569,
+      "confidence": 75.5
+    },
+    "body_height_ratio": {
+      "value": 1.758,
+      "confidence": 77.2
+    }
+  },
+  "patterns": {
+    "coverage_percent": {
+      "value": 15.7,
+      "confidence": 45.1
+    },
+    "density": {
+      "value": 0.0,
+      "confidence": 40.6
+    },
+    "orientation_degrees": {
+      "value": 90.0,
+      "confidence": 43.1
+    },
+    "frequency": {
+      "value": 0.2,
+      "confidence": 40.1
+    }
+  },
+  "warnings": [],
+  "suggested_mappings": [
+    {
+      "mapping_id": "5826f1ccaf73",
+      "design_spec_field": "primary_colour",
+      "suggested_value": "#F8F8F8",
+      "confidence": 99.0,
+      "source_measurement": "Primary Colour",
+      "accepted": false
+    },
+    {
+      "mapping_id": "1f517fca23de",
+      "design_spec_field": "secondary_colour",
+      "suggested_value": "#F8F8F8",
+      "confidence": 49.5,
+      "source_measurement": "Secondary Colour",
+      "accepted": false
+    },
+    {
+      "mapping_id": "ce5a0371cda0",
+      "design_spec_field": "third_colour",
+      "suggested_value": "#F8F8F8",
+      "confidence": 24.8,
+      "source_measurement": "Accent Colour",
+      "accepted": false
+    },
+    {
+      "mapping_id": "def16c467467",
+      "design_spec_field": "trim_colour",
+      "suggested_value": "#F8F8F8",
+      "confidence": 12.4,
+      "source_measurement": "Trim Colour",
+      "accepted": false
+    },
+    {
+      "mapping_id": "4b4f431bc983",
+      "design_spec_field": "collar_colour",
+      "suggested_value": "#F8F8F8",
+      "confidence": 6.2,
+      "source_measurement": "Collar Colour",
+      "accepted": false
+    },
+    {
+      "mapping_id": "d2f205e5489a",
+      "design_spec_field": "sleeve_colour",
+      "suggested_value": "#F8F8F8",
+      "confidence": 3.1,
+      "source_measurement": "Sleeve Colour",
+      "accepted": false
+    }
+  ],
+  "performance": {
+    "processing_time_ms": 50.73,
+    "image_width": 640,
+    "image_height": 800,
+    "memory_usage_mb": 14.92,
+    "cpu_time_ms": 50.73,
+    "gpu_usage": "Not available"
+  },
+  "confidence_summary": {
+    "Shirt Detection": 82.1,
+    "Primary Colour": 99.0,
+    "Secondary Colour": 49.5,
+    "Accent Colour": 24.8,
+    "Trim Colour": 12.4,
+    "Collar Colour": 6.2,
+    "Sleeve Colour": 3.1,
+    "Collar Region": 78.8,
+    "Sleeves Region": 73.9,
+    "Body Region": 80.5,
+    "Shoulders Region": 76.4,
+    "Side Panels Region": 72.2,
+    "Trim Region": 69.8,
+    "Pattern Density": 40.6,
+    "Pattern Coverage": 45.1
+  }
+}

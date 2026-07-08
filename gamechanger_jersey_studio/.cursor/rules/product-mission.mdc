@@ -1,0 +1,33 @@
+---
+description: Gamechanger Jersey Studio product mission — recognition-first football shirt replication
+alwaysApply: true
+---
+
+# Jersey Studio Product Direction
+
+Gamechanger Jersey Studio is an **AI-assisted football shirt replication engine**, not a graphics editor, CAD tool, or multi-garment designer.
+
+## Mission test
+
+Every new feature must answer: **Does this improve the application’s ability to automatically recreate a football shirt from an uploaded image?** If no, do not build it.
+
+## Pipeline
+
+Upload → Garment Recognition → **Garment Recognition Contract** → Designer Review → **Design Specification** → Renderer → Production Artwork
+
+## Hard rules
+
+- Design Specification is the single source of truth for rendering.
+- Recognition modules populate the Contract only; they never talk to the renderer.
+- Detect and Map are separate (upload findings → Gamechanger equivalents).
+- Branding detections are exclusion regions only — never projected into Design Spec.
+- One football shirt template, front view, approved V-neck collar family.
+- Every recognition module must be independently testable.
+
+## Do not expand
+
+Shorts, socks, kits, 360°, player models, lifestyle scenes, multi-sport, hundreds of templates, renderer redesign for its own sake.
+
+## Leave unchanged (downstream)
+
+Renderer, production template, production validation, production output, Visual QA, fidelity framework.

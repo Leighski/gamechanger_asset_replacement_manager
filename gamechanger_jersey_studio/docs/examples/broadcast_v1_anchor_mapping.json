@@ -1,0 +1,93 @@
+{
+  "template_id": "TEMPLATE_BROADCAST_0001",
+  "anchors": [
+    {
+      "anchor_id": "ANCHOR_COLLAR",
+      "name": "Collar Anchor",
+      "role": "collar",
+      "x": 0.5,
+      "y": 0.12,
+      "width": 0.22,
+      "height": 0.08,
+      "rotation_degrees": 0.0,
+      "notes": "Neck opening centre"
+    },
+    {
+      "anchor_id": "ANCHOR_SLEEVE_L",
+      "name": "Left Sleeve Anchor",
+      "role": "sleeve",
+      "x": 0.12,
+      "y": 0.28,
+      "width": 0.18,
+      "height": 0.35,
+      "rotation_degrees": 0.0,
+      "notes": "Left sleeve placement"
+    },
+    {
+      "anchor_id": "ANCHOR_SLEEVE_R",
+      "name": "Right Sleeve Anchor",
+      "role": "sleeve",
+      "x": 0.88,
+      "y": 0.28,
+      "width": 0.18,
+      "height": 0.35,
+      "rotation_degrees": 0.0,
+      "notes": "Right sleeve placement"
+    },
+    {
+      "anchor_id": "ANCHOR_BADGE",
+      "name": "Badge Anchor",
+      "role": "badge",
+      "x": 0.5,
+      "y": 0.22,
+      "width": 0.08,
+      "height": 0.08,
+      "rotation_degrees": 0.0,
+      "notes": "Chest badge centre"
+    },
+    {
+      "anchor_id": "ANCHOR_SPONSOR",
+      "name": "Sponsor Anchor",
+      "role": "sponsor",
+      "x": 0.5,
+      "y": 0.42,
+      "width": 0.35,
+      "height": 0.1,
+      "rotation_degrees": 0.0,
+      "notes": "Front sponsor block"
+    },
+    {
+      "anchor_id": "ANCHOR_MANUFACTURER",
+      "name": "Manufacturer Logo Anchor",
+      "role": "manufacturer_logo",
+      "x": 0.78,
+      "y": 0.2,
+      "width": 0.06,
+      "height": 0.06,
+      "rotation_degrees": 0.0,
+      "notes": "Manufacturer mark"
+    },
+    {
+      "anchor_id": "ANCHOR_NUMBER",
+      "name": "Number Anchor",
+      "role": "number",
+      "x": 0.5,
+      "y": 0.58,
+      "width": 0.2,
+      "height": 0.18,
+      "rotation_degrees": 0.0,
+      "notes": "Back number placement"
+    },
+    {
+      "anchor_id": "ANCHOR_NAME",
+      "name": "Name Anchor",
+      "role": "name",
+      "x": 0.5,
+      "y": 0.48,
+      "width": 0.3,
+      "height": 0.08,
+      "rotation_degrees": 0.0,
+      "notes": "Name bar above number"
+    }
+  ]
+}

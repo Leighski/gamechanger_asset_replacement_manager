@@ -1,0 +1,197 @@
+{
+  "catalogue_id": "sleeves",
+  "catalogue_version": "1.0.0",
+  "category": "sleeves",
+  "components": [
+    {
+      "id": "SLEEVE_0001",
+      "name": "Standard Set-In",
+      "category": "sleeves",
+      "description": "Classic set-in sleeve",
+      "version": "1.0.0",
+      "status": "Certified",
+      "preview_image": "previews/SLEEVE_0001.png",
+      "metadata": {},
+      "tags": [
+        "sleeves"
+      ],
+      "created_at": "2026-06-30T11:44:10+00:00",
+      "modified_at": "2026-06-30T11:44:10+00:00",
+      "author": "Gamechanger",
+      "notes": "",
+      "legacy_ids": [
+        "standard"
+      ],
+      "assets": {
+        "png_preview": "previews/SLEEVE_0001.png",
+        "svg_preview": "",
+        "psd_layer_ref": "",
+        "mask_ref": "",
+        "geometry": {},
+        "anchor_points": [],
+        "rendering_metadata": {}
+      },
+      "dependencies": [],
+      "version_history": [
+        {
+          "version": "1.0.0",
+          "date": "2026-06-30T11:44:10+00:00",
+          "notes": "Initial certified release",
+          "author": "Gamechanger"
+        }
+      ]
+    },
+    {
+      "id": "SLEEVE_0002",
+      "name": "Raglan",
+      "category": "sleeves",
+      "description": "Raglan shoulder seam",
+      "version": "1.0.0",
+      "status": "Certified",
+      "preview_image": "previews/SLEEVE_0002.png",
+      "metadata": {},
+      "tags": [
+        "sleeves"
+      ],
+      "created_at": "2026-06-30T11:44:10+00:00",
+      "modified_at": "2026-06-30T11:44:10+00:00",
+      "author": "Gamechanger",
+      "notes": "",
+      "legacy_ids": [
+        "raglan"
+      ],
+      "assets": {
+        "png_preview": "previews/SLEEVE_0002.png",
+        "svg_preview": "",
+        "psd_layer_ref": "",
+        "mask_ref": "",
+        "geometry": {},
+        "anchor_points": [],
+        "rendering_metadata": {}
+      },
+      "dependencies": [],
+      "version_history": [
+        {
+          "version": "1.0.0",
+          "date": "2026-06-30T11:44:10+00:00",
+          "notes": "Initial certified release",
+          "author": "Gamechanger"
+        }
+      ]
+    },
+    {
+      "id": "SLEEVE_0003",
+      "name": "Cap Sleeve",
+      "category": "sleeves",
+      "description": "Short cap sleeve",
+      "version": "1.0.0",
+      "status": "Certified",
+      "preview_image": "previews/SLEEVE_0003.png",
+      "metadata": {},
+      "tags": [
+        "sleeves"
+      ],
+      "created_at": "2026-06-30T11:44:10+00:00",
+      "modified_at": "2026-06-30T11:44:10+00:00",
+      "author": "Gamechanger",
+      "notes": "",
+      "legacy_ids": [
+        "cap"
+      ],
+      "assets": {
+        "png_preview": "previews/SLEEVE_0003.png",
+        "svg_preview": "",
+        "psd_layer_ref": "",
+        "mask_ref": "",
+        "geometry": {},
+        "anchor_points": [],
+        "rendering_metadata": {}
+      },
+      "dependencies": [],
+      "version_history": [
+        {
+          "version": "1.0.0",
+          "date": "2026-06-30T11:44:10+00:00",
+          "notes": "Initial certified release",
+          "author": "Gamechanger"
+        }
+      ]
+    },
+    {
+      "id": "SLEEVE_0004",
+      "name": "Long Sleeve",
+      "category": "sleeves",
+      "description": "Full long sleeve",
+      "version": "1.0.0",
+      "status": "Certified",
+      "preview_image": "previews/SLEEVE_0004.png",
+      "metadata": {},
+      "tags": [
+        "sleeves"
+      ],
+      "created_at": "2026-06-30T11:44:10+00:00",
+      "modified_at": "2026-06-30T11:44:10+00:00",
+      "author": "Gamechanger",
+      "notes": "",
+      "legacy_ids": [
+        "long"
+      ],
+      "assets": {
+        "png_preview": "previews/SLEEVE_0004.png",
+        "svg_preview": "",
+        "psd_layer_ref": "",
+        "mask_ref": "",
+        "geometry": {},
+        "anchor_points": [],
+        "rendering_metadata": {}
+      },
+      "dependencies": [],
+      "version_history": [
+        {
+          "version": "1.0.0",
+          "date": "2026-06-30T11:44:10+00:00",
+          "notes": "Initial certified release",
+          "author": "Gamechanger"
+        }
+      ]
+    },
+    {
+      "id": "SLEEVE_0005",
+      "name": "Tapered Fit",
+      "category": "sleeves",
+      "description": "Athletic tapered sleeve",
+      "version": "1.0.0",
+      "status": "Certified",
+      "preview_image": "previews/SLEEVE_0005.png",
+      "metadata": {},
+      "tags": [
+        "sleeves"
+      ],
+      "created_at": "2026-06-30T11:44:10+00:00",
+      "modified_at": "2026-06-30T11:44:10+00:00",
+      "author": "Gamechanger",
+      "notes": "",
+      "legacy_ids": [
+        "tapered"
+      ],
+      "assets": {
+        "png_preview": "previews/SLEEVE_0005.png",
+        "svg_preview": "",
+        "psd_layer_ref": "",
+        "mask_ref": "",
+        "geometry": {},
+        "anchor_points": [],
+        "rendering_metadata": {}
+      },
+      "dependencies": [],
+      "version_history": [
+        {
+          "version": "1.0.0",
+          "date": "2026-06-30T11:44:10+00:00",
+          "notes": "Initial certified release",
+          "author": "Gamechanger"
+        }
+      ]
+    }
+  ]
+}

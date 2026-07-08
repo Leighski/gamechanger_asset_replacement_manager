@@ -1,0 +1,12 @@
+{
+  "catalogue_version": "1.0",
+  "category": "patterns",
+  "items": [
+    {"id": "solid", "label": "Solid", "description": "No pattern — solid colour fill"},
+    {"id": "hoops", "label": "Hoops", "description": "Horizontal hoop stripes"},
+    {"id": "stripes", "label": "Vertical Stripes", "description": "Classic vertical pinstripes"},
+    {"id": "chevron", "label": "Chevron", "description": "Central chevron motif"},
+    {"id": "gradient", "label": "Gradient Fade", "description": "Smooth colour gradient"},
+    {"id": "halftone", "label": "Halftone", "description": "Halftone dot pattern"}
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "catalogue_version": "1.0",
+  "category": "effects",
+  "shadows": [
+    {"id": "none", "label": "None", "description": "No shadow effect"},
+    {"id": "soft", "label": "Soft Drop", "description": "Subtle drop shadow"},
+    {"id": "broadcast", "label": "Broadcast", "description": "TV-optimised shadow depth"}
+  ],
+  "lighting": [
+    {"id": "flat", "label": "Flat", "description": "Even flat lighting"},
+    {"id": "studio", "label": "Studio", "description": "Three-point studio lighting"},
+    {"id": "stadium", "label": "Stadium", "description": "Outdoor stadium lighting"}
+  ],
+  "textures": [
+    {"id": "smooth", "label": "Smooth", "description": "Clean smooth finish"},
+    {"id": "fabric", "label": "Fabric Grain", "description": "Visible fabric weave"},
+    {"id": "brushed", "label": "Brushed", "description": "Soft brushed texture"}
+  ]
+}

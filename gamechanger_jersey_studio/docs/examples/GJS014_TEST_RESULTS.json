@@ -1,0 +1,24 @@
+{
+  "test_suite": "gamechanger_jersey_studio",
+  "version": "1.0.0-rc.1",
+  "work_package": "GJS-014",
+  "total_tests": 203,
+  "passed": 203,
+  "failed": 0,
+  "new_tests": 47,
+  "test_files": [
+    "tests/test_rc1_validation.py"
+  ],
+  "categories": {
+    "accuracy_scoring": 10,
+    "visual_comparison": 6,
+    "production_replay": 4,
+    "benchmark_dataset": 4,
+    "batch_validation": 4,
+    "kb_validation_analytics": 4,
+    "stress_testing": 3,
+    "release_readiness": 4,
+    "production_manager_integration": 5,
+    "models": 3
+  }
+}

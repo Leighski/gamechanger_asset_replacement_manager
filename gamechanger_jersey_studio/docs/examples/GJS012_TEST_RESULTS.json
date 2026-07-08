@@ -1,0 +1,21 @@
+{
+  "test_suite": "gamechanger_jersey_studio",
+  "version": "1.0.0-alpha.12",
+  "work_package": "GJS-012",
+  "total_tests": 147,
+  "passed": 147,
+  "failed": 0,
+  "new_tests": 12,
+  "test_files": [
+    "tests/test_production_workflow.py"
+  ],
+  "categories": {
+    "confidence_thresholds": 4,
+    "production_queue": 3,
+    "bulk_review": 1,
+    "batch_render_queue": 1,
+    "audit_trail": 1,
+    "operator_metrics": 1,
+    "production_reports": 1
+  }
+}
