@@ -11,6 +11,7 @@ from pydantic import BaseModel, Field, field_validator
 
 if TYPE_CHECKING:
     from models.design_specification import DesignSpecification
+    from models.generated_artwork import GeneratedArtworkArchive
     from models.interpretation import InterpretationArchive
     from models.learning import LearningProjectRecord
     from models.reference_image import ReferenceImageManifest
@@ -192,6 +193,7 @@ class ProjectDocument(BaseModel):
     vision_analyses: "VisionAnalysisArchive | None" = None
     interpretation_results: "InterpretationArchive | None" = None
     learning_record: "LearningProjectRecord | None" = None
+    generated_artwork: "GeneratedArtworkArchive | None" = None
     renderer_settings: "RendererSettings | None" = None
     template_settings: "TemplateProjectSettings | None" = None
     file_path: str = ""

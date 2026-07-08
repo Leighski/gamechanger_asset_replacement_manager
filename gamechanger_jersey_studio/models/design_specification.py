@@ -45,6 +45,17 @@ class DesignSpecification(BaseModel):
     pattern_rotation: float = Field(default=0.0, ge=-360.0, le=360.0)
     pattern_opacity: float = Field(default=1.0, ge=0.0, le=1.0)
 
+    # Stripe geometry (procedural rebuild inputs from Garment Recognition)
+    # Optional — renderer may ignore until stripe-aware pattern rendering is wired.
+    stripe_orientation: str = ""
+    stripe_count: int | None = Field(default=None, ge=0, le=64)
+    stripe_width: float | None = Field(default=None, ge=0.0, le=5.0)
+    stripe_gap: float | None = Field(default=None, ge=0.0, le=5.0)
+    stripe_colour: str = ""
+    stripe_termination: str = ""
+    stripe_symmetry: str = ""
+    stripe_centre_aligned: bool | None = None
+
     # Construction
     sleeve_style: str = ""
     collar_style: str = ""
@@ -58,6 +69,15 @@ class DesignSpecification(BaseModel):
 
     # Output
     output_profile: OutputProfile = OutputProfile.GAMECHANGER_BROADCAST
+
+    # Branding (optional — used by custom graphics plugin when explicitly enabled)
+    player_name: str = ""
+    squad_number: str = ""
+    club_badge_path: str = ""
+    manufacturer_logo_path: str = ""
+    sponsor_logo_path: str = ""
+    custom_graphics_path: str = ""
+    enable_branding_graphics: bool = False
 
     # Validation & notes
     validation_status: ValidationStatus = ValidationStatus.NOT_STARTED
@@ -75,6 +95,10 @@ class DesignSpecification(BaseModel):
         "collar_colour",
         "trim_colour",
         "pattern",
+        "stripe_orientation",
+        "stripe_colour",
+        "stripe_termination",
+        "stripe_symmetry",
         "sleeve_style",
         "collar_style",
         "trim_style",
@@ -83,6 +107,12 @@ class DesignSpecification(BaseModel):
         "lighting_style",
         "texture_style",
         "operator_notes",
+        "player_name",
+        "squad_number",
+        "club_badge_path",
+        "manufacturer_logo_path",
+        "sponsor_logo_path",
+        "custom_graphics_path",
         mode="before",
     )
     @classmethod
@@ -154,18 +184,38 @@ class DesignSpecification(BaseModel):
                 "pattern_rotation",
                 "pattern_opacity",
             ),
+            "stripes": (
+                "stripe_orientation",
+                "stripe_count",
+                "stripe_width",
+                "stripe_gap",
+                "stripe_colour",
+                "stripe_termination",
+                "stripe_symmetry",
+                "stripe_centre_aligned",
+            ),
             "effects": (
                 "shadow_style",
                 "lighting_style",
                 "texture_style",
             ),
             "output": ("output_profile",),
+            "branding_advanced": (
+                "player_name",
+                "squad_number",
+                "club_badge_path",
+                "manufacturer_logo_path",
+                "sponsor_logo_path",
+                "custom_graphics_path",
+                "enable_branding_graphics",
+            ),
             "notes": ("operator_notes",),
         }
 
 
 def _rebuild_project_document() -> None:
     from models.project import ProjectDocument
+    from models.generated_artwork import GeneratedArtworkArchive
     from models.interpretation import InterpretationArchive
     from models.learning import LearningProjectRecord
     from models.reference_image import ReferenceImageManifest
@@ -179,6 +229,7 @@ def _rebuild_project_document() -> None:
             "ReferenceImageManifest": ReferenceImageManifest,
             "VisionAnalysisArchive": VisionAnalysisArchive,
             "InterpretationArchive": InterpretationArchive,
+            "GeneratedArtworkArchive": GeneratedArtworkArchive,
             "LearningProjectRecord": LearningProjectRecord,
             "RendererSettings": RendererSettings,
             "TemplateProjectSettings": TemplateProjectSettings,
